@@ -60,17 +60,17 @@ The ideal client for this website is:
 
 2. As a shopper, I want to be able to view a list of products so that I can select some to purchase
 
-![Image of wireframe showing product list(/static/readme-assets/readme-images/product_list.png)
+![Image of wireframe showing product list](/static/readme-assets/readme-images/product_list.png)
 
 3. As a shopper, I want to be able to view details about a specific product so that I can see a detailed description, larger image, price and rating of the product
 
-![Image of wireframe showing product details on mobile page(/static/readme-assets/readme-images/product_detail_mobile.png)
+![Image of wireframe showing product details on mobile page](/static/readme-assets/readme-images/product_detail_mobile.png)
 
-![Image of wireframe showing product details on web page(/static/readme-assets/readme-images/product_detail_web.png)
+![Image of wireframe showing product details on web page](/static/readme-assets/readme-images/product_detail_web.png)
 
 4. As a shopper, I want to be able to easily view deals and special offers on products so that I can take advantage of special prizes on products that I am interested in Buying
 
-![Image of wireframe showing campaign section(/static/readme-assets/readme-images/campaigns.png)
+![Image of wireframe showing campaign section](/static/readme-assets/readme-images/campaigns.png)
 
 
 
