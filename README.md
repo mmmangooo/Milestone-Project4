@@ -36,6 +36,8 @@ The ideal client for this website is:
 
 * Buying toys that are free from substances that can be harmful to children
 
+* Finding more information about why eco-friendly toys are important and what effect different materials have on the environment
+
 ### This site is the best way to help them achieve this because:
 
 * It only contains toys that fill the above criteria
@@ -43,6 +45,8 @@ The ideal client for this website is:
 * It provides user-friendly ways of searching and sorting the articles to find an eco-friendly toy of interest
 
 * It provides easily accessed check-out options and register, login and logout of account
+
+* It contains a blog with posts about eco-friendly toys, information about different materials toys can be made of and their impact on the environment
 
 * The site is easy to navigate and well-designed to provide a positive user experience
 
