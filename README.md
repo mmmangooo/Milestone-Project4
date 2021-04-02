@@ -1,4 +1,4 @@
-# Eco-friendly toys webshop
+# Green toys webshop
 
 This site is the Milestone Project 4 for the Software Development Diploma course at Code Institute. The project is aimed at displaying my 
 understanding of full stack development with Django framework and building upon all previous learning in the course to put together a fully functional
@@ -94,20 +94,33 @@ The ideal client for this website is:
 
 ![Image of wireframe showing blog page on web](/static/readme-assets/readme-images/blog_web.png)
 
+![Image of wireframe showing individual blog post](/static/readme-assets/readme-images/individual_blog_post.png)
+
 9. As a site user I want to be able to easily register for an account so that I can have a personal account to come back to and view my profile
 
+![Image of wireframe showing registration page on mobile](/static/readme-assets/readme-images/register_mobile.png)
+
+![Image of wireframe showing registration page on web](/static/readme-assets/readme-images/register_web.png)
 
 10. As a site user I want to be able to easily log in or out so that I can access my personal account information
 
+![Image of wireframe showing login page on mobile](/static/readme-assets/readme-images/login_mobile.png)
+
+![Image of wireframe showing login page on web](/static/readme-assets/readme-images/login_web.png)
 
 11. As a site user I want to be able to easily recover my password in case I forget it so that I can regain access to my account
 
+![Image of wireframe showing close up of recreate password on login](/static/readme-assets/readme-images/recreatepassword_closeup.png)
 
 12. As a site user I want to be able to recieve a confirmation email after registering an account so that I can know that my account registration was successful
 
+![Image of wireframe showing registration confirmation message](/static/readme-assets/readme-images/registration_confirmation.png)
 
-13. As a site user I want to be able to Have a personalized user profile so that I can View my order history and see that my orders are confirmed and save my payment information
+13. As a site user I want to be able to have a personalized user profile so that I can view my order history and see that my orders are confirmed and save my payment information
 
+![Image of wireframe showing user profile page on mobile](/static/readme-assets/readme-images/user_profile_mobile.png)
+
+![Image of wireframe showing user profile page on web](/static/readme-assets/readme-images/user_profile_web.png)
 
 14. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
 
@@ -125,6 +138,42 @@ The ideal client for this website is:
 
 18. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
 
-![Image of wireframe showing search results page](/static/readme-assets/readme-images/search-results.png)
+![Image of wireframe showing search results page](/static/readme-assets/readme-images/search_results.png)
 
-19. 
+19. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
+
+![Image of wireframe showing close up of quantity choose field on product details page](/static/readme-assets/readme-images/quantity_closeup.png)
+
+20. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
+
+![Image of wireframe of shopping bag page on mobile](/static/readme-assets/readme-images/shopping_bag_mobile.png)
+
+![Image of wireframe of shopping bag page on web](/static/readme-assets/readme-images/shopping_bag_web.png)
+
+21. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
+
+![Image of wireframe showing close up of change quantity field in shopping bag](/static/readme-assets/readme-images/change_quantity_closeup.png)
+
+
+22. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
+
+
+23. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
+
+
+24. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
+
+
+25. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
+
+
+26. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
+
+
+27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
+
+
+28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' imahes or descriptions when needed
+
+
+29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
