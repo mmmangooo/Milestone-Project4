@@ -154,26 +154,39 @@ The ideal client for this website is:
 
 ![Image of wireframe showing close up of change quantity field in shopping bag](/static/readme-assets/readme-images/change_quantity_closeup.png)
 
-
 22. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
 
+![Image of wireframe of checkout page on mobile](/static/readme-assets/readme-images/checkout_mobile.png)
+
+![Image of wireframe of checkout page on web](/static/readme-assets/readme-images/checkout_web.png)
 
 23. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
 
 
 24. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
 
-
 25. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
 
+![Image of wireframe of order confirmation page on mobile](/static/readme-assets/readme-images/order_confirmation_mobile.png)
+
+![Image of wireframe of order confirmation page on web](/static/readme-assets/readme-images/order_confirmation_web.png)
 
 26. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
+
+![Image of wireframe of checkout page with user's info prefilled](/static/readme-assets/readme-images/users_info_prefilled.png)
 
 
 27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
 
+28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
 
-28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' imahes or descriptions when needed
+30. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
 
+![Image of wireframe of django admin page](/static/readme-assets/readme-images/django-admin.png)
+
+![Image of wireframe of django admin page delete blog post](/static/readme-assets/readme-images/delete_blogpost.png)
 
 29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
+
+![Image of wireframe of django admin page delete product](/static/readme-assets/readme-images/delete_product.png)
+
