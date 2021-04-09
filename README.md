@@ -178,15 +178,24 @@ The ideal client for this website is:
 
 27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
 
+![Image of wireframe of add product page](/static/readme-assets/readme-images/add_product.png)
+
 28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
+
+![Image of wireframe of products page when superuser is logged in](/static/readme-assets/readme-images/products_page_superuser.png)
+
+![Image of wireframe of products edit page](/static/readme-assets/readme-images/edit_product.png)
 
 30. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
 
-![Image of wireframe of django admin page](/static/readme-assets/readme-images/django-admin.png)
+![Image of wireframe of blog page when superuser is logged in](/static/readme-assets/readme-images/blog_page_superuser.png)
 
-![Image of wireframe of django admin page delete blog post](/static/readme-assets/readme-images/delete_blogpost.png)
+![Image of wireframe of add blog post page](/static/readme-assets/readme-images/add_blog_post.png)
+
+![Image of wireframe of edit blog post page](/static/readme-assets/readme-images/edit_blog_post.png)
+
+![Image of close up of delete blog link on blog page](/static/readme-assets/readme-images/delete_blogpost_closeup.png)
 
 29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
 
-![Image of wireframe of django admin page delete product](/static/readme-assets/readme-images/delete_product.png)
-
+![Image of close up of delete product link on products page](/static/readme-assets/readme-images/delete_product_closeup.png)
