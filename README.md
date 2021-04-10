@@ -96,97 +96,107 @@ The ideal client for this website is:
 
 ![Image of wireframe showing individual blog post](/static/readme-assets/readme-images/individual_blog_post.png)
 
-9. As a site user I want to be able to easily register for an account so that I can have a personal account to come back to and view my profile
+9. As a site user I want to be able to comment on blog posts so that I ca ask questions and share my opionions on matters discussed in the blog post
+
+![Image of wireframe showing individual blog post with comment field](/static/readme-assets/readme-images/blog_comment.png)
+
+10. As a site user I want to be able to easily register for an account so that I can have a personal account to come back to and view my profile
 
 ![Image of wireframe showing registration page on mobile](/static/readme-assets/readme-images/register_mobile.png)
 
 ![Image of wireframe showing registration page on web](/static/readme-assets/readme-images/register_web.png)
 
-10. As a site user I want to be able to easily log in or out so that I can access my personal account information
+11. As a site user I want to be able to easily log in or out so that I can access my personal account information
 
 ![Image of wireframe showing login page on mobile](/static/readme-assets/readme-images/login_mobile.png)
 
 ![Image of wireframe showing login page on web](/static/readme-assets/readme-images/login_web.png)
 
-11. As a site user I want to be able to easily recover my password in case I forget it so that I can regain access to my account
+12. As a site user I want to be able to easily recover my password in case I forget it so that I can regain access to my account
 
 ![Image of wireframe showing close up of recreate password on login](/static/readme-assets/readme-images/recreatepassword_closeup.png)
 
-12. As a site user I want to be able to recieve a confirmation email after registering an account so that I can know that my account registration was successful
+13. As a site user I want to be able to recieve a confirmation email after registering an account so that I can know that my account registration was successful
 
 ![Image of wireframe showing registration confirmation message](/static/readme-assets/readme-images/registration_confirmation.png)
 
-13. As a site user I want to be able to have a personalized user profile so that I can view my order history and see that my orders are confirmed and save my payment information
+14. As a site user I want to be able to have a personalized user profile so that I can view my order history and see that my orders are confirmed and save my payment information
 
 ![Image of wireframe showing user profile page on mobile](/static/readme-assets/readme-images/user_profile_mobile.png)
 
 ![Image of wireframe showing user profile page on web](/static/readme-assets/readme-images/user_profile_web.png)
 
-14. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
+15. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
 
-15. As a shopper I want to be able to select to show only products with a special prize offer so that I can find only the products with the most favoureable prizes
+16. As a shopper I want to be able to select to show only products with a special prize offer so that I can find only the products with the most favoureable prizes
 
 ![Image of wireframe showing close up of dropdown with choice of category to show](/static/readme-assets/readme-images/categories.png)
 
-16. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
+17. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
 
 ![Image of wireframe showing close up of dropdown with choice of parameter to sort the product list by](/static/readme-assets/readme-images/sortby_closeup.png)
 
-17. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
+18. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
 
 ![Image of wireframe showing close up of search field](/static/readme-assets/readme-images/search.png)
 
-18. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
+19. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
 
 ![Image of wireframe showing search results page](/static/readme-assets/readme-images/search_results.png)
 
-19. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
+20. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
 
 ![Image of wireframe showing close up of quantity choose field on product details page](/static/readme-assets/readme-images/quantity_closeup.png)
 
-20. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
+21. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
 
 ![Image of wireframe of shopping bag page on mobile](/static/readme-assets/readme-images/shopping_bag_mobile.png)
 
 ![Image of wireframe of shopping bag page on web](/static/readme-assets/readme-images/shopping_bag_web.png)
 
-21. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
+22. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
 
 ![Image of wireframe showing close up of change quantity field in shopping bag](/static/readme-assets/readme-images/change_quantity_closeup.png)
 
-22. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
+23. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
 
 ![Image of wireframe of checkout page on mobile](/static/readme-assets/readme-images/checkout_mobile.png)
 
 ![Image of wireframe of checkout page on web](/static/readme-assets/readme-images/checkout_web.png)
 
-23. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
+24. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
 
+![Image of closeup of info about secure checkout](/static/readme-assets/readme-images/secure_checkout.png)
 
-24. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
+25. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
 
-25. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
+26. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
 
 ![Image of wireframe of order confirmation page on mobile](/static/readme-assets/readme-images/order_confirmation_mobile.png)
 
 ![Image of wireframe of order confirmation page on web](/static/readme-assets/readme-images/order_confirmation_web.png)
 
-26. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
+27. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
 
 ![Image of wireframe of checkout page with user's info prefilled](/static/readme-assets/readme-images/users_info_prefilled.png)
 
 
-27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
+28. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
 
 ![Image of wireframe of add product page](/static/readme-assets/readme-images/add_product.png)
 
-28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
+29. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
 
 ![Image of wireframe of products page when superuser is logged in](/static/readme-assets/readme-images/products_page_superuser.png)
 
 ![Image of wireframe of products edit page](/static/readme-assets/readme-images/edit_product.png)
 
-30. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
+30. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
+
+![Image of close up of delete product link on products page](/static/readme-assets/readme-images/delete_product_closeup.png)
+
+
+31. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
 
 ![Image of wireframe of blog page when superuser is logged in](/static/readme-assets/readme-images/blog_page_superuser.png)
 
@@ -196,6 +206,3 @@ The ideal client for this website is:
 
 ![Image of close up of delete blog link on blog page](/static/readme-assets/readme-images/delete_blogpost_closeup.png)
 
-29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
-
-![Image of close up of delete product link on products page](/static/readme-assets/readme-images/delete_product_closeup.png)
