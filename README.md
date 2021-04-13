@@ -206,3 +206,7 @@ The ideal client for this website is:
 
 ![Image of close up of delete blog link on blog page](/static/readme-assets/readme-images/delete_blogpost_closeup.png)
 
+## Database design
+
+![Image of database design schema](/static/readme-assets/readme-images/MS4_database_design.pdf)
+
