@@ -64,7 +64,8 @@ The ideal client for this website is:
 
 2. As a shopper, I want to be able to view a list of products so that I can select some to purchase
 
-![Image of wireframe showing product list](/static/readme-assets/readme-images/product_list.png)
+![Image of wireframe showing product page on mobile](/static/readme-assets/readme-images/all_products_mobile.png)
+![Image of wireframe showing product page on web](/static/readme-assets/readme-images/all_products_web.png)
 
 3. As a shopper, I want to be able to view details about a specific product so that I can see a detailed description, larger image, price and rating of the product
 
@@ -94,9 +95,7 @@ The ideal client for this website is:
 
 ![Image of wireframe showing blog page on web](/static/readme-assets/readme-images/blog_web.png)
 
-![Image of wireframe showing individual blog post](/static/readme-assets/readme-images/individual_blog_post.png)
-
-9. As a site user I want to be able to comment on blog posts so that I ca ask questions and share my opionions on matters discussed in the blog post
+9. As a site user I want to be able to comment on blog posts so that I ca ask questions and share my opinions on matters discussed in the blog post
 
 ![Image of wireframe showing individual blog post with comment field](/static/readme-assets/readme-images/blog_comment.png)
 
@@ -210,3 +209,11 @@ The ideal client for this website is:
 
 ![Image of database design schema](/static/readme-assets/readme-images/MS4_database_design.png)
 
+
+
+## Credits
+
+Unsplash
+
+Sigmund
+  
