@@ -72,3 +72,33 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     background-color: #def188;
     color: rgb(116, 114, 114);
 }
+
+/*----------------- Index content section */
+
+.index-grid-container {
+    width: 75%;
+    float: left;
+}
+
+.index-side-container {
+    width: 20%;
+    position: absolute;
+    right: 1rem;
+}
+
+.index-link {
+    float: right;
+}
+
+.index-drawing {
+    width: 100%;
+}
+
+/*------------------ Media queries */
+
+
+@media (min-width: 768px) {
+    .index-drawing {
+        visibility: visible !important;
+    }
+}
