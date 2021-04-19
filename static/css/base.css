@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Condensed:wght@300&display=swap');
 
+body {
+    font-family: 'Quicksand', sans-serif;
+}
 h1 {
     color: #81E157;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     letter-spacing: 0.04rem;
     font-size: 5rem;
+    filter: drop-shadow(0.1rem 0.1rem 0.4rem #383636);
 }
 
 h2 {
@@ -14,8 +18,39 @@ h2 {
     font-size: 1.4rem;
 }
 
+
+/*-------------------------Navigation bar */
+
+.nav-link {
+    color: #6D564D !important;
+    font-weight: 600;
+    letter-spacing: .01rem;
+}
+
+.nav-link:active {
+    font-weight: 700;
+}
+
+.nav-search-input {
+    border-color: #6D564D;
+    border-radius: 1.5rem;
+    height: 2rem;
+}
+
+.nav-icon {
+    color: #6D564D;
+}
+
+.shopping-cart {
+    width: 2.2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+/*------------------------ Hero section */
+
 .index-hero {
-    background: url('.../media/hero-img.jpg') no-repeat center center fixed;
+    background: url('/media/hero-img.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
 }
@@ -24,6 +59,13 @@ h2 {
     background-color: #81E157;
     color: #fff;
     padding: .5rem 1rem;
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem #6b6a6a);
+}
+
+.hero-btn .icon {
+color: #fff;
+margin-left: .5rem;
+filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 .hero-btn:hover {

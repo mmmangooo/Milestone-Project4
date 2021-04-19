@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container-fluid">
+        
+            
+      <button class="navbar-toggler" 
+      type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Toys</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Campaign</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          {% endif %}
+          {% if request.user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Add Toy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Add Blog Post</a>
+          </li>
+          {% endif %}
+        
+        </ul>
+       
+    </div>
+   
+  
+   
+ 
+        <form class="d-flex">
+            
+          <input class="form-control me-2 nav-search-input mt-1" type="search" placeholder="Search site" aria-label="Search">
+          <button class="btn" type="submit">  <span class="icon nav-icon"><i class="fas fa-search"></i></span></button>
+        </form>
+
+        <a href=""><img class="shopping-cart" src="/media/cart-icon.png" alt=""></a>
+  
+     
+    </div>
+
+  </nav>
