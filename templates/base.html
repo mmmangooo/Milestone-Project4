@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block meta %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="This site offers a webshop providing environmentally friendly childrens's toys made from wood or rubber and free from all harmful substances. 
+The site also contains a blog about common materials that children's toys are made fromn and how they impact the environment, guiding parents and others to more healthy choices when buying 
+toys for their children"/>
+{% endblock %}
+
+{% block corecss %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/cosmo/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+{% endblock %}
+<title>Green Toys</title>
+</head>
+<body>
+
+<header class="container-fluid fixed-top">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"> 
+            <form action= "{% url 'products' %}" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+{% block corejs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+</html>
