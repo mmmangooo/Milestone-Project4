@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
+    background-color: #f7faff;
 }
 h1 {
     color: #81E157;
@@ -24,7 +25,8 @@ h2 {
 .nav-link {
     color: #6D564D !important;
     font-weight: 600;
-    letter-spacing: .01rem;
+    letter-spacing: .008rem;
+    font-size: 0.9rem;
 }
 
 .nav-link:active {
@@ -39,6 +41,10 @@ h2 {
 
 .nav-icon {
     color: #6D564D;
+}
+
+.search-toggler {
+    border: none;
 }
 
 .shopping-cart {
