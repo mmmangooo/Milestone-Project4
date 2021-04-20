@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: #f7faff;
+    text-align: center;
 }
 h1 {
     color: #81E157;
@@ -19,14 +19,19 @@ h2 {
     font-size: 1.4rem;
 }
 
+h3 {
+    color: #6D564D;
+    font-family: 'Quicksand', sans-serif;
+}
 
 /*-------------------------Navigation bar */
+
 
 .nav-link {
     color: #6D564D !important;
     font-weight: 600;
     letter-spacing: .008rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .nav-link:active {
@@ -53,7 +58,17 @@ h2 {
     margin-left: 1rem;
 }
 
+.header-banner {
+    background-color: #fff;
+    margin-top: 3.5rem;
+}
+
+.header-banner span {
+    color: #CAEF84;
+}
+
 /*------------------------ Hero section */
+
 
 .index-hero {
     background: url('/media/hero-img.jpg') no-repeat center center fixed;
@@ -98,6 +113,21 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .index-drawing {
     width: 100%;
+}
+
+/*-------------------- All toys page */
+
+.add-toy-link {
+ position: absolute;
+ right: 2rem;
+}
+
+.add-toys-link a, span {
+    color: #6D564D;
+}
+
+.all-toys-wrapper {
+    margin-top: 10rem;
 }
 
 /*------------------ Media queries */

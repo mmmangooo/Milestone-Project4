@@ -2,16 +2,12 @@
 {% load static %}
 
 
-{% block page_header %}
-
-{%endblock%}
-
 {% block content %}
 <div class="index-hero container-fluid">
     <div class="row justify-content-end align-content-center h-100">
     <div class="col-12 col-lg-6"><h1 class="my-2 ms-2">Green Toys</h1>
         <h2 class="mt-3 ms-2">GIVE YOUR KID AND EARTH THE BEST</h2>
-    <button class="hero-btn btn rounded-pill mt-5 ms-2">SHOP NOW <span class="icon"><i class="fas fa-arrow-right ps-3"></i></span></button></div>
+    <a class="hero-btn btn rounded-pill mt-5 ms-2" href="{% url 'toys' %}">  SHOP NOW <span class="icon"><i class="fas fa-arrow-right ps-3"></i></span></a></div>
 
 </div>
 
@@ -52,7 +48,7 @@
 </div>
 
 <div class="container-fluid index-side-container my-3">
-    <a href=""><h4 class="index-link my-3"></h4>See All Toys</a>
+    <a href="{% url 'toys' %}"><h4 class="index-link my-3"></h4>See All Toys</a>
     <img class="index-drawing my-5 invisible" src="/media/twig.png" alt="Drawing of green twig with delicate leaves">
    <a href=""> <h4 class="index-link my-3"></h4>See All Blog Posts</a>
 </div>

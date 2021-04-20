@@ -2,15 +2,31 @@
 {% load static %}
 
 
+
 {% block content %} 
-<h2>Our Toys</h2>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid all-toys-wrapper">
+<h3>Our Toys</h3>
+{% if request.user.is_superuser %}
+<a class="add-toy-link" href=""><span><i class="fas fa-plus"></i> Add Toy</span></a>
+{% endif %}
+<div class="container-fluid mt-5">
+    <div class="row mt-3">
         {% for toy in toys %}
-        <div class="col-12 col-sm-6 col- lg-4">
-<div class="toy-container">{{toy.name }}</div>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card" style="width: 18rem;">
+           
+                <img src="/media/no-image.png" alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+              
+                <div class="card-body">
+                  <h5 class="card-title">{{ toy.name }}</h5>
+                  <p class="card-text">Rating {{ toy.rating }}</p>
+                  <p class="card-text">€ {{toy.price }}</p>
+                  <a href="" class="btn rounded-pill">Read more</a>
+                </div>
+              </div>
 {% endfor %}
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
