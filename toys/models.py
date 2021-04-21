@@ -32,3 +32,13 @@ class Toy(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Campaign(models.Model):
+    toy = models.ForeignKey(
+        'Toy', null=True, blank=True, on_delete=models.SET_NULL)
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False)
+
+    def __str__(self):
+        return str(self.price)
