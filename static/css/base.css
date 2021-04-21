@@ -130,6 +130,30 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin-top: 10rem;
 }
 
+.toys-select-container {
+    margin-bottom: 3rem;
+}
+.category-selector {
+    float: left;
+}
+
+.sort-selector {
+    float: right;
+}
+
+.card-img {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.edit-toy-link {
+    float: left;
+}
+
+.delete-toy-link {
+    float: right;
+}
+
 /*------------------ Media queries */
 
 

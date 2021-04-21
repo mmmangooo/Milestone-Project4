@@ -25,7 +25,7 @@ class Toy(models.Model):
     sku = models.CharField(max_length=254, blank=False, null=False)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)
-    description = models.TextField
+    description = models.TextField(null=True, blank=True)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField
