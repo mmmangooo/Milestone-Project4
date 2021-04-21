@@ -28,24 +28,31 @@ def all_toys(request):
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            toys = toys.filter(category_name_in=categories)
-            categories = Category.objects.filter(name_in=categories)
+            toys = toys.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
 
-        if request.GET:
-            if 'sort' in request.GET:
-                sortkey = request.GET['sort']
-                sort = sortkey
+        current_category = f'{categories}'
 
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey=='name':
+                toys = toys.annotate(lower_name=Lower('name'))
 
-#           if 'direction'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            toys = toys.order_by(sortkey)
 
-
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'toys': toys,
-        'current_categories': categories,
+        'categories': categories,
         'search_term': query,
-   #     'current_sorting': current_sorting,
+        'current_sorting': current_sorting,
+
     }
 
     return render(request, 'toys/toys.html', context)

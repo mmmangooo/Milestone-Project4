@@ -11,13 +11,34 @@
   {% endif %}
   <div class="container-fluid mt-5">
     <div class="toys-select-container">
+       <select id="category-selector" class="category-selector">
+        <option value="reset" {% if category == 'None_None' %} selected {% endif %}>All Categories</option>
+      
+        <option value="Wooden_Toys" {% if categories == 'wooden_toys' %} selected {% endif %}>Wooden Toys</option>
+        <option value="Rubber_Toys" {% if categories == 'rubber_toys' %} selected {% endif %}>Rubber Toys</option>
+       
+     
+      </select>
 
+       <select id="sort-selector" class="sort-selector">
+        <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
+      
+        <option value="price_asc" {% if current_sorting == 'price_asc' %} selected {% endif %}>Price (low to high)</option>
+        <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price (high to low)</option>
+        <option value="rating_asc" {% if current_sorting == 'rating_asc' %} selected {% endif %}>Rating (low to high)</option>
+        <option value="rating_desc" {% if current_sorting == 'rating_desc' %} selected {% endif %}>Rating(high to low)</option>
+     
+      </select>
+
+             
+
+        
     </div>
     <div class="container">
-      {% for toy in toys %}
-      <div class="row">
-
-        <div class="col-12 col-sm-6 col-lg-4">
+   
+      <div class="row ">
+        {% for toy in toys %}
+        <div class="col-12 col-sm-6 col-lg-4 mt-5">
 
           <div class="card" style="width: 18rem;">
 
@@ -35,9 +56,9 @@
               <span class="delete-toy-link mt-2"><a href="">Delete</a></span>
               {% endif %}
             </div>
-
+        
           </div>
-
+       
         </div>
         {% endfor %}
       </div>
@@ -45,4 +66,52 @@
   </div>
 
 </div>
+{% endblock %}
+
+{% block postloadjs %} 
+
+
+<script>
+
+
+$('#sort-selector').change(function() {
+  let selector = $(this);
+  let currentUrl = new URL(window.location);
+
+  let selectedVal =selector.val();
+  if(selectedVal != 'reset'){
+    let sort = selectedVal.split('_')[0];
+    let direction = selectedVal.split('_')[1];
+
+    currentUrl.searchParams.set('sort', sort);
+    currentUrl.searchParams.set('direction', direction)
+
+    window.location.replace(currentUrl);
+  } else {
+    currentUrl.searchParams.delete('sort');
+    currentUrl.searchParams.delete('direction');
+
+    window.location.replace(currentUrl);
+  }
+})
+
+$('#category-selector').change(function() {
+  let selector = $(this);
+  let currentUrl = new URL(window.location);
+
+  let selectedVal = selector.val();
+  let category = selectedVal.replace('_', ' ');
+  console.log(category);
+  if (selectedVal != 'reset') {
+     currentUrl.searchParams.set('category', category);
+
+     window.location.replace(currentUrl);
+  } else {
+    currentUrl.searchParams.delete('category');
+
+    window.location.replace(currentUrl);
+  }
+})
+</script>
+
 {% endblock %}
