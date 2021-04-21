@@ -40,16 +40,16 @@
         {% for toy in toys %}
         <div class="col-12 col-sm-6 col-lg-4 mt-5">
 
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 20rem;">
 
             <img class="card-img" src="/media/no-image.png"
               alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
 
             <div class="card-body">
               <h5 class="card-title">{{ toy.name }}</h5>
-              <p class="card-text">Rating {{ toy.rating }}</p>
-              <p class="card-text">€ {{toy.price }}</p>
-              <a href="" class="btn rounded-pill">Read more</a>
+              <p class="card-text">Rating {{ toy.rating }}/ 5</p>
+              <p class="card-text fw-bolder">€ {{toy.price }}</p>
+              <a href="" class="btn rounded-pill text-white my-2">Read more</a>
               {% if request.user.is_superuser %}
               <br>
               <span class="edit-toy-link mt-2"><a href="">Edit</a></span>

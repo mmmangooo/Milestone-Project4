@@ -59,12 +59,12 @@ h3 {
 }
 
 .header-banner {
-    background-color: #fff;
+    background-color: #CAEF84;
     margin-top: 3.5rem;
 }
 
 .header-banner span {
-    color: #CAEF84;
+    color: #fff;
 }
 
 /*------------------------ Hero section */
@@ -139,6 +139,15 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .sort-selector {
     float: right;
+}
+
+.card {
+    border-radius: 1.5rem;
+    filter: drop-shadow(0.1rem 0.4rem 0.4rem rgba(70, 69, 69, 0.2));
+}
+
+.card a {
+    background-color: #8CC63F;
 }
 
 .card-img {
