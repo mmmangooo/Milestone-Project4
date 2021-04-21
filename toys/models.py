@@ -29,13 +29,15 @@ class Toy(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField
+    campaign_id = models.ForeignKey(
+        'Campaign', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 
 class Campaign(models.Model):
-    toy = models.ForeignKey(
+    toy_id = models.ForeignKey(
         'Toy', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)

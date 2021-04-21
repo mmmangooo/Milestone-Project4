@@ -35,10 +35,11 @@
         
     </div>
     <div class="container">
+    {% if search_term %}<h3>You searched for '{{ search_term }}'. {{toys|length}} toys found:</h3>{% endif %}
    
       <div class="row ">
         {% for toy in toys %}
-        <div class="col-12 col-sm-6 col-lg-4 mt-5">
+        <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
           <div class="card" style="width: 20rem;">
 
@@ -48,12 +49,13 @@
             <div class="card-body">
               <h5 class="card-title">{{ toy.name }}</h5>
               <p class="card-text">Rating {{ toy.rating }}/ 5</p>
-              <p class="card-text fw-bolder">€ {{toy.price }}</p>
-              <a href="" class="btn rounded-pill text-white my-2">Read more</a>
+             
+              <p class="card-text "> {% if toy.campaign_id != None %} €{{campaign.price }} {% else %} € {{toy.price }} {% endif %}</p>
+              <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
               {% if request.user.is_superuser %}
               <br>
-              <span class="edit-toy-link mt-2"><a href="">Edit</a></span>
-              <span class="delete-toy-link mt-2"><a href="">Delete</a></span>
+              <span class="edit-toy-link mt-2 bg-white"><a class="bg-white text-secondary" href="">Edit</a></span>
+              <span class="delete-toy-link mt-2 "><a class="bg-white text-secondary" href="">Delete</a></span>
               {% endif %}
             </div>
         

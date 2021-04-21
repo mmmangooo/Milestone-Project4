@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from .models import Toy, Category
+from .models import Toy, Category, Campaign
 from django.db.models import Q
 
 
@@ -9,6 +9,7 @@ def all_toys(request):
         sort, show by category and search them"""
 
     toys = Toy.objects.all()
+    campaign = Campaign.objects.all()
     query = None
     categories = None
     sort = None
@@ -50,9 +51,23 @@ def all_toys(request):
     context = {
         'toys': toys,
         'categories': categories,
+        'campaign': campaign,
         'search_term': query,
         'current_sorting': current_sorting,
 
     }
 
     return render(request, 'toys/toys.html', context)
+
+
+def toy_details(request, toy_id):
+    """ A view to show individual toy details"""
+    toy = Toy.objects.all()
+    campaign = Campaign.objects.all()
+
+    context = {
+        'toy': toy,
+        'campaign': campaign,
+    }
+
+    return render(request, 'toys/toy_details.html', context)
