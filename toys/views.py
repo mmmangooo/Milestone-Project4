@@ -32,12 +32,10 @@ def all_toys(request):
             toys = toys.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-        current_category = f'{categories}'
-
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey=='name':
+            if sortkey == 'name':
                 toys = toys.annotate(lower_name=Lower('name'))
 
             if 'direction' in request.GET:
@@ -62,12 +60,13 @@ def all_toys(request):
 
 def toy_details(request, toy_id):
     """ A view to show individual toy details"""
-    toy = Toy.objects.all()
-    campaign = Campaign.objects.all()
+
+    toy = Toy.objects.get(pk=toy_id)
+    
 
     context = {
         'toy': toy,
-        'campaign': campaign,
+        
     }
 
     return render(request, 'toys/toy_details.html', context)

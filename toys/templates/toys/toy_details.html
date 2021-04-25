@@ -1,4 +1,57 @@
-
+{% extends 'base.html' %}
 {% load static %}
 
-Hello world
+{% block content %}
+
+
+<div class="container-fluid toy-details-container">
+    
+
+    <div class="row align-items-center mt-5">
+        <div class="col-12 col-lg-4">
+            <div class="details-img-container py-5 mx-5 my-5">
+                {% if toy.image %} <img src="" alt="">
+                {% else %}
+                <img src="/media/no-image.png"
+                    alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 my-5">
+            <h4>{{ toy.name }}</h4>
+
+            <p>{% if toy.rating %} {{toy.rating }} / 5 {% else %} No rating {% endif %}</p>
+            <p>{% if toy.description %} {{ toy.description }} {% else %} This toy has no description yet. {% endif %}
+            </p>
+
+            <p>{% if toy.campaign %} {{toy.campaign.price}} {% else %} € {{toy.price }} {%endif %}</p>
+            <div class="container align-items-center mt-5">
+               
+
+                    <select class="form-select py-1 my-3 mx-auto mr-lg-2" aria-label="Select quantity">
+                        <option selected>Select quantity</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+
+                    <a href="" class="mx-2 btn-buy my-3"><img class="add-to-cart-icon mr-2"
+                            src="/media/add-to-cart-icon.png" alt="Green shopping cart">Add to cart</a>
+
+              
+            </div>
+
+
+
+
+        </div>
+        <div class="col-12 col-lg-4 ">
+            <img class="toy-details-bgimg mt-5" src="/media/happy-child.png"
+                alt="Happy child in green and dotted clothes and brown pigtails, stretching arms and legs out like a star">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
