@@ -72,7 +72,7 @@ h3 {
 
 
 .index-hero {
-    background: url('/media/hero-img.jpg') no-repeat center center fixed;
+    background: url('/media/hero-img.jpg') no-repeat right center fixed;
     background-size: cover;
     height: 100vh;
 }
@@ -200,6 +200,19 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     width: 8%;
 }
 
+/*------------------- Allauth templates */
+
+.account-container {
+    margin: 12rem 0;
+}
+
+.submit-btn {
+    background-color: #8CC63F;
+    color: #fff;
+    border: none;
+    filter: drop-shadow(0.1rem 0.4rem 0.4rem rgba(70, 69, 69, 0.2));
+}
+
 /*------------------ Media queries */
 
 
@@ -208,10 +221,15 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     .index-drawing {
         visibility: visible !important;
     }
-
+    
+    .add-to-cart-icon {
+        width: 6%;
+    }
 }
 
 @media (min-width: 993px) {
+
+
     .toy-details-bgimg {
         width: 80%;
     }
@@ -223,6 +241,8 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     .buy-btn {
         font-size: 1.2rem;
     }
-
+    .add-to-cart-icon {
+        width: 7%;
+    }
 }
 
