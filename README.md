@@ -209,6 +209,14 @@ The ideal client for this website is:
 
 ![Image of database design schema](/static/readme-assets/readme-images/MS4_database_design.png)
 
+## Design
+
+* Color schema:
+  The background color used on the site is a regular plain white, #fffff, which is chosen for creating an impression of airyness on the background by keeping it a color that goes by rather unnoticed. A brown umber nuance, #6D564D is used for headers and links in nav bar. It is chosen to create associations with nature and eco-friendliness, while also being a very warm color that aids in giving a sort of calm an friendly impression to the site. Buttons, shopping bag icon and hero header has a bright green nuance, #81E157, that is chosen to create an impression of playfulness and hapiness and associate with the sites target group - children. This is also the purpose of the light green complementary color #DEF188 that is used on the header banner and on button hovers. The p elements on the site use a dark grey/light black color, #383636, that is chosen to create a softer impression and be easier on the eyes than a regular black color.
+
+![Color scheme pallette](/static/readme/readme-images/color-scheme.png)
+
+* Imagery:
 
 
 ## Credits
@@ -217,3 +225,6 @@ Unsplash
 
 Sigmund
   
+
+Code:
+Setting up signup and login, this tutorial: https://www.youtube.com/watch?v=q4jPR-M0TAQ&t=1377s

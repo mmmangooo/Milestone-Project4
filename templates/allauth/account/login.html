@@ -1,31 +1,32 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% load i18n %}
-{% load crispy_forms_tags %}
-{% crispy SignUpForm %}
+
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
 
 
-<div class="container account-container justify-content-center">
+<div class="container account-container">
 
   <h3>{% trans "Login" %}</h3>
   <p class="my-5 mx-5">Login to see your previous orders, update your personal account details or comment on blog posts!</p>
 
 <div class="row align-items-center mt-5 mx-auto">
 <div class="col-12 col-lg-6">
-  <form class="login my-5" method="POST" action="{% url 'account_login' %}">
+  <form class="login my-5 text-left" method="POST" action="{% url 'account_login' %}">
+    <h4 class="text-center">Login here:</h4>
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
-  <legend>Sign up here:</legend>
+  
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   
- 
+  <p>* = Required field</p>
   <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-2" type="submit">{% trans "Sign In" %}</button>
   
 </form>
