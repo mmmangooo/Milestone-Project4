@@ -5,12 +5,12 @@
 
 
 <div class="container-fluid toy-details-container">
-    
+
 
     <div class="row align-items-center mt-5">
         <div class="col-12 col-lg-4">
             <div class="details-img-container py-5 mx-5 my-5">
-                {% if toy.image %} <img src="" alt="">
+                {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
                 {% else %}
                 <img src="/media/no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
@@ -26,21 +26,32 @@
 
             <p>{% if toy.campaign %} {{toy.campaign.price}} {% else %} € {{toy.price }} {%endif %}</p>
             <div class="container align-items-center mt-5">
-               
+                <form method="POST" action="{% url 'add_to_bag' toy.id %}">
+                    {% csrf_token %}
+                    <p>Quantity:</p>
+                    <div class="form-group py-1 my-3 mx-auto mr-lg-2">
+                        <div class="input-group w-50 mx-auto mx-lg-0">
+                            <div class="input-group-prepend">
 
-                    <select class="form-select py-1 my-3 mx-auto mr-lg-2" aria-label="Select quantity">
-                        <option selected>Select quantity</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="3">4</option>
-                        <option value="3">5</option>
-                    </select>
-
-                    <a href="" class="mx-2 btn-buy my-3"><img class="add-to-cart-icon mr-2"
-                            src="/media/add-to-cart-icon.png" alt="Green shopping cart">Add to cart</a>
-
-              
+                                <button class="decrement-qty btn" data-item-id="{{ toy.id }}"
+                                    id="decrement-qty_{{toy.id}}"><span class="icon"><i
+                                            class="fas fa-minus"></i></span></button>
+                            </div>
+                            <input type="number" name="quantity" value="1" min="1" max="5"
+                                class="form-control" data-item-id="{{ toy.id }}" id="id_qty_{{toy.id}}">
+                            <div class="input-group-append">
+                                <button class="increment-qty btn" data-item-id="{{ toy.id }}"
+                                    id="increment-qty_{{toy.id}}"><span class="icon"><i
+                                            class="fas fa-plus"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-5">
+                    <img class="add-to-cart-icon mr-3" src="/media/add-to-cart-icon.png" alt="Green shopping cart" />
+                    <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add to bag">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+                </form>
             </div>
 
 

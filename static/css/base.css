@@ -208,6 +208,17 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     width: 8%;
 }
 
+/* --------------------- Shopping bag */
+
+.bag-container {
+    margin: 12rem 0;
+}
+
+.bag-page-img {
+    width: 70%;
+}
+
+
 /*------------------- Allauth templates */
 
 .account-container {

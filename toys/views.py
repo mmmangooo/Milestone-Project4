@@ -61,12 +61,10 @@ def all_toys(request):
 def toy_details(request, toy_id):
     """ A view to show individual toy details"""
 
-    toy = Toy.objects.get(pk=toy_id)
-    
+    toy = get_object_or_404(Toy, pk=toy_id)
 
     context = {
         'toy': toy,
-        
     }
 
     return render(request, 'toys/toy_details.html', context)
