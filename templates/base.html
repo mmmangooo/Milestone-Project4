@@ -41,17 +41,26 @@ toys for their children" />
 
     {% block page_header %}
     <div class="container-fluid header-banner py-3 fixed-top">
-        <h2 class="text-uppercase text-white">Free shipping on orders over <span><i class="fas fa-euro-sign"></i></span>{{
+        <h2 class="text-uppercase text-white">Free shipping on orders over <span><i class="fas fa-euro-sign"></i> </span>{{
             free_delivery_threshold }}</h2>
 
     </div>
     {% endblock %}
-
-
+{% if messages %}
+<div class="container">
+    {% for message in messages %} 
+    {% include 'includes/toasts/bag_toast.html' %}
+    {% endfor %}
+</div>
+{% endif %}
     {%block content %}
     {% endblock %}
 
-    {% block postloadjs %}
+    {% block postloadjs %} 
+    <script>
+        var toast = document.getElementByClassName('toast');
+        toast.toast('show');
+    </script>
     {% endblock %}
 
 </body>

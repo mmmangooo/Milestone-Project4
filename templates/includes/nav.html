@@ -2,7 +2,8 @@
   <div class="container-fluid">
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,25 +53,35 @@
 
     <form class="d-flex" method="GET" action="{% url 'toys' %}">
 
-      <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query" placeholder="Search our site"
-        aria-label="Search">
+      <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
+        placeholder="Search our site" aria-label="Search">
       <button class="btn d-none d-sm-block" type="submit"> <span class="icon nav-icon"><i
             class="fas fa-search"></i></span></button>
     </form>
-  
-      <a class="navbar-toggler search-toggler mx-auto d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon nav-icon"><i class="fas fa-search"></i></span>
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-    <form class="" action="">
-      <input class="form-control me-2 nav-search-input mt-1 d-sm-none" type="search"
-        placeholder="Search site" aria-label="Search">
-    </form>
-  </div>
+
+    <a class="navbar-toggler search-toggler mx-auto d-sm-none" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="icon nav-icon"><i class="fas fa-search"></i></span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+      <form class="" action="">
+        <input class="form-control me-2 nav-search-input mt-1 d-sm-none" type="search" placeholder="Search site"
+          aria-label="Search">
+      </form>
+    </div>
+
+    <p>{% if grand_total %}
+          € {{grand_total|floatformat:2}}     
+      {% else % }
+          € 0.00
+          
+      {% endif %}
+    </p>
     <a href="{% url 'bag' %}"><img class="shopping-cart" src="/media/cart-icon.png" alt="Green shopping cart"></a>
 
-
   </div>
+
+
 
 </nav>

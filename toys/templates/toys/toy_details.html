@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block content %}
 
 
@@ -10,10 +11,10 @@
     <div class="row align-items-center mt-5">
         <div class="col-12 col-lg-4">
             <div class="details-img-container py-5 mx-5 my-5">
-                {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
+                {% if toy.image != 'None' %} <img src="{{ toy.image }}" alt="{{ toy.name }}"> 
                 {% else %}
                 <img src="/media/no-image.png"
-                    alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+                alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below"> 
                 {% endif %}
             </div>
         </div>
@@ -65,4 +66,27 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %} 
+<script type="text/javascript">
+    let decrease = document.getElementById('decrement-qty_{{toy.id}}');
+    let increase = document.getElementById('increment-qty_{{toy_id}}');
+
+    decrease.addEventListener('click', function(e) {
+        e.preventDefault();
+        let input = document.getElementById('id_qty')[0];
+        let currentValue = parseInt(input.val());
+        input = input.val(currentValue-1);
+       
+    });
+
+    increase.addEventListener('click', function(e) {
+        e.preventDefault();
+        let input = document.getElementById('id_qty')[0];
+        let currentValue = parseInt(input.val());
+        input = input.val(currentValue+1);
+       
+    });
+</script>
 {% endblock %}
