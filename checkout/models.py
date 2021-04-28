@@ -17,7 +17,7 @@ class Order(models.Model):
     order_number = models.CharField(
         max_length=32, null="False", editable="False")
     user_profile = models.ForeignKey(
-        'UserProfile', null=True, blank=True, on_delete=models.SET_NULL)
+        UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
     first_name = models.CharField(max_length=150, blank=False, null=False)
     last_name = models.CharField(max_length=150, blank=False, null=False)
     email = models.CharField(max_length=254, blank=False, null=False)
@@ -77,8 +77,8 @@ class OrderLineItem(models.Model):
     Creates specification of ordered products and quantity
     """
     order = models.ForeignKey(
-        'Order', null=False, on_delete=models.CASCADE, related_name="lineitems")
-    toy = models.ForeignKey('Toy', null=False, on_delete=models.CASCADE)
+        Order, null=False, on_delete=models.CASCADE, related_name="lineitems")
+    toy = models.ForeignKey(Toy, null=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False)

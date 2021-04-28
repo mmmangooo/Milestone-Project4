@@ -15,12 +15,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
 
     context = {
-        'bag': bag
-
+    'bag': bag,
     }
 
     return render(request, 'checkout/checkout.html', context)
-
-
-
-

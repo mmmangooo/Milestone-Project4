@@ -29,7 +29,7 @@ class UserProfile(models.Model):
         max_length=80, null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.user
 
 
 @receiver(post_save, sender=User)
@@ -39,5 +39,5 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         UserProfile.objects.create(user=instance)
-        # For existing user save the profile
-        instance.userprofile.save()
+    # For existing user save the profile
+    instance.userprofile.save()
