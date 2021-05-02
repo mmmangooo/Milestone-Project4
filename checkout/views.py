@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .models import Order, OrderLineItem
+from .forms import OrderForm
 
 from toys.models import Toy
 from profiles.models import UserProfile
@@ -11,11 +12,14 @@ from bag.contexts import bag_contents
 
 
 def checkout(request):
-    if request.method == 'POST':
         bag = request.session.get('bag', {})
+        if not bag:
+            messages.error(request, "Your bag is empty!")
+            return redirect(reverse('toys'))
 
-    context = {
-    'bag': bag,
-    }
+        order_form = OrderForm()
+        context = {
+            'order_form': order_form,
+        }
 
-    return render(request, 'checkout/checkout.html', context)
+        return render(request, 'checkout/checkout.html', context)

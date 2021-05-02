@@ -1,13 +1,97 @@
-{%extends 'base.html'%} 
-{% load static %} 
+{%extends 'base.html'%}
+{% load static %}
+{% load bag_tools %}
 
 {% block content %}
 
 <div class="container-fluid bag-container">
 
-    Hello world
+    <h3 class="mb-3">Checkout</h3>
 
+    <div class="row">
+        <div class="col-12 col-lg-6 my-5 px-lg-5">
+            <h4 class="mb-5">Your bag:</h4>
 
-</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product</th>
+                        <th scope="col ">Price</th>
+                        <th scope="col ">Quantity</th>
 
-{% endblock %}
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+
+                {% for item in bag_items %}
+                <tr>
+                    <td>
+                        {% if item.toy.image %}
+                        <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <p>{{item.toy.name }}</p>
+                    </td>
+                    <td>
+                        <p>á € {{item.toy.price }}</p>
+                    </td>
+                    <td>
+                        <p>{{item.quantity}}</p>
+                    </td>
+
+                    <td>
+                        <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shipping cost</td>
+                    <td></td>
+                    <td> € {{ delivery}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Total cost</strong></td>
+                    <td></td>
+                    <td><strong> € {{ grand_total }} </strong> </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+        <div class="col-12 col-lg-6 my-5 px-lg-5">
+            <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
+
+            <form action="{% url 'checkout' % }" method="POST" id="checkout-form">
+
+                {% csrf_token %} 
+                <fieldset>
+                   
+              {{ order_form.first_name | as_crispy_field }}
+              {{ order_form.last_name | as_crispy_field }}
+              {{ order_form.email | as_crispy_field }}
+              {{ order_form.phone_number | as_crispy_field }}
+              {{ order_form.country | as_crispy_field }}
+              {{ order_form.postcode | as_crispy_field }}
+              {{ order_form.town_or_city | as_crispy_field }}
+              {{ order_form.street_address1 | as_crispy_field }}
+              {{ order_form.street_address2 | as_crispy_field }}
+              {{ order_form.county | as_crispy_field }}
+          
+              </fieldset>
+
+            </form>
+
+          
+         
+        </div>
+        <div class="row justify-content-end mt-5 align-items-center">
+            <div class="col-3">
+                <p><a class="mx3" href="{ % url 'toys' %} ">Continue shopping</a></p>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
