@@ -50,10 +50,13 @@
                 <tr>
                     <td>Shipping cost</td>
                     <td></td>
+                    <td></td>
+                    <td></td>
                     {% if order_total < free_delivery_delta %}
                     <td> € {{ delivery}}</td>
                     {% else %} 
-                    <td><strong> € {{ delivery}} </strong> (Get free delivery by spending € {{ free_delivery_delta }} more!)</td>
+                    <td>€ {{ delivery}} <p class="mt-3">Get free delivery by spending € {{ free_delivery_delta }} more!</p></td>
+                    
                     {% endif %}
                 </tr>
                 <tr>
@@ -99,13 +102,22 @@
                 </label>
               </div>
 
+           
               <fieldset class="my-3">
                   <legend class="fieldset-label">Payment</legend>
-                  <div class="card mb-3"></div>
-                  
+                     <!-- Card element injected here by Stripe js-->
+              <div class="card mb-3" id="card-element"></div>
+
+              <!-- Displaying form errors -->
+              <div class="text-danger" id="card-errors" role="alert"></div>
+
+              <!-- Passing the client secret key to the view in order to get the payment intent id-->
+              <input type="hidden" value="{{ client_secret }}" name="client_secret">
               </fieldset>
 
-              <button type="submit" class="btn submit-btn rounded-pill">Pay and complete order</button>
+              <button type="submit" class="btn submit-btn rounded-pill" id="checkout-button">Pay and complete order
+                  <div class="spinner hidden" id="spinner"></div>
+              </button>
               <p><span class="icon ml-2"><i class="fas fa-lock"></i></span> Secure checkout</p>
 
             </form>
@@ -121,4 +133,11 @@
 
         </div>
     </div>
+    </div>
     {% endblock %}
+
+    {% block postloadjs %} 
+        {{ block.super }} 
+        {{ stripe_public_key|json_script:'id_stripe_public_key' }}
+        {{ client_secret|json_script:'id_client_secret' }}
+    {% endblock %} 

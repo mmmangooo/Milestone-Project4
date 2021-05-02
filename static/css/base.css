@@ -211,7 +211,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 /* --------------------- Shopping bag */
 
 .bag-container {
-    margin: 12rem 0;
+    margin: 12rem 0;   
+}
+
+.table, .bag-container h4 {
+    color: #5a5a5a;
 }
 
 .bag-container a {
