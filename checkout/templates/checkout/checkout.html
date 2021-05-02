@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-12 col-lg-6 my-5 px-lg-5">
-            <h4 class="mb-5">Your bag:</h4>
+            <h4 class="mb-5">Order summary:</h4>
 
             <table class="table">
                 <thead>
@@ -50,7 +50,11 @@
                 <tr>
                     <td>Shipping cost</td>
                     <td></td>
+                    {% if order_total < free_delivery_delta %}
                     <td> € {{ delivery}}</td>
+                    {% else %} 
+                    <td><strong> € {{ delivery}} </strong> (Get free delivery by spending € {{ free_delivery_delta }} more!)</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><strong>Total cost</strong></td>
@@ -63,6 +67,7 @@
         </div>
         <div class="col-12 col-lg-6 my-5 px-lg-5">
             <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
+            <div class="text-left w-75 mx-auto">
 
             <form action="{% url 'checkout' % }" method="POST" id="checkout-form">
 
@@ -81,16 +86,38 @@
               {{ order_form.county | as_crispy_field }}
           
               </fieldset>
+              <div class="form-check">
+                  {% if user.is_authenticated %} 
+                  <label for="save-user-info" class="form-check-label">Save this info to my user profile</label>
+                  <input type="checkbox" class="form-check-input ml-3 mt-2" id="save-user-info" name="save-info" checked>
+                  {% else %} 
+                  <label for="save-user-info" class="form-check-label">
+                 <p><a href="">Sign up</a></p> 
+                 <p>
+                  <a href="">or Login </a>to save info to user profile</p>
+                  {% endif %} 
+                </label>
+              </div>
+
+              <fieldset class="my-3">
+                  <legend class="fieldset-label">Payment</legend>
+                  <div class="card mb-3"></div>
+                  
+              </fieldset>
+
+              <button type="submit" class="btn submit-btn rounded-pill">Pay and complete order</button>
+              <p><span class="icon ml-2"><i class="fas fa-lock"></i></span> Secure checkout</p>
 
             </form>
+        </div>
 
           
          
         </div>
-        <div class="row justify-content-end mt-5 align-items-center">
-            <div class="col-3">
-                <p><a class="mx3" href="{ % url 'toys' %} ">Continue shopping</a></p>
-            </div>
+        <div class="row ml-5">
+           
+                <h4><a class="mx3" href="{ % url 'bag' %} "><span class="icon"><i class="fas fa-arrow-left"></i></span>   Back to shopping bag</a></h4>
+         
 
         </div>
     </div>

@@ -1,5 +1,5 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 {% load bag_tools %}
 
 {% block content %}
@@ -9,73 +9,76 @@
 
     <div class="row align-items-center">
         <div class="col-12 col-lg-6 my-5">
-            <img class="bag-page-img" src="/media/dino.png" alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indogo baby dinosaur smiling with eyes closed.">
+            <img class="bag-page-img" src="/media/dino.png"
+                alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indogo baby dinosaur smiling with eyes closed.">
         </div>
         <div class="col-12 col-lg-6 my-5">
             <h4 class="mb-5">Your bag:</h4>
             {% if bag_items %}
             <table class="table">
-<thead>
-    <tr>
-        <th scope="col"></th>
-    <th scope="col">Product</th>
-    <th scope="col ">Price</th>
-    <th scope="col ">Quantity</th>
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product</th>
+                        <th scope="col ">Price</th>
+                        <th scope="col ">Quantity</th>
 
-    <th scope="col">Total</th>
-</tr>
-</thead>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
 
-{% for item in bag_items %} 
-<tr>
-    <td>
-        {% if item.toy.image %}
-        <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
-        {% else %} 
-        <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
-        {% endif %} 
-    </td>
-    <td>
-        <p>{{item.toy.name }}</p>
-    </td>
-    <td>
-        <p>á  €  {{item.toy.price }}</p>
-    </td>
-    <td>
-        <p>{{item.quantity}}</p>
-    </td>
-  
-    <td>
-        <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
-    </td>
-</tr>
-<tr>
-    <td>Shipping cost</td>
-    <td></td>
-    <td> € {{ delivery}}</td>
-</tr>
-<tr>
-    <td><strong>Total cost</strong></td>
-    <td></td>
-    <td><strong> € {{ grand_total }} </strong> </td>
-</tr>
-        {% endfor %}
+                {% for item in bag_items %}
+                <tr>
+                    <td>
+                        {% if item.toy.image %}
+                        <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <p>{{item.toy.name }}</p>
+                    </td>
+                    <td>
+                        <p>á € {{item.toy.price }}</p>
+                    </td>
+                    <td>
+                        <p>{{item.quantity}}</p>
+                    </td>
+
+                    <td>
+                        <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shipping cost</td>
+                    <td></td>
+                    {% if order_total < free_delivery_delta %} <td> € {{ delivery}}</td>
+                        {% else %}
+                        <td><strong> € {{ delivery}} </strong> (Get free delivery by spending € {{ free_delivery_delta}} more!)</td>
+                        {% endif %}
+                </tr>
+                <tr>
+                    <td><strong>Total cost</strong></td>
+                    <td></td>
+                    <td><strong> € {{ grand_total }} </strong> </td>
+                </tr>
+                {% endfor %}
 
             </table>
-            <div class="row justify-content-end mt-5 align-items-center">
-                <div class="col-3">
-            <p><a class="mx3" href="{ % url 'toys' %} ">Continue shopping</a></p>
-        </div>
-        <div class="col-2">
-            <a class="btn submit-btn" href="{% url 'checkout' %} ">Checkout</a>
-        </div>
-        </div>
-            {% else %} 
-            <p class="my-5">No items in your bag yet.</p>
-            <a class="btn submit-btn rounded-pill" href="{% url 'products' %"> Go shopping!</a>
-            {% endif %}
-        </div>
-    </div>
+            <div class="row  mt-5 align-items-center justify-content-end">
+<div class="col-8 mt-5 text-right">
+                <a href="{ % url 'toys' %} "><span class="icon"><i class="fas fa-arrow-left"  ></i>  </span>  Continue shopping</a>
 
-</div>
-{% endblock %}
+                <a class="btn submit-btn rounded-pill" href="{% url 'checkout' %} "> Checkout</a>
+
+                {% else %}
+                <p class="my-5">No items in your bag yet.</p>
+                <a class="btn submit-btn rounded-pill" href="{% url 'products' %"> Go shopping!</a>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}

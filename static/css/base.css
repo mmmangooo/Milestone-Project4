@@ -20,7 +20,7 @@ h2 {
 }
 
 h3, h4 {
-    color: #6D564D;
+    color: #6D564D;;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -214,6 +214,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin: 12rem 0;
 }
 
+.bag-container a {
+    color: #6D564D;
+    margin: 0 1.5rem;
+}
+
 .bag-page-img {
     width: 70%;
 }
@@ -227,10 +232,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .submit-btn {
     background-color: #8CC63F;
-    color: #fff;
+    color: #fff !important;
     border: none;
     filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
-    margin: 0 auto !important;
+    margin: 0 auto 1rem !important;
+    padding: .5rem 1rem;
 }
 
 /*------------------ Media queries */
