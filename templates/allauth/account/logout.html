@@ -1,22 +1,38 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<div class="container account-container">
 
-<form method="post" action="{% url 'account_logout' %}">
+  <h3>{% trans "Sign Out" %}</h3>
+
+
+
+<div class="row mt-5 mx-auto">
+<div class="col-12 col-lg-6 mt-5">
+  <form class="login my-5" method="POST" action="{% url 'account_login' %}">
+   
   {% csrf_token %}
-  {{form|crispy}}
+  {{ form|crispy }}
   {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
+  <p class="mb-3">{% trans 'Are you sure you want to sign out?' %}</p>
+ 
+  <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-3" type="submit">{% trans "Sign Out" %}</button>
+  
 </form>
 
-
+</div>
+<div class="col-12 col-lg-6">
+  <img src="/media/twig.png" alt="">
+</div>
+</div>
+</div>
 {% endblock %}

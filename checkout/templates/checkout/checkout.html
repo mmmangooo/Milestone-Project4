@@ -96,9 +96,9 @@
                   <input type="checkbox" class="form-check-input ml-3 mt-2" id="save-user-info" name="save-info" checked>
                   {% else %} 
                   <label for="save-user-info" class="form-check-label">
-                 <p><a href="">Sign up</a></p> 
+                 <p><a href="{% url 'account_signup' %}">Sign up</a></p> 
                  <p>
-                  <a href="">or Login </a>to save info to user profile</p>
+                  <a href="{% url 'account_login' %}">or Login </a>to save info to user profile</p>
                   {% endif %} 
                 </label>
               </div>

@@ -78,6 +78,16 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse, 'view_bag')
 
+            # Save the info to user profile
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'Something went wrong with your form. \
+                                     Please double check your information')
+    else:
+        bag = request.session.get('bag', {})
+
         if not bag:
             messages.error(request, "Your bag is empty!")
             return redirect(reverse('toys'))
@@ -101,18 +111,16 @@ def checkout(request):
                     'first_name': profile.user.first_name,
                     'last_name': profile.user.last_name,
                     'email': profile.user.email,
-                    'phone_number': profile.phone_number,
-                    'country': profile.country,
-                    'postcode': profile.postcode,
-                    'town_or_city': profile.town_or_city,
-                    'street_address1': profile.street_address1,
-                    'street_address2': profile.street_address2,
-                    'county': profile.county,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address_1,
+                    'street_address2': profile.default_street_address_2,
+                    'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
-        else:
-            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.')
