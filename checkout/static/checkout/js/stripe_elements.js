@@ -1,8 +1,8 @@
-/* Code comes from https://stripe.com/docs/payments/integration-builder
+/* Code comes mostly from https://stripe.com/docs/payments/integration-builder
 and from https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/static/checkout/js/stripe_elements.js
 */
 
-var stripePublicKey = document.getElementById('id_stripe_public_key').textContent().slice(1, -1);
+var stripePublicKey = document.getElementById('id_stripe_public_key').text().slice(1, -1);
 var clientSecret = document.getElementById('id_client_secret').textContent().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
@@ -18,6 +18,9 @@ var style = {
         iconColor: '#f55742'
     }
 };
+
+   // Create a card element and insert it into a div 
+   // in the checkout template
 
 var card = elements.create('card', {style: style});
 card.mount('#card-element');

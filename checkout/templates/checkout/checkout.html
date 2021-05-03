@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{% extends 'base.html'%}
 {% load static %}
 {% load bag_tools %}
 
@@ -52,6 +52,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    {% endfor %}
                     {% if order_total < free_delivery_delta %}
                     <td> € {{ delivery}}</td>
                     {% else %} 
@@ -64,7 +65,7 @@
                     <td></td>
                     <td><strong> € {{ grand_total }} </strong> </td>
                 </tr>
-                {% endfor %}
+          
 
             </table>
         </div>
@@ -140,4 +141,5 @@
         {{ block.super }} 
         {{ stripe_public_key|json_script:'id_stripe_public_key' }}
         {{ client_secret|json_script:'id_client_secret' }}
+        <script src ="{% static 'checkout/js/stripe_elements.js' %}"></script>
     {% endblock %} 
