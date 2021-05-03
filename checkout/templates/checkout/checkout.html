@@ -69,6 +69,12 @@
           
 
             </table>
+            <div class="row">
+           
+                <h4 class="mt-5"><a class="mx3" href="{ % url 'view_bag' %} "><span class="icon"><i class="fas fa-arrow-left"></i></span>   Back to shopping bag</a></h4>
+         
+
+        </div>
         </div>
         <div class="col-12 col-lg-6 my-5 px-lg-5">
             <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
@@ -122,18 +128,15 @@
               </button>
               <p><span class="icon ml-2"><i class="fas fa-lock"></i></span> Secure checkout</p>
 
+              <p class="charge-info"><strong><span class="icon"><i class="fas fa-exclamation"> </i></span>  Your card will be charged € {{ grand_total }}</strong></p>
+
             </form>
         </div>
 
           
          
         </div>
-        <div class="row ml-5">
-           
-                <h4><a class="mx3" href="{ % url 'view_bag' %} "><span class="icon"><i class="fas fa-arrow-left"></i></span>   Back to shopping bag</a></h4>
-         
-
-        </div>
+        
     </div>
     </div>
     {% endblock %}

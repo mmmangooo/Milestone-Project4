@@ -241,6 +241,12 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     font-size: 1.2rem;
 }
 
+.charge-info { 
+    color: #6D564D;
+}
+
+
+
 /* Stripe global CSS, from https://stripe.com/docs/payments/integration-builder */
 
 /* Variables */

@@ -3,6 +3,9 @@ from django.contrib import messages
 from .models import Toy, Category, Campaign
 from django.db.models import Q
 
+# Code adapted from Boutique Ado walkthrough project:
+# https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/products/views.py
+
 
 def all_toys(request):
     """ A view to show all toys in the database,

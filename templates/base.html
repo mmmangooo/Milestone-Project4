@@ -58,7 +58,7 @@ toys for their children" />
 {% if messages %}
 <div class="container">
     {% for message in messages %} 
-    {% include 'includes/toasts/bag_toast.html' %}
+    {% include 'includes/toasts/toast_success.html' %}
     {% endfor %}
 </div>
 {% endif %}
@@ -69,11 +69,13 @@ toys for their children" />
 
 
 
-<!-- Toast script 
-    <script>
-        var toast = document.getElementByClassName('toast');
-        toast.toast('show');
-    </script>-->
+<!-- Toast script -->
+<script>
+
+$('.toast').toast('show');
+
+
+</script>
     {% endblock %}
 
 </body>

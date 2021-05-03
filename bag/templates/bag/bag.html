@@ -47,6 +47,32 @@
                     </td>
 
                     <td>
+                        
+                        <form action="{% url 'adjust_bag' item.item_id %}" method="POST" class="form update-form">
+                            {% csrf_token %} 
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <span><i class="fas fa-minus"></i></span>
+                                        </button>
+                                    </div>
+
+                                    <input type="number" class="form-control qty-input" name="quantity" value="{{ item.quantity }}" min="1" max="5" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }">
+
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span><i class="fas fa-plus"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <a href="" class="update-link">Update</a>
+                        <a class="remove-item" id="remove_{{ item.item_id }}">Remove</a>  
+                    </td>
+
+                    <td>
                         <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
                     </td>
                 </tr>
@@ -83,3 +109,36 @@
 
     </div>
     {% endblock %}
+
+    {% block postloadjs %} 
+    {{ block.super }}
+
+    {% include 'toys/includes/quantity_input_script.html' %}
+
+    <script type="text/javascript">
+
+    // Code from Boutique Ado walkthrough project: 
+    //https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/bag/templates/bag/bag.html 
+
+    //Updating quantity when clicked 
+$('.update-link').click(function(e) {
+    var form = $(this).prev('update-form');
+    form.submit();
+})
+
+// Removing item and reloading on click
+$('.remove-item').click(function(e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `/bag/remove/${itemId}/`;
+    var data= {'csrfmiddlewaretoken': csrfToken};
+
+    $.post(url, data)
+    .done(function() {
+        location.reload();
+    });
+})
+   
+    </script>
+    
+{% endblock %}

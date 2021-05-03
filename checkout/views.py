@@ -14,6 +14,9 @@ from django.views.decorators.http import require_POST
 import stripe
 import json
 
+# Code adapted from Boutique Ado walkthrough project:
+# https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/views.py
+
 
 @require_POST
 def cache_checkout_data(request):

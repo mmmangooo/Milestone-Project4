@@ -3,6 +3,9 @@ from django.contrib import messages
 
 from toys.models import Toy
 
+# Code adapted from Boutique Ado walkthrough project:
+# https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/bag/views.py
+
 
 def view_bag(request):
     """
@@ -21,7 +24,7 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
-        bag[item_id] = quantity
+        bag[item_id] += quantity
         messages.success(
             request, f'Updated quantity of {toy.name} to {bag[item_id]}')
     else:
