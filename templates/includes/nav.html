@@ -37,7 +37,7 @@
         {% endif %}
         {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Add Toy</a>
+          <a class="nav-link" href="{% url 'add_toy' %}">Add Toy</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Add Blog Post</a>

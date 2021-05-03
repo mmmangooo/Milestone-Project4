@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .models import Toy, Category, Campaign
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+from .forms import ToyForm
 
 # Code adapted from Boutique Ado walkthrough project:
 # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/products/views.py
@@ -71,3 +73,84 @@ def toy_details(request, toy_id):
     }
 
     return render(request, 'toys/toy_details.html', context)
+
+
+@login_required
+def add_toy(request):
+    """
+    A view to add a toy to the store
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'This functionality is only available to store owners')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ToyForm(request.POST, request.FILES)
+        if form.is_valid():
+            toy = form.save()
+            messages.success(request, 'Successfully added toy!')
+            return redirect(reverse('toy_details', args=[toy.id]))
+        else:
+            messages.error(
+                request, 'Sorry, something went wrong. \
+                    The toy was not added to the store')
+    else:
+        form = ToyForm()
+
+    template = 'toys/add_toy.html'
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_toy(request, toy_id):
+    """
+    A view to edit a toy in the store
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'This functionality is only available to store owners')
+        return redirect(reverse('home'))
+
+    toy = get_object_or_404(Toy, pk=toy_id)
+    if request.method == 'POST':
+        form = ToyForm(request.POST, request.FILES)
+        if form.is_valid():
+            toy = form.save()
+            messages.success(request, 'Successfully updated toy!')
+            return redirect(reverse('toy_details', args=[toy.id]))
+        else:
+            messages.error(
+                request, 'Sorry, something went wrong. \
+                    The toy was not updated.')
+    else:
+        form = ToyForm(instance=toy)
+        messages.info(request, 'You are editing {toy.name}')
+
+    template = 'toys/edit_toy.html'
+    context = {
+        'form': form,
+        'toy': toy,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_toy(request, toy_id):
+    """
+    Delete a toy from the store
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'This functionality is only available to store owners')
+        return redirect(reverse('home'))
+
+    toy = get_object_or_404(Toy, pk=toy_id)
+    toy.delete()
+    messages.success(request, 'Toy deleted from the store.')
+    return redirect(reverse('toys'))

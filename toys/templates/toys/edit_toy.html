@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %} 
+
+<div class="container form-container-wrapper">
+
+    <h3>Add Toy</h3>
+
+    <div class="row">
+        <div class="col-12 mt-5 text-center">
+            <form action="{% url 'edit_toy' toy_id %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                {% for field in form %}
+                    {% if field.name != 'image' %} 
+                {{ field | as_crispy_field }}
+                    {% else %} 
+                    {{ field }} 
+                    {% endif %} 
+                {% endfor %} 
+
+                  <a href="{% url 'toys' %">Cancel</a> 
+                  <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-2" type="submit">Update toy </button>
+                  
+                </form>
+
+        
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %} 
+{{ block.super }} 
+<script type="text/javascript">
+$('#new-image').change(function() {
+    var file = $('#new-image')[0].files[0];
+    $('#filename').text(`Image will be set to ${file.name}`);
+});
+    </script>
+{% endblock %}
