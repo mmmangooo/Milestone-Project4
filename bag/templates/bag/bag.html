@@ -51,6 +51,7 @@
                     </td>
                 </tr>
                 <tr>
+                    {% endfor %}
                     <td>Shipping cost</td>
                     <td></td>
                     {% if order_total < free_delivery_delta %} <td> € {{ delivery}}</td>
@@ -63,7 +64,7 @@
                     <td></td>
                     <td><strong> € {{ grand_total }} </strong> </td>
                 </tr>
-                {% endfor %}
+              
 
             </table>
             <div class="row  mt-5 align-items-center justify-content-end">
@@ -74,7 +75,7 @@
 
                 {% else %}
                 <p class="my-5">No items in your bag yet.</p>
-                <a class="btn submit-btn rounded-pill" href="{% url 'products' %"> Go shopping!</a>
+                <a class="btn submit-btn rounded-pill" href="{% url 'toys' %"> Go shopping!</a>
                 {% endif %}
             </div>
             </div>

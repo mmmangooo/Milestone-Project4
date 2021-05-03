@@ -48,11 +48,12 @@
                     </td>
                 </tr>
                 <tr>
+                    {% endfor %}
                     <td>Shipping cost</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    {% endfor %}
+                    
                     {% if order_total < free_delivery_delta %}
                     <td> € {{ delivery}}</td>
                     {% else %} 
@@ -71,9 +72,9 @@
         </div>
         <div class="col-12 col-lg-6 my-5 px-lg-5">
             <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
-            <div class="text-left w-75 mx-auto">
+            <div class="text-left w-75 mx-auto checkout-form-container">
 
-            <form action="{% url 'checkout' % }" method="POST" id="checkout-form">
+            <form action="{% url 'checkout' % }" method="POST" id="payment-form">
 
                 {% csrf_token %} 
                 <fieldset>
@@ -104,10 +105,10 @@
               </div>
 
            
-              <fieldset class="my-3">
+              <fieldset class="my-3 py-3">
                   <legend class="fieldset-label">Payment</legend>
                      <!-- Card element injected here by Stripe js-->
-              <div class="card mb-3" id="card-element"></div>
+              <div class="card mb-3 stripe-card" id="card-element"></div>
 
               <!-- Displaying form errors -->
               <div class="text-danger" id="card-errors" role="alert"></div>
@@ -129,7 +130,7 @@
         </div>
         <div class="row ml-5">
            
-                <h4><a class="mx3" href="{ % url 'bag' %} "><span class="icon"><i class="fas fa-arrow-left"></i></span>   Back to shopping bag</a></h4>
+                <h4><a class="mx3" href="{ % url 'view_bag' %} "><span class="icon"><i class="fas fa-arrow-left"></i></span>   Back to shopping bag</a></h4>
          
 
         </div>
