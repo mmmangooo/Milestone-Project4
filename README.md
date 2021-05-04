@@ -209,14 +209,37 @@ The ideal client for this website is:
 
 ![Image of database design schema](/static/readme-assets/readme-images/MS4_database_design.png)
 
+## Security
+
+An env.py file is used for storing details about database and Stripe connections. This file is not uploaded to Github.
+
 ## Design
 
 * Color schema:
-  The background color used on the site is a regular plain white, #fffff, which is chosen for creating an impression of airyness on the background by keeping it a color that goes by rather unnoticed. A brown umber nuance, #6D564D is used for headers and links in nav bar. It is chosen to create associations with nature and eco-friendliness, while also being a very warm color that aids in giving a sort of calm an friendly impression to the site. Buttons, shopping bag icon and hero header has a bright green nuance, #81E157, that is chosen to create an impression of playfulness and hapiness and associate with the sites target group - children. This is also the purpose of the light green complementary color #DEF188 that is used on the header banner and on button hovers. The p elements on the site use a dark grey/light black color, #383636, that is chosen to create a softer impression and be easier on the eyes than a regular black color.
+  The background color used on the site is a regular plain white, #fffff, which is chosen for creating an impression of airyness on the background by keeping it a color that goes by rather unnoticed. A brown umber nuance, #6D564D is used for headers and links in nav bar. It is chosen to create associations with nature and eco-friendliness, while also being a very warm color that aids in giving a sort of calm an friendly impression to the site. Buttons, shopping bag icon and hero header has a bright green nuance, #81E157, that is chosen to create an impression of playfulness and hapiness and associate with the sites target group - children. This is also the purpose of the light green complementary color #DEF188 that is used on the header banner and on button hovers. The p elements on the site use a dark grey/light black color, #383636, that is chosen to create a softer impression and be easier on the eyes than a regular black color. 
 
 ![Color scheme pallette](/static/readme/readme-images/color-scheme.png)
 
 * Imagery:
+  The hero image - a closeup of a child's hand playing with a wooden toy, is chosen to create associations to robust and environmentally friendly toys that catches a child's interest (by showing a child engaged in play with this type of toy). The brown colors in the image also aid in creating associations with nature and naturalness that goes well with the site's 
+  purpose. The drawn image of a green leaf appering on different pages on the site is chosen to represent an association to nature and environmental friendliness. The drawn images of toys and animals are chosen to create a feeling of playfulness and associate with kids and playing.
+
+* Typography:
+  The main header on the hero section on landing page, p elements and all headers on the site except for the subheader on the hero section has the font Quicksand. This font is chosen for its
+  rounded shapes that create an impression of friendliness and somewhat of an association to childhood, while not being so round-shaped that it gets hard to read. The subheader on the hero section has the font Roboto, which is chosen to give a more serious impression (by its narrow shape) to accomodate well with this header's promoting message.
+
+
+### Differences between wireframes and implemented design
+
+
+## Features
+
+Navigation bar is present on all pages to ensure easily accessed navigation on the site. Banner below navbar showing the free shipping threshold, and shortcut to shopping cart are also present on all pages to make sure that the customer easily can keep track of their shopping. There is also a footer with copyright info present on all pages.
+
+### Index page
+
+The index page consists of a hero section 
+
 
 
 ## Credits

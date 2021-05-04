@@ -46,7 +46,8 @@ class Campaign(models.Model):
     to the toys that are on campaign
     """
     toy_id = models.ForeignKey(
-        'Toy', null=True, blank=True, on_delete=models.SET_NULL)
+        'Toy', null=True, blank=True,
+        on_delete=models.SET_NULL)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)
 

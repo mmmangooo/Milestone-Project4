@@ -61,7 +61,7 @@
               {% if request.user.is_superuser %}
               <br>
               <span class="edit-toy-link mt-2 bg-white"><a class="bg-white text-secondary" href="{% url 'edit_toy' toy.id %}">Edit</a></span>
-              <span class="delete-toy-link mt-2 "><a class="bg-white text-secondary" href="{% url 'delete_toy' toy.id %}">Delete</a></span>
+              <span class="delete-toy-link mt-2 "><a class="bg-white text-secondary" href="{% url 'confirm_delete_toy' toy.id %}">Delete</a></span>
               {% endif %}
             </div>
 

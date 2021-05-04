@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %} 
+
+<div class="container form-container-wrapper">
+
+    <h3>Delete Toy</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 mt-5 text-center">
+            <div class="edit-card">
+            <form action="{% url 'delete_toy' toy.id %}" method="POST" enctype="multipart/form-data" class="py-3 px-2">
+                  {% csrf_token %}
+
+             <legend class="mx-auto mb-5 mt-2">Are you sure you want to delete {{ toy.name }} ?</legend>
+
+                  <a href="{% url 'toys' %" class="mx-3 my-5">Cancel</a> 
+                  <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-5 mx-2" type="submit">Delete toy </button>
+                  
+                </form>
+</div>
+        
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

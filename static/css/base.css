@@ -385,7 +385,14 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 /* ----------------- Add/edit/delete toys */
 
 .form-container-wrapper {
-    margin: 12rem 0 0;
+    margin: 10rem 0 0;
+}
+
+.edit-card{
+    border: .05rem solid #8a8888;
+    border-radius: 1.5rem;
+    filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
+    box-shadow: 0.2rem 0.4rem 1.5rem #46454533;
 }
 
 /*------------------ Media queries */

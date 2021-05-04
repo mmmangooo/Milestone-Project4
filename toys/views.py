@@ -141,6 +141,26 @@ def edit_toy(request, toy_id):
 
 
 @login_required
+def confirm_delete_toy(request, toy_id):
+    """
+    A view for rendering a template where deletion is confirmed or cancelled
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'This functionality is only available to store owners')
+        return redirect(reverse('home'))
+
+    toy = get_object_or_404(Toy, pk=toy_id)
+    context = {
+        'toy': toy,
+    }
+
+    template = 'toys/confirm_delete_toy.html'
+
+    return render(request, template, context)
+
+
+@login_required
 def delete_toy(request, toy_id):
     """
     Delete a toy from the store
@@ -154,3 +174,5 @@ def delete_toy(request, toy_id):
     toy.delete()
     messages.success(request, 'Toy deleted from the store.')
     return redirect(reverse('toys'))
+
+
