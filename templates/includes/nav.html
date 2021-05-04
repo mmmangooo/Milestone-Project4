@@ -18,7 +18,7 @@
           <a class="nav-link" href="#">Campaign</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
+          <a class="nav-link" href="{% url 'blog' %}">Blog</a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item">

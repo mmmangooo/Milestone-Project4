@@ -251,3 +251,6 @@ Sigmund
 
 Code:
 Setting up signup and login, this tutorial: https://www.youtube.com/watch?v=q4jPR-M0TAQ&t=1377s
+
+
+Blog comments, this tutorial: https://www.youtube.com/watch?v=hZrlh4qU4eQ

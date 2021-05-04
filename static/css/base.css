@@ -395,6 +395,16 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     box-shadow: 0.2rem 0.4rem 1.5rem #46454533;
 }
 
+/*------------------ Blog */
+
+.blog-wrapper {
+    margin: 10rem 0;
+}
+
+.blog-img {
+    width: 50%;
+}
+
 /*------------------ Media queries */
 
 
@@ -425,6 +435,9 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     }
     .add-to-cart-icon {
         width: 7%;
+    }
+    .blog-img {
+        width: 90%;
     }
 }
 

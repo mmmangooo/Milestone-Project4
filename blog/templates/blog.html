@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %} 
+
+<div class=" container blog-wrapper">
+    <h3>Blog</h3>
+    <h4>Learn more about why sustainable toys are important, and which materials to look for in our blog!</h4>
+
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-2">
+            <img src="/media/bulb.png" class="blog-img" alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
+        </div>
+        <div class="col-12 col-lg-10">
+            <div class="card">
+                <h5>{{ blogpost.title }}</h5>
+               <p>{{ blogpost.content }}</p> 
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %} 
