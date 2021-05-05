@@ -80,7 +80,7 @@ p {
 
 
 .index-hero {
-    background: url('{% media "hero-img.jpg" %}') no-repeat right center fixed;
+    background: no-repeat right center fixed;
     background-size: cover;
     height: 100vh;
 }
