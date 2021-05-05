@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'green_toys.urls'
@@ -178,6 +179,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Bucket config
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00 GMT',
+        'CacheControl': 'max-age=94608000'
+    }
+
+    # Bucket config
     AWS_STORAGE_BUCKET_NAME = 'mmmangooo-greentoys'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
