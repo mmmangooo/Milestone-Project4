@@ -49,7 +49,7 @@
 
 <div class="container-fluid index-side-container my-3">
     <a href="{% url 'toys' %}"><h4 class="index-link my-3"></h4>See All Toys</a>
-    <img class="index-drawing my-5 invisible" src="/media/twig.png" alt="Drawing of green twig with delicate leaves">
+    <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png" alt="Drawing of green twig with delicate leaves">
    <a href=""> <h4 class="index-link my-3"></h4>See All Blog Posts</a>
 </div>
 {% endblock %}

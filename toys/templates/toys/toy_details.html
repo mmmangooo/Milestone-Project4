@@ -14,7 +14,7 @@
             <div class="details-img-container py-5 mx-5 my-5">
                 {% if toy.image != 'None' %} <img src="{{ toy.image }}" alt="{{ toy.name }}"> 
                 {% else %}
-                <img src="/media/no-image.png"
+                <img src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below"> 
                 {% endif %}
             </div>
