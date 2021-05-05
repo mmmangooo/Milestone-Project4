@@ -120,16 +120,17 @@ WSGI_APPLICATION = 'green_toys.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+       'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
- }
-
-# DATABASES = {
-#    'default': dj_database_url.parse('postgres://kfdvuiqcwxxmzi:85ec78051e717b23c71050c3cc269cf0a2db212780a8eecfc7d2250f52e0232d@ec2-54-155-35-88.eu-west-1.compute.amazonaws.com:5432/da5nbe5v6ng70t')
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+      }
 
 
 # Password validation
