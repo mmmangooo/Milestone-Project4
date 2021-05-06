@@ -36,10 +36,41 @@ def blog(request):
 
 
 def blog_details(request, blogpost_id):
-    blogpost = get_object_or_404(BlogPost, 'blogpost_id')
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
 
     context = {
         'blogpost': blogpost,
     }
 
     return render(request, 'blog_details.html', context)
+
+
+@login_required
+def add_blogpost(request):
+    """
+    A view to add a blogpost
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'This functionality is only available to store owners')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blogpost = form.save()
+            messages.success(request, 'Successfully added blogpost!')
+            return redirect(reverse('blog_details', args=[blogpost.id]))
+        else:
+            messages.error(
+                request, 'Sorry, something went wrong. \
+                    The blogpost was not added to the store')
+    else:
+        form = blogForm()
+
+    template = 'blog/add_blogpost.html'
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)
