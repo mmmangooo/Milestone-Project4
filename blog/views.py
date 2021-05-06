@@ -16,3 +16,13 @@ def blog(request):
     }
 
     return render(request, 'blog.html', context)
+
+
+def blog_details(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, 'blogpost_id')
+
+    context = {
+        'blogpost': blogpost,
+    }
+
+    return render(request, 'blog_details.html', context)
