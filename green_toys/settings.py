@@ -13,7 +13,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-
+if os.path.exists("env.py"):
+    import env
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,6 +57,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'storages',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -175,35 +180,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Bucket config
-# if 'USE_AWS' in os.environ:
-#    # Cache control
-#    AWS_S3_OBJECT_PARAMETERS = {
-#        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
- 
-#       'CacheControl': 'max-age=94608000'
-#    }
+# Cloudinary config
+if 'USE_CLOUDINARY' in os.environ:
+    cloudinary.config(
+        cloud_name="dmfctgbcd",
+        api_key="os.getenv('CLOUDINARY_API_KEY', '')",
+        api_secret="os.getenv('CLOUDINARY_SECRET_KEY', '')"
+    )
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-    # Bucket config
-#    AWS_STORAGE_BUCKET_NAME = 'mmmangooo-greentoys'
-#    AWS_S3_REGION_NAME = 'eu-north-1'
-#    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-#    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-#    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-    # Static and media files
-##    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-#    STATICFILES_LOCATION = 'static'
-#    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-#    MEDIAFILES_LOCATION = 'media'
-
-    # Override static and media URLS in production
-#    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-#    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
