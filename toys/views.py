@@ -174,5 +174,3 @@ def delete_toy(request, toy_id):
     toy.delete()
     messages.success(request, 'Toy deleted from the store.')
     return redirect(reverse('toys'))
-
-

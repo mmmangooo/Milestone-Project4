@@ -401,6 +401,10 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin: 10rem 0;
 }
 
+.blog-search {
+    float: right;
+}
+
 .blog-img {
     width: 50%;
 }
@@ -409,6 +413,13 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     border: .3rem solid #6D564D;
 }
 
+.edit-blogpost-link {
+    float:left;
+}
+
+.delete-blogpost-link {
+    float:right;
+}
 /*------------------ Media queries */
 
 
