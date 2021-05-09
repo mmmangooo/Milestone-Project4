@@ -32,7 +32,7 @@ def blog(request):
         'search_term': query,
     }
 
-    return render(request, 'blog.html', context)
+    return render(request, 'blog/blog.html', context)
 
 
 def blog_details(request, blogpost_id):
@@ -59,7 +59,7 @@ def add_blogpost(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = BlogpostForm(request.POST, request.FILES)
+        form = BlogpostForm(request.POST)
         if form.is_valid():
             blogpost = form.save()
             messages.success(request, 'Successfully added blogpost!')
