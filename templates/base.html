@@ -15,29 +15,30 @@ toys for their children" />
 
     {% block corecss %}
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <!-- Custome CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block corejs %}
     <!-- Bootstrap, jquery and popper -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
-        <!-- Fontawesome -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/07bb8fa899.js" crossorigin="anonymous"></script>
-        <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
     <title>Green Toys</title>
 </head>
 
 <body>
-<!-- Including the navbar in template -->
+    <!-- Including the navbar in template -->
     <div class="container-fluid fixed-top px-0 mb-5">
 
         {% include 'includes/nav.html' %}
@@ -45,7 +46,7 @@ toys for their children" />
 
     </div>
 
-<!-- Loading a header banner into template -->
+    <!-- Loading a header banner into template -->
 
     {% block page_header %}
     <div class="container-fluid header-banner py-3 fixed-top">
@@ -54,28 +55,28 @@ toys for their children" />
     </div>
     {% endblock %}
 
-<!-- Including messages in template, if there are any -->
-{% if messages %}
-<div class="container">
-    {% for message in messages %} 
-    {% include 'includes/toasts/toast_success.html' %}
-    {% endfor %}
-</div>
-{% endif %}
+    <!-- Including messages in template, if there are any -->
+    {% if messages %}
+    <div class="container">
+        {% for message in messages %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% endfor %}
+    </div>
+    {% endif %}
     {%block content %}
     {% endblock %}
 
-    {% block postloadjs %} 
+    {% block postloadjs %}
 
 
 
-<!-- Toast script -->
-<script>
+    <!-- Toast script -->
+    <script>
 
-$('.toast').toast('show');
+        $('.toast').toast('show');
 
 
-</script>
+    </script>
     {% endblock %}
 
 </body>
