@@ -134,7 +134,7 @@ def confirm_delete_blogpost(request, blogpost_id):
 
 
 @login_required
-def delete_delete_blogpost(request, blogpost_id):
+def delete_blogpost(request, blogpost_id):
     """
     Delete a blogpost
     """
