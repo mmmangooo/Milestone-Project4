@@ -32,6 +32,14 @@ p {
     color: #383636;
 }
 
+input, label {
+    margin: .5rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
 /*-------------------------Navigation bar */
 
 
@@ -378,7 +386,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     color: #fff !important;
     border: none;
     filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
-    margin: 0 auto 1rem !important;
+    margin: 1rem !important;
     padding: .5rem 1rem;
 }
 
@@ -388,7 +396,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin: 10rem 0 0;
 }
 
-.edit-card{
+.add-edit-card{
     border: .05rem solid #8a8888;
     border-radius: 1.5rem;
     filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
@@ -415,10 +423,21 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .edit-blogpost-link {
     float:left;
+    margin-left: 1rem;
 }
 
 .delete-blogpost-link {
     float:right;
+    margin-right: 1rem;
+}
+
+.submit-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.delete-confirm-legend {
+    font-size: 1.2rem;
 }
 /*------------------ Media queries */
 

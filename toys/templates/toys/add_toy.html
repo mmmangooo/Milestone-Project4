@@ -8,8 +8,9 @@
 
     <h3>Add Toy</h3>
 
-    <div class="row">
-        <div class="col-12 col-lg-6 mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-xl-5 mt-5 ">
+            <div class="add-edit-card mx-lg-3 p-5">
             <form action="{% url 'add_toy' %}" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
 
@@ -22,10 +23,10 @@
                 {% endfor %} 
 
                   <a href="{% url 'toys' %">Cancel</a> 
-                  <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-2" type="submit">Add toy </button>
+                  <button class="primaryAction rounded-pill submit-btn px-3 py-1" type="submit">Add toy </button>
                   
                 </form>
-
+            </div>
         
         </div>
     </div>

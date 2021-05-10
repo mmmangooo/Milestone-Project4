@@ -8,9 +8,9 @@
 
     <h3>Edit Toy</h3>
 
-    <div class="row">
-        <div class="col-12 mt-5 text-center">
-            <div class="edit-card mx-lg-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-xl-5 mt-5 text-center">
+            <div class="add-edit-card mx-lg-3">
             <form action="{% url 'edit_toy' toy.id %}" method="POST" enctype="multipart/form-data" class="p-5 mx-lg-5">
                   {% csrf_token %}
 

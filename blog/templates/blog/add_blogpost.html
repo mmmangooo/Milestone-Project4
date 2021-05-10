@@ -8,8 +8,9 @@
 
     <h3>Add Blogpost</h3>
 
-    <div class="row">
-        <div class="col-12 col-lg-6 mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-xl-5 mt-5">
+            <div class="add-edit-card mx-lg-3 p-5">
             <form action="{% url 'add_blogpost' %}" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
 
@@ -25,6 +26,7 @@
                   <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-2" type="submit">Add blogpost </button>
                   
                 </form>
+            </div>
 
         
         </div>
