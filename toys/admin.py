@@ -22,7 +22,7 @@ class ToyAdmin(admin.ModelAdmin):
 
 class CampaignAdmin(admin.ModelAdmin):
     list_display = (
-        'toy_id',
+        
         'price',
     )
 

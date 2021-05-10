@@ -50,7 +50,7 @@ def all_toys(request):
             toys = toys.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
-
+    
     context = {
         'toys': toys,
         'categories': categories,

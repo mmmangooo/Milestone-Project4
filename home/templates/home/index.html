@@ -16,6 +16,7 @@
 
 <div class="container-fluid my-3 index-grid-container">
     <div class="row my-2">
+    
         <div class="col-12 col-lg-4">
             <h3>Campaign</h3></div>
             <div class="col-12 col-sm-3 col-lg-2">Product</div>
@@ -29,10 +30,10 @@
     <div class="row my-2">
         <div class="col-12 col-lg-4">
             <h3>Popular</h3> </div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
+            {% for toy in toys|dictsort:"toy.rating" %}
+            <div class="col-12 col-sm-3 col-lg-2"> {{ toy.name }}</div>
+       
+            {% endfor %}
        
     </div>
 
@@ -40,10 +41,9 @@
     <div class="row my-2">
         <div class="col-12 col-lg-4">
             <h3>Blog</h3></div>
+            {{ blogpost.title }}
             <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class=" col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
+           
         
     </div>
 </div>

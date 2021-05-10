@@ -47,7 +47,7 @@
         <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
           <div class="toy-card card" style="width: 20rem;">
-            {% if toy.image %} <img src="{{ toy.image }}" alt="">
+            {% if toy.image_url %} <img src="{{ toy.image }}" alt="">
             {% else %}
             <img src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
@@ -57,7 +57,7 @@
             
               <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
 
-              <p class="card-text "> {% if toy.campaign %} € {{campaign.price }}  {% else %}  € {{toy.price }}  {%endif %}</p>
+              <p class="card-text "> {% if toy.campaign %} € {{toy.campaign.price }}  {% else %}  € {{toy.price }}  {%endif %}</p>
               <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
               {% if request.user.is_superuser %}
               <br>

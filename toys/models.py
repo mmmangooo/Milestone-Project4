@@ -33,7 +33,7 @@ class Toy(models.Model):
         max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    campaign_id = models.ForeignKey(
+    campaign= models.ForeignKey(
         'Campaign', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -45,9 +45,7 @@ class Campaign(models.Model):
     This model defines campaigns, related via foreign key
     to the toys that are on campaign
     """
-    toy_id = models.ForeignKey(
-        'Toy', null=True, blank=True,
-        on_delete=models.SET_NULL)
+    
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)
 
