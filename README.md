@@ -234,12 +234,66 @@ An env.py file is used for storing details about database and Stripe connections
 
 ## Features
 
-Navigation bar is present on all pages to ensure easily accessed navigation on the site. Banner below navbar showing the free shipping threshold, and shortcut to shopping cart are also present on all pages to make sure that the customer easily can keep track of their shopping. There is also a footer with copyright info present on all pages.
+Navigation bar is present on all pages to ensure easily accessed navigation on the site. In the navbar is also a search bar where the user can search for toys on the site. Banner below navbar showing the free shipping threshold, and shortcut to shopping cart are also present on all pages to make sure that the customer easily can keep track of their shopping. There is also a footer with copyright info present on all pages.
 
 ### Index page
 
-The index page consists of a hero section 
+The index page consists of a hero section covering the full height of the screen, showing a large image with a header and a subheader on it clearly stating the name
+of the site and with a call for action button below leading to the all toys page. Below the hero section on index page, the user finds a selection of toys that can be bought on this site - the four toys with the highest rating and four toys that are on campaign right now with lower prices. This is made to create an interest in looking at some of the toys sold on the site. The user also finds the four latest blog posts displayed here which is made to envoke an interest in exploring the blog. In this section there are also links to the all toys page and the blog page for easily accessed navigation.
 
+### Toys page
+
+On this page the user can find all toys for sale on the website, and choose to show only toys in the category 'wooden' or 'rubber', and sort toys by price or rating, highest to lowest or the opposite. On the card for each toy, there is an image of the toy (or a 'no image found' generic image if that toy has no image) a "read more"-button that takes the user to the toy details page. For superuser, the cards also contains an edit- and a delete- link that takes the superuser to an edit form for that toy, or to a confirmation page for deleting that toy.
+
+### Search results page
+
+If the user has searched for a toy on the site using the search bar in the navigation menu, the result is shown on the toys page along with a header saying what the user has searched for and how many results were found.
+
+### Toy details page
+
+The toy details page contains details about the toy that the user has clicked the "read more"-button on from the toys page. This page contains an image of the toy, a description of it and a button for adding the toy to the user's shopping cart, along with an input for choosing the amount of toys to add to the bag. Clicking the add to shopping bag-button will trigger a toast message that shows the user a feedback for the action. 
+
+### Add toy page
+
+This page is only available for superuser, and is accessed from the navigation bar (where it is only showed for signed in superuser). This page contains a form where the superuser can fill in name, description, rating and image and add a toy to the database by clicking "add toy". The page also contains a "cancel"-link that leads back to the toys-page when clicked.
+
+### Edit toy page
+
+This page is only available for superuser, and is accessed from the navigation bar (where it is only showed for signed in superuser). This page contains a form where the superuser can edit name, description, rating and image and add the updates to the database by clicking "edit toy". The page also contains a "cancel"-link that leads back to the toys-page when clicked.
+
+### Confirm deletion page
+
+This page is shown when superuser clicks the "delete"-link on a toy card. This page only contains a question "Are you sure you want to delete (name of the toy) ? and the choices yes or no. Clicking no takes the user back the toys page and clicking yes deletes the toy from the database.
+
+### Shopping bag page
+
+If the user has not added any toy to their bag, this page contains an info text saying that the user does not have any items in their bag yet, and a link to the toys page for a shortcut to shopping. If the user has added any items to their bag, this page shows what items are in the bag, the amount of them added and their price each and totally, along with shipping price and info about how much more the user has to by for to get free shipping (if that amount is not already exceeded). The shopping bag page contains a link back to the toys page in case the user wants to do more shopping, and a button that takes the user to the checkout page when clicked.
+
+### Checkout page
+
+The checkout page contains a summary of the users order with title of the items, price of each, amount of each, total of each, shipping cost and total cost. It also contains a form where the user fills in their shipping and payment details. For signed in users with this information saved to their profile, it is prefilled in this form. The page contains a link back to the toys page if the user wants to add more items to their bag, and a button for paying and checking out the order. 
+
+### Blog page
+The blog page contains a list of blog posts shown in the order of most recently added. The page also has a search box above the blog post where the user can search for a blog post either by title or by a word in the content. Each blogpost has a "read more"-link that when clicked takes the user to the blog details page. For a signed in superuser, there are also two additional links on each blogpost. One for editing, that takes the superuser to an edit blogpost page, and one for delete that takes the superuser for a confirm deletion page.
+
+### Blog details page
+
+The blog details page contains the entire text content of the blogpost shown, and if the user is signed in to their account a button saying "comment blogpost" is shown. If the user is not signed in, a text informing the user that they has to be signed in to comment is shown instead, along with a link to the login page and a link to the sign up-page to make it easy for the user to login or to create an account if they doesn't have one.
+
+
+
+
+### Add blog page
+
+This page is only available for superuser, and is accessed from the navigation bar (where it is only showed for signed in superuser). This page contains a form where the superuser can fill in title and content and add a blogpost to the database by clicking "add blogpost". The page also contains a "cancel"-link that leads back to the blogs-page when clicked.
+
+### Edit blog page
+
+This page is only available for superuser, and is accessed from the navigation bar (where it is only showed for signed in superuser). This page contains a form where the superuser can edit title and content and update a blogpost in the database by clicking "edit blogpost". The page also contains a "cancel"-link that leads back to the blogs-page when clicked.
+
+### Confirm deletion page
+
+This page is shown when superuser clicks the "delete"-link on a blogpost on the blog page. This page only contains a question "Are you sure you want to delete (title of the blogpost) ? and the choices yes or no. Clicking no takes the user back the blogs page and clicking yes deletes the toy from the database.
 
 
 ## Credits

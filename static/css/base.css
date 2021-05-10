@@ -390,10 +390,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     padding: .5rem 1rem;
 }
 
-/* ----------------- Add/edit/delete toys */
+/* ----------------- Add/edit/delete toys and blog */
 
 .form-container-wrapper {
     margin: 10rem 0 0;
+    background: url('/media/leaves.png') repeat fixed;
 }
 
 .add-edit-card{
