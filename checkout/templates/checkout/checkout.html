@@ -27,7 +27,7 @@
                 {% for item in bag_items %}
                 <tr>
                     <td>
-                        {% if item.toy.image %}
+                        {% if item.toy.image_url %}
                         <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
                         {% else %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
@@ -80,9 +80,9 @@
         </div>
         <div class="col-12 col-lg-6 my-5 px-lg-5">
             <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
-            <div class="text-left w-75 mx-auto checkout-form-container">
+            <div class="text-left w-75 mx-auto">
 
-                <form action="{% url 'checkout' % }" method="POST" id="payment-form">
+                <form action="{% url 'checkout' % }" method="POST" id="payment-form" class="site-form">
 
                     {% csrf_token %}
                     <fieldset>

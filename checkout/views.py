@@ -58,8 +58,8 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()(commit=False)
-            pid = request.POST.get('client_secret').split('secret')[0]
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe.pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
@@ -70,7 +70,7 @@ def checkout(request):
                         order_line_item = OrderLineItem(
                             order=order,
                             toy=toy,
-                            quantity=item_data
+                            quantity=item_data,
                         )
                         order_line_item.save()
                 except Toy.DoesNotExist:
@@ -79,7 +79,7 @@ def checkout(request):
                                    'sorry for the inconvenience,'
                                    'please contact us for help.')
                     order.delete()
-                    return redirect(reverse, 'view_bag')
+                    return redirect(reverse('view_bag'))
 
             # Save the info to user profile
             request.session['save_info'] = 'save-info' in request.POST
@@ -101,7 +101,7 @@ def checkout(request):
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY
+            currency=settings.STRIPE_CURRENCY,
         )
 
         # Prefill order form with users saved info, if the user
@@ -124,6 +124,8 @@ def checkout(request):
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.')
@@ -135,3 +137,48 @@ def checkout(request):
         }
 
     return render(request, 'checkout/checkout.html', context)
+
+
+def checkout_success(request, order_number):
+    """
+    A view to handle succesful checkouts
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attaching the users profile to the order
+        order.user_profile = profile
+        order.save()
+
+        # Saving the users info
+        if save_info():
+            profile_data = {
+                'first_name': profile.user.first_name,
+                'last_name': profile.user.last_name,
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number,
+                'country': profile.default_country,
+                'postcode': profile.default_postcode,
+                'town_or_city': profile.default_town_or_city,
+                'street_address1': profile.default_street_address_1,
+                'street_address2': profile.default_street_address_2,
+                'county': profile.default_county,
+            }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
+    messages.success(request, f'Your order was successfully processed!\
+                    Order number: {order_number}. A confirmation email \
+                        will be sent to {order.email}.')
+
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    context = {
+        'order': order,
+    }
+
+    return render(request, 'checkout/checkout_success.html', context)

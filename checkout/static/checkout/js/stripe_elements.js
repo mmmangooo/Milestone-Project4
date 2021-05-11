@@ -1,7 +1,6 @@
-/* Code mostly from https://stripe.com/docs/payments/integration-builder
-and https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/static/checkout/js/stripe_elements.js
+/* Code mostly from https://stripe.com/docs/payments/integration-builder	
+and https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/static/checkout/js/stripe_elements.js	
 */
-
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -19,128 +18,87 @@ var style = {
     iconColor: '#f55742'
   }
 };
-
-// Create a card element and insert it into a div 
-// in the checkout template
-
+// Create a card element and insert it into a div 	
+// in the checkout template	
 var card = elements.create('card', { style: style });
 card.mount('#card-element');
-
-// Show validation errors on the card element in a div by the card
+// Show validation errors on the card element in a div by the card	
 card.addEventListener('change', function (event) {
   var errorDiv = document.getElementById('card-errors');
   if (event.error) {
-    var html = `
-          <span class="icon" role="alert">
-          <i class="fas fa-times"></i></span>
+    var html = `	
+          <span class="icon" role="alert">	
+          <i class="fas fa-times"></i></span>	
           <span>${event.error.message}</span> `;
     errorDiv.innerHTML = html;
   } else {
     errorDiv.textContent = '';
   }
 })
-
-card.on("change", function (event) {
-  // Disable the Pay button if there are no card details in the Element
-  document.querySelector("button").disabled = event.empty;
-});
-
-// Handle form submit
+// Handle form submit	
 var form = document.getElementById("payment-form");
-
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  card.update({'disabled': true});
+  card.update({ 'disabled': true });
   $('#checkout-button').attr('disabled', true);
-
   var saveInfo = Boolean($('#save-user-info').attr('checked'));
   var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
   var postData = {
     'csrfmiddlewaretoken': csrfToken,
     'client_secret': clientSecret,
     'save_info': saveInfo,
-  }
+  };
   var url = '/checkout/cache_checkout_data/';
-
   $.post(url, postData).done(function () {
-
-    
-  })
-  // Complete payment when the submit button is clicked
-  payWithCard(stripe, card, data.clientSecret);
-});
-
-// Calls stripe.confirmCardPayment
-// If the card requires authentication Stripe shows a pop-up modal to
-// prompt the user to enter authentication details without leaving the page.
-var payWithCard = function (stripe, card, clientSecret) {
-  loading(true);
-  stripe
-    .confirmCardPayment(clientSecret, {
+    stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
         billing_details: {
-            firstName: $.trim(form.first_name.value),
-            lastName: $.trim(form.last_name.value),
-            phone: $.trim(form.phone_number.value),
-            email: $.trim(form.email.value),
-            address:{
-                line1: $.trim(form.street_address1.value),
-                line2: $.trim(form.street_address2.value),
-                city: $.trim(form.town_or_city.value),
-                country: $.trim(form.country.value),
-                state: $.trim(form.county.value),
-            }
-        }
-    },
-    shipping: {
-        firstName: $.trim(form.first_name.value),
-        lastName: $.trim(form.last_name.value),
-        phone: $.trim(form.phone_number.value),
-        address: {
+          firstName: $.trim(form.first_name.value),
+          lastName: $.trim(form.last_name.value),
+          phone: $.trim(form.phone_number.value),
+          email: $.trim(form.email.value),
+          address: {
             line1: $.trim(form.street_address1.value),
             line2: $.trim(form.street_address2.value),
             city: $.trim(form.town_or_city.value),
             country: $.trim(form.country.value),
-            postal_code: $.trim(form.postcode.value),
             state: $.trim(form.county.value),
+          }
         }
-    },
-      })
-    .then(function (result) {
+      },
+      shipping: {
+        firstName: $.trim(form.first_name.value),
+        lastName: $.trim(form.last_name.value),
+        phone: $.trim(form.phone_number.value),
+        address: {
+          line1: $.trim(form.street_address1.value),
+          line2: $.trim(form.street_address2.value),
+          city: $.trim(form.town_or_city.value),
+          country: $.trim(form.country.value),
+          postal_code: $.trim(form.postcode.value),
+          state: $.trim(form.county.value),
+        }
+      },
+    }).then(function (result) {
       if (result.error) {
-        // Show error to customer, in error-div
+        // Show error to customer, in error-div	
         var errorDiv = document.getElementById('card-errors');
-        var html = `
-          <span class="icon" role="alert">
-          <i class="fas fa-times"></i></span>
+        var html = `	
+          <span class="icon" role="alert">	
+          <i class="fas fa-times"></i></span>	
           <span>${result.error.message}</span> `;
         $(errorDiv).html(html);
-        $(errorDiv).html(html);
         card.update({ 'disabled': false });
-        $('#checkout-button').attr('disabled', false);
+        $('#submit-button').attr('disabled', false);
       } else {
         if (result.paymentIntent.status === 'succeeded') {
-          form.onsubmit();
+          form.submit();
         }
-        else {
-            // If the payment fails, reload the page
-            location.reload();
       }
-    };
-})
-
-
-// Show a spinner on payment submission
-var loading = function (isLoading) {
-  if (isLoading) {
-    // Disable the button and show a spinner
-    document.querySelector("button").disabled = true;
-    document.querySelector("#spinner").classList.remove("hidden");
-    document.querySelector("#button-text").classList.add("hidden");
-  } else {
-    document.querySelector("button").disabled = false;
-    document.querySelector("#spinner").classList.add("hidden");
-    document.querySelector("#button-text").classList.remove("hidden");
-  }
-}}
+    });
+  }).fail(function() {
+          // If the payment fails, reload the page	
+          location.reload();
+  })
+});
