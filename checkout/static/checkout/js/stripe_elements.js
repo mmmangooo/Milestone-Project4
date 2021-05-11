@@ -2,8 +2,8 @@
 and https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/static/checkout/js/stripe_elements.js
 */
 
-var stripePublicKey = document.getElementById('id_stripe_public_key').toString().slice(1, -1);
-var clientSecret = document.getElementById('id_client_secret').toString().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
@@ -34,7 +34,7 @@ card.addEventListener('change', function (event) {
           <span class="icon" role="alert">
           <i class="fas fa-times"></i></span>
           <span>${event.error.message}</span> `;
-
+    errorDiv.innerHTML = html;
   } else {
     errorDiv.textContent = '';
   }
@@ -45,16 +45,34 @@ card.on("change", function (event) {
   document.querySelector("button").disabled = event.empty;
 });
 
+// Handle form submit
 var form = document.getElementById("payment-form");
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  card.update({'disabled': true});
+  document.getElementById('submit-button').attr('disabled', true);
+
+  var saveInfo = Boolean(document.getElementById('id-save-info').attr('checked'));
+  var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+  var postData = {
+    'csrfmiddlewaretoken': csrfToken,
+    'client_secret': clientSecret,
+    'save_info': saveInfo,
+  }
+  var url = '/checkout/cache_checkout_data/';
+
+  $.post(url, postData).done(function () {
+
+    
+  })
   // Complete payment when the submit button is clicked
   payWithCard(stripe, card, data.clientSecret);
 });
 
 // Calls stripe.confirmCardPayment
 // If the card requires authentication Stripe shows a pop-up modal to
-// prompt the user to enter authentication details without leaving your page.
+// prompt the user to enter authentication details without leaving the page.
 var payWithCard = function (stripe, card, clientSecret) {
   loading(true);
   stripe
