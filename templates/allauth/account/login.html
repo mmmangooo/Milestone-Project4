@@ -17,7 +17,7 @@
 
 <div class="row align-items-center mt-5 mx-auto">
 <div class="col-12 col-lg-6">
-  <form class="login my-5 text-left" method="POST" action="{% url 'account_login' %}">
+  <form class="login my-5 text-left site-form" method="POST" action="{% url 'account_login' %}">
     <h4 class="text-center">Login here:</h4>
   {% csrf_token %}
   {{ form|crispy }}

@@ -15,7 +15,7 @@
 
 <div class="row mt-5 mx-auto">
 <div class="col-12 col-lg-6 mt-5">
-  <form class="login my-5" method="POST" action="{% url 'account_login' %}">
+  <form class="login site-form" method="POST" action="{% url 'account_logout' %}">
    
   {% csrf_token %}
   {{ form|crispy }}

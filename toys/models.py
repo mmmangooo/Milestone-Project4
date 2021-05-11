@@ -45,7 +45,6 @@ class Campaign(models.Model):
     This model defines campaigns, related via foreign key
     to the toys that are on campaign
     """
-    
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)
 

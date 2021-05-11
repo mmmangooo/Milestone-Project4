@@ -4,6 +4,11 @@ body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
 }
+
+.body-bg {
+    background: url('/media/leaves.png') repeat fixed;
+}
+
 h1 {
     color: #81E157;
     font-family: 'Quicksand', sans-serif;
@@ -20,7 +25,7 @@ h2 {
 }
 
 h3, h4 {
-    color: #6D564D;;
+    color: #6D564D;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -30,6 +35,13 @@ h4 {
 
 p {
     color: #383636;
+}
+
+.site-form {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 1.5rem;
+    padding: 2rem 2.5rem;
 }
 
 input, label {
@@ -394,7 +406,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .form-container-wrapper {
     margin: 10rem 0 0;
-    background: url('/media/leaves.png') repeat fixed;
 }
 
 .add-edit-card{
