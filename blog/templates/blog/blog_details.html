@@ -5,14 +5,14 @@
 {% block content %}
 
 
-<div class="container-fluid toy-details-container">
+<div class="container-fluid py-5">
 
 
-    <div class="row align-items-center mt-5">
+    <div class="row align-items-center mt-5 justify-content-center">
 
-        <div class="col-12 col-lg-4 my-5">
+        <div class="col-12 col-lg-6 my-5 site-form">
 
-            <h4>{{ blogpost.title }}</h4>
+            <h3 class="mb-3">{{ blogpost.title }}</h3>
 
 
             <p>{{ blogpost.content }}
@@ -20,13 +20,14 @@
 
 
             <div class="container align-items-center mt-5">
+                <h5 class="blog-comment-header">Comment on blogpost</h5>
+                {% if user.is_authenticated %}
                 <form method="POST" action="">
+                    {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <h5>Comment on blogpost</h5>
-                    {% if user.is_authenticated %}
-                    <div class="form-group py-1 my-3 mx-auto mr-lg-2">
-                        <input type="text">
-                    </div>
+                   
+                  
+                  
                     <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add comment">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
@@ -44,8 +45,8 @@
 
 
         </div>
-        <div class="col-12 col-lg-4 ">
-            <img class="toy-details-bgimg mt-5" src="{{ MEDIA_URL }}bulb.png"
+        <div class="col-12 col-lg-3 ">
+            <img class="toy-details-bgimg mt-5 ms-5" src="{{ MEDIA_URL }}bulb.png"
                 alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
         </div>
     </div>

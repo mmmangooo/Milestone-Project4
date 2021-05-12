@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import BlogPost, BlogComment
-from .forms import BlogpostForm
+from .forms import BlogpostForm, BlogCommentForm
 from django.db.models import Q
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
@@ -37,15 +37,32 @@ def blog(request):
 
 def blog_details(request, blogpost_id):
     """
-    A view to show blogpost details with content text
+    A view to show blogpost details with content text, and add comments to them
     """
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    comments = BlogComment.objects.all()
+    new_comment = None
+    comment_form = BlogCommentForm(data=request.POST)
+
+    if request.method == 'POST':
+        
+        if comment_form.is_valid():
+            # Creating new comment object, not saving yet
+            new_comment = comment_form.save(commit=False)
+            # Assigning the comment to the current blogpost
+            new_comment.blogpost = blogpost
+            new_comment.save()
+        else:
+            comment_form = BlogCommentForm()
 
     context = {
         'blogpost': blogpost,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
     }
 
-    return render(request, 'blog_details.html', context)
+    return render(request, 'blog/blog_details.html', context)
 
 
 @login_required

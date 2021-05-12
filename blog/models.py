@@ -21,11 +21,11 @@ class BlogComment(models.Model):
     """
     This model defines comments on blog posts in the db
     """
-    post_id = models.ForeignKey(
+    post = models.ForeignKey(
         BlogPost, related_name='comments',
         null=False, blank=False, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(
-        User, null=False, blank=False, on_delete=models.CASCADE)
+    author = models.CharField(max_length=254,
+                              null=False, blank=False, default='Your name')
     content = models.TextField()
     posted_date = models.DateTimeField(auto_now_add=True)
 
