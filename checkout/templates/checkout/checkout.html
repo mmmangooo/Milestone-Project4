@@ -27,11 +27,9 @@
                 {% for item in bag_items %}
                 <tr>
                     <td>
-                        {% if item.toy.image_url %}
-                        <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
-                        {% else %}
+                   
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
-                        {% endif %}
+                   
                     </td>
                     <td>
                         <p>{{item.toy.name }}</p>
@@ -145,6 +143,15 @@
 
     </div>
 </div>
+
+<div id="loading-overlay">
+    <h1 class="text-light logo-font loading-spinner">
+        <span class="icon">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+    </h1>
+</div>
+
 
 {% endblock %}
 {% block postloadjs %}
