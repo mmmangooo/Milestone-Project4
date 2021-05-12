@@ -65,7 +65,7 @@ class StripeWH_Handler:
         # Cleaning data in shipping details
         for field, value in shipping_details.address.items():
             if value == '':
-                shipping_details_address[field] = None
+                shipping_details.address[field] = None
 
         # Updating profile information if save_info is checked
 
@@ -88,8 +88,8 @@ class StripeWH_Handler:
             while attempt <= 5:
                 try:
                     order = Order.objects.get(
-                        first_name__iexact=shipping.details.first_name,
-                        last_name__iexact=shipping.details.last_name,
+                        first_name__iexact=shipping_details.first_name,
+                        last_name__iexact=shipping_details.last_name,
                         email__iexact=billing_details.email,
                         phone_number__iexact=shipping_details.phone,
                         country__iexact=shipping_details.address.country,
@@ -100,16 +100,15 @@ class StripeWH_Handler:
                         county__iexact=shipping_details.address.state,
                         grand_total=grand_total,
                         original_bag=bag,
-                        stripe_pid=pid,
-                order_exists = True
+                        stripe_pid=pid,)
+                    order_exists = True
+                    break
+                except Order.DoesNotExist:
+                    attempt += 1
+                    time.sleep(1)
 
-                break
-
-            except Order.DoesNotExist:
-                attempt += 1
-                time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)
+            self.send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
@@ -131,11 +130,11 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                   toy = Toy.objects.get(id=item_id)
+                    toy = Toy.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=product,
+                            toy=toy,
                             quantity=item_data,
                         )
                         order_line_item.save()
@@ -146,11 +145,10 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
+        self.send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
-
 
     def handle_payment_intent_payment_failed(self, event):
         """

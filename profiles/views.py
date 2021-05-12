@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from checkout.models import Order
+
 # Code adapted from Boutique Ado walkthrough project:
 # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/profiles/views.py
 
@@ -29,11 +31,30 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
 
-    template = 'profiles/profile.html'
+    orders = profile.orders.all()
 
     context = {
         'form': form,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'orders': orders,
     }
 
-    return render(request, template, context)
+    return render(request, 'profiles/profile.html', context)
+
+
+@login_required
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a confirmation for a previous order with\
+           order number {order_number} We sent a confirmation\
+            email for this order on the date it was created.'
+    ))
+
+    context = {
+        'order': order,
+        'from_profile': True
+    }
+
+    return render(request, 'checkout/checkout_success.html', context)
