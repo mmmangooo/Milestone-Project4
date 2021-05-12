@@ -62,11 +62,21 @@ toys for their children" />
 
     <!-- Including messages in template, if there are any -->
     {% if messages %}
-    <div class="container">
-        {% for message in messages %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% endfor %}
-    </div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
     {%block content %}
     {% endblock %}
@@ -78,7 +88,12 @@ toys for their children" />
     <!-- Toast script -->
     <script>
 
-        $('.toast').toast('show');
+
+var myToastEl = document.getElementById('myToast')
+myToastEl.addEventListener('hidden.bs.toast', function () {
+    myToastEl.show();
+})
+
 
 
     </script>
