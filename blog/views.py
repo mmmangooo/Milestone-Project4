@@ -45,15 +45,17 @@ def blog_details(request, blogpost_id):
     comment_form = BlogCommentForm(data=request.POST)
 
     if request.method == 'POST':
-        
         if comment_form.is_valid():
             # Creating new comment object, not saving yet
             new_comment = comment_form.save(commit=False)
             # Assigning the comment to the current blogpost
             new_comment.blogpost = blogpost
             new_comment.save()
+            messages.success(request, 'Your comment has been added!')
         else:
             comment_form = BlogCommentForm()
+            messages.error(request, 'Something went wrong, your comment\
+                                     was not added. Please try again.')
 
     context = {
         'blogpost': blogpost,

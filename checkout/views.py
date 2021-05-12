@@ -17,6 +17,7 @@ import json
 # Code adapted from Boutique Ado walkthrough project:
 # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/checkout/views.py
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -33,8 +34,6 @@ def cache_checkout_data(request):
                        'Your payment could not be processed.'
                        'Please try again later.')
         return HttpResponse(content=e, status=400)
-
-
 
 
 def checkout(request):
