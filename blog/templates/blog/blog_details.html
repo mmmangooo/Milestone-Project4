@@ -5,10 +5,10 @@
 {% block content %}
 
 
-<div class="container-fluid py-5">
+<div class="container-fluid blog-wrapper">
 
 
-    <div class="row align-items-center mt-5 justify-content-center">
+    <div class="row align-items-center mt-5 justify-content-center px-3">
 
         <div class="col-12 col-lg-6 my-5 site-form">
 
@@ -18,8 +18,8 @@
             <p>{{ blogpost.content }}
             </p>
 
-
-            <div class="container align-items-center mt-5">
+<hr>
+    
                 <h5 class="blog-comment-header">Comment on blogpost</h5>
                 {% if user.is_authenticated %}
                 <form method="POST" action="">
@@ -32,14 +32,13 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
                 {% else %}
-                <p>You have to be signed in to leave a comment.
-                    <a href="{% url 'login' %} ">Sign in here</a> or
-                    <a href="{% url 'signup' %} ">Sign up for an account here</a>
+                <p>You have to be signed in to leave a comment. </p><br>
+                 <p>  <a href="{% url 'account_login' %} ">Sign in here</a> or
+                    <a href="{% url 'account_signup' %} ">Sign up for an account here!</a>
                 </p>
                 {% endif %}
 
 
-            </div>
 
 
 

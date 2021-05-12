@@ -35,11 +35,19 @@ p {
     color: #383636;
 }
 
+hr {
+    width: 80%;
+    margin: 3rem auto;
+    border-bottom: .2rem solid #6D564D;
+    border-radius: 50%;
+}
+
 .site-form {
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 1.5rem;
-    padding: 2rem 2.5rem;
+    padding: 2.5rem 2.5rem;
+    margin: 2rem 1rem;
 }
 
 input, label {
@@ -416,7 +424,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 /*------------------ Blog */
 
 .blog-wrapper {
-    margin: 10rem 0;
+    margin: 9rem 0;
 }
 
 .blog-search {
