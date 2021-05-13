@@ -18,8 +18,7 @@ class Order(models.Model):
         max_length=32, null="False", editable="False")
     user_profile = models.ForeignKey(
         UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
-    first_name = models.CharField(max_length=150, blank=False, null=False)
-    last_name = models.CharField(max_length=150, blank=False, null=False)
+    full_name = models.CharField(max_length=150, blank=False, null=False)
     email = models.CharField(max_length=254, blank=False, null=False)
     phone_number = models.CharField(max_length=20, blank=False, null=False)
     country = CountryField(

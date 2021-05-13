@@ -44,8 +44,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
 
         form_data = {
-            'first_name': request.POST['first_name'],
-            'last_name': request.POST['last_name'],
+            'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
@@ -103,6 +102,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        print(stripe.api_key)
 
         # Prefill order form with users saved info, if the user
         # is signed in and has saved info
@@ -111,8 +111,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'first_name': profile.user.first_name,
-                    'last_name': profile.user.last_name,
+                    'full_name': profile.user.full_name,
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
                     'country': profile.default_country,
@@ -135,7 +134,7 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-
+    print(context)
     return render(request, 'checkout/checkout.html', context)
 
 
@@ -148,27 +147,29 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attaching the users profile to the order
-        order.user_profile = profile
-        order.save()
+        # Checking if the authenticated user has a saved userprofile
+        if profile.Exists:
 
-        # Saving the users info
-        if save_info:
-            profile_data = {
-                'default_first_name': order.first_name,
-                'default_last_name': order.last_name,
-                'default_email': order.email,
-                'default_phone_number': order.phone_number,
-                'default_country': order.country,
-                'default_postcode': order.postcode,
-                'default_town_or_city': order.town_or_city,
-                'default_street_address1': order.street_address_1,
-                'default_street_address2': order.street_address_2,
-                'default_county': order.county,
-            }
-        user_profile_form = UserProfileForm(profile_data, instance=profile)
-        if user_profile_form.is_valid():
-            user_profile_form.save()
+            # Attaching the users profile to the order
+            order.user_profile = profile
+            order.save()
+
+            # Saving the users info
+            if save_info:
+                profile_data = {
+                    'default_full_name': order.full_name,
+                    'default_email': order.email,
+                    'default_phone_number': order.phone_number,
+                    'default_country': order.country,
+                    'default_postcode': order.postcode,
+                    'default_town_or_city': order.town_or_city,
+                    'default_street_address1': order.street_address_1,
+                    'default_street_address2': order.street_address_2,
+                    'default_county': order.county,
+                }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     messages.success(request, f'Your order was successfully processed!\
                     Order number: {order_number}. A confirmation email \
