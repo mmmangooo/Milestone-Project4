@@ -60,13 +60,9 @@ a {
 
 /*------------------ Toasts */
 
-.toast {
-    margin: 10rem;
+.message-container {
+    margin: 10rem 0;
 }
-/*
-.toast:not(.showing):not(.show) {
-    opacity: 1 !important;
-}*/
 
 .toast p {
     color: #6D564D;
@@ -287,6 +283,17 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 /*---------------------- Checkout */
 
+#loading-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(161, 161, 161, 0.699);
+    z-index: 1030;
+    display: none;
+}
+
 .checkout-form-container {
     border: .05rem solid #8a8888;
     border-radius: 1.5rem;
@@ -302,7 +309,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 .charge-info { 
     color: #6D564D;
 }
-
 
 
 /* Stripe global CSS, from https://stripe.com/docs/payments/integration-builder */

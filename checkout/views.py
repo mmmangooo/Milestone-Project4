@@ -21,7 +21,7 @@ import json
 @require_POST
 def cache_checkout_data(request):
     try:
-        pid = request.POST.get('client_secret').split('secret')[0]
+        pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
@@ -60,7 +60,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe.pid = pid
+            order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
             for item_id, item_data in bag.items():
@@ -134,7 +134,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
-        }
+    }
 
     return render(request, 'checkout/checkout.html', context)
 
@@ -153,18 +153,18 @@ def checkout_success(request, order_number):
         order.save()
 
         # Saving the users info
-        if save_info():
+        if save_info:
             profile_data = {
-                'first_name': profile.user.first_name,
-                'last_name': profile.user.last_name,
-                'email': profile.user.email,
-                'phone_number': profile.default_phone_number,
-                'country': profile.default_country,
-                'postcode': profile.default_postcode,
-                'town_or_city': profile.default_town_or_city,
-                'street_address1': profile.default_street_address_1,
-                'street_address2': profile.default_street_address_2,
-                'county': profile.default_county,
+                'default_first_name': order.first_name,
+                'default_last_name': order.last_name,
+                'default_email': order.email,
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address_1,
+                'default_street_address2': order.street_address_2,
+                'default_county': order.county,
             }
         user_profile_form = UserProfileForm(profile_data, instance=profile)
         if user_profile_form.is_valid():
