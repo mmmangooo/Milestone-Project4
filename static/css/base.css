@@ -61,7 +61,11 @@ a {
 /*------------------ Toasts */
 
 .message-container {
-    margin: 10rem 0;
+    margin: 7.7rem 0 0;
+    padding: 1rem;
+
+    background-color: #c9ef849a;
+    position: fixed;
 }
 
 .toast p {
@@ -87,6 +91,10 @@ a {
 
 .nav-link:active {
     font-weight: 700;
+}
+
+.navbar-collapse {
+    text-align: left;
 }
 
 .nav-search-input {
