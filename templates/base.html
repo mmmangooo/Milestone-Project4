@@ -14,26 +14,31 @@ toys for their children" />
 
     {% endblock %}
 
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+
     {% block corecss %}
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Condensed:wght@300&display=swap"
+        rel="stylesheet">
     <!-- Custome CSS -->
     <link type="text/css" rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block corejs %}
     <!-- Bootstrap, jquery and popper -->
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/07bb8fa899.js" crossorigin="anonymous"></script>
     <!-- Stripe -->
@@ -53,7 +58,7 @@ toys for their children" />
 
     <!-- Loading a header banner into template -->
 
-   {% block page_header %}
+    {% block page_header %}
     <div class="container-fluid header-banner py-3 fixed-top">
         <h2 class="text-uppercase text-white">Free shipping on orders over € {{ free_delivery_threshold }}</h2>
 
@@ -62,39 +67,36 @@ toys for their children" />
 
     <!-- Including messages in template, if there are any -->
     {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
     {%block content %}
     {% endblock %}
 
+
+
+
     {% block postloadjs %}
 
-
-
-    <!-- Toast script -->
-    <script>
-
-
-var myToastEl = document.getElementById('myToast')
-myToastEl.addEventListener('hidden.bs.toast', function () {
-    myToastEl.show();
-})
-
-
+    <!-- Show toasts script -->
+    <script type="text/javascript">
+        var myToastEl = document.getElementById('myToast')
+        myToastEl.addEventListener('hidden.bs.toast', function () {
+            myToastEl.show();
+        })
 
     </script>
     {% endblock %}

@@ -58,12 +58,25 @@ a {
     text-decoration: none;
 }
 
+/*------------------ Toasts */
+
 .toast {
     margin: 10rem;
 }
-
+/*
 .toast:not(.showing):not(.show) {
     opacity: 1 !important;
+}*/
+
+.toast p {
+    color: #6D564D;
+    margin: .5rem;
+}
+
+.btn-close {
+    position: relative;
+    left: 14rem;
+    bottom: .5rem;
 }
 
 /*-------------------------Navigation bar */
@@ -259,6 +272,16 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .bag-page-img {
     width: 70%;
+}
+
+.update-link {
+    float: left;
+    cursor: pointer;
+}
+
+.remove-item {
+    float: right;
+    cursor: pointer;
 }
 
 /*---------------------- Checkout */
@@ -465,6 +488,8 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 .delete-confirm-legend {
     font-size: 1.2rem;
 }
+
+
 
 
 /*------------------ Media queries */
