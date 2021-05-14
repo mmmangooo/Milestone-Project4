@@ -80,7 +80,7 @@
             <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
             <div class="text-left w-75 mx-auto">
 
-                <form action="{% url 'checkout' % }" method="POST" id="payment-form" class="site-form">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="site-form">
 
                     {% csrf_token %}
                     <fieldset>
