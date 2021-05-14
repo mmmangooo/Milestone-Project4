@@ -63,9 +63,8 @@ a {
 .message-container {
     margin: 7.7rem 0 0;
     padding: 1rem;
-
     background-color: #c9ef849a;
-    position: fixed;
+
 }
 
 .toast p {

@@ -82,8 +82,7 @@ def checkout(request):
 
             # Save the info to user profile
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse(
-                'checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'Something went wrong with your form. \
                                      Please double check your information')
@@ -102,7 +101,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(stripe.api_key)
 
         # Prefill order form with users saved info, if the user
         # is signed in and has saved info
@@ -111,7 +109,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.full_name,
+                    'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
                     'country': profile.default_country,
@@ -134,7 +132,6 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-    print(context)
     return render(request, 'checkout/checkout.html', context)
 
 
@@ -164,9 +161,9 @@ def checkout_success(request, order_number):
                 'default_street_address2': order.street_address_2,
                 'default_county': order.county,
                 }
-        user_profile_form = UserProfileForm(profile_data, instance=profile)
-        if user_profile_form.is_valid():
-            user_profile_form.save()
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     messages.success(request, f'Your order was successfully processed!\
                     Order number: {order_number}. A confirmation email \
