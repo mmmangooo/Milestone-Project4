@@ -1,0 +1,28 @@
+Hi {{order.full_name }}!
+
+Thank for shopping at Green Toys! This is a confirmation of your order with order number {{ order.order_number }}.
+
+You have ordered:
+
+{% for order_line_item in order_line_items %}
+{{ order_line_item.toy }}
+{% endfor %} 
+
+Your order total is ${{ order.order_total }}.
+Your shipping cost is ${{ order.delivery_cost }}.
+The grand total for your order is ${{ order.grand_total }}.
+
+Please check that the contact and shipping details on your order are correct:
+{{ order.phone_number}}
+{{ order.street_address_1 }} 
+{{ order.postcode}}
+{{ order.town_or_city }}
+{{ order.country }} 
+
+Please note that it is not possible to reply ti this email! If you have any question, or if any of the information on your order is not correct, please contact us at ... 
+
+Thank you for ordering from us!
+
+Best wishes,
+
+Green Toys

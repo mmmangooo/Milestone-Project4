@@ -190,7 +190,8 @@ if 'USE_CLOUDINARY' in os.environ:
     cloudinary.config(
         cloud_name="dmfctgbcd",
         api_key="os.getenv('CLOUDINARY_API_KEY', '')",
-        api_secret="os.getenv('CLOUDINARY_SECRET_KEY', '')"
+        api_secret="os.getenv('CLOUDINARY_SECRET_KEY', '')",
+        cloudinary_url="os.getenv('CLOUDINARY_URL')",
     )
     STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
