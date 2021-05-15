@@ -194,7 +194,7 @@ if 'USE_CLOUDINARY' in os.environ:
         api_key="os.getenv('CLOUDINARY_API_KEY', '')",
         api_secret="os.getenv('CLOUDINARY_SECRET_KEY', '')",
     )
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+  #  STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 

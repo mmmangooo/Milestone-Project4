@@ -31,12 +31,12 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
 
-    orders = profile.orders.all()
+    # orders = profile.orders.all()
 
     context = {
         'form': form,
         'on_profile_page': True,
-        'orders': orders,
+        #'orders': orders,
     }
 
     return render(request, 'profiles/profile.html', context)
@@ -54,7 +54,7 @@ def order_history(request, order_number):
 
     context = {
         'order': order,
-        'from_profile': True
+        'from_profile': True,
     }
 
     return render(request, 'checkout/checkout_success.html', context)
