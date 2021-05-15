@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'storages',
-    'cloudinary'
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -174,7 +175,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static and media 
+# ,files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -191,11 +193,11 @@ if 'USE_CLOUDINARY' in os.environ:
         cloud_name="dmfctgbcd",
         api_key="os.getenv('CLOUDINARY_API_KEY', '')",
         api_secret="os.getenv('CLOUDINARY_SECRET_KEY', '')",
-        cloudinary_url="os.getenv('CLOUDINARY_URL')",
     )
     STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 # Default primary key field type

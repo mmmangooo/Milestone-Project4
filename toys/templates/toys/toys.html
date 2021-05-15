@@ -47,7 +47,7 @@
         <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
           <div class="toy-card card" style="width: 20rem;">
-            {% if toy.image_url %} <img src="{{ toy.image }}" alt="">
+            {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
             {% else %}
             <img src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">

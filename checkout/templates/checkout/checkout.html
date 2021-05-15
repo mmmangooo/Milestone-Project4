@@ -27,7 +27,9 @@
                 {% for item in bag_items %}
                 <tr>
                     <td>
-                   
+                        {% if item.toy.image %} 
+                        <img src="{{ toy.image }}" alt="{{ toy.name }}">
+                        {% endif %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
                    
                     </td>
