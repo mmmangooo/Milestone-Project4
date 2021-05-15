@@ -18,10 +18,10 @@
         <div class="col-12 col-lg-5 justify-content-center px-lg-5">
             <h4 class="mb-3"><strong>Order history</strong></h4>
 
-            {% if profile.order %}
+          
             <table class="table table-sm table-borderless site-form">
                 <thead>
-                    <tr>
+                    <tr class="py-2 my-3">
                         <th>Order Number</th>
                         <th>Date</th>
                         <th>Items</th>
@@ -52,11 +52,11 @@
                     {% endfor %}
                 </tbody>
             </table>
-            {% else %} 
-
+        
+<!--
             <p class="site-form">You don't have any order history yet!</p>
             <a href="{% url 'toys' %}" class="btn submit-btn rounded-pill">Go shopping!</a>
-            {% endif %}
+-->
         </div>
     </div>
 </div>

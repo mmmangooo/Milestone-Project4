@@ -28,15 +28,17 @@ def profile(request):
             messages.error(
                 request, 'Update failed.'
                 'Please check that the form is valid and try again.')
+
     else:
         form = UserProfileForm(instance=profile)
 
-    # orders = profile.orders.all()
+    orders = profile.orders.all()
 
     context = {
         'form': form,
         'on_profile_page': True,
-        #'orders': orders,
+        'orders': orders,
+        'profile': profile,
     }
 
     return render(request, 'profiles/profile.html', context)
