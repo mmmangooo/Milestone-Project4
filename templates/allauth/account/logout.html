@@ -13,8 +13,8 @@
 
 
 
-<div class="row mt-5 mx-auto">
-<div class="col-12 col-lg-6 mt-5">
+<div class="row mt-5 justify-content-center">
+<div class="col-12 col-lg-4 mt-5">
   <form class="login site-form" method="POST" action="{% url 'account_logout' %}">
    
   {% csrf_token %}
@@ -26,6 +26,7 @@
   <p class="mb-3">{% trans 'Are you sure you want to sign out?' %}</p>
  
   <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-3" type="submit">{% trans "Sign Out" %}</button>
+  <p><a href="{% url 'home' %}">Cancel</a></p>
   
 </form>
 

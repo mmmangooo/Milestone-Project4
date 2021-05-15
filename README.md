@@ -309,3 +309,8 @@ Setting up signup and login, this tutorial: https://www.youtube.com/watch?v=q4jP
 
 Blog comments, this tutorial: https://www.youtube.com/watch?v=hZrlh4qU4eQ
 and https://djangocentral.com/creating-comments-system-with-django/
+
+
+404 and 500 custom template setup:
+
+https://github.com/GBrachetta/guillermo/blob/master/guillermo/
