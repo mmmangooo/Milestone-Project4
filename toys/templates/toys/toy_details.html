@@ -36,15 +36,15 @@
                         <div class="input-group w-50 mx-auto mx-lg-0">
                             <div class="input-group-prepend">
 
-                                <button class="decrement-qty btn" data-item-id="{{ toy.id }}"
-                                    id="decrement-qty_{{toy.id}}"><span class="icon"><i
+                                <button class="decrement-qty btn mt-2" data-item-id="{{ toy.id }}"
+                                    id="decrement-qty_{{ toy.id }}"><span class="icon"><i
                                             class="fas fa-minus"></i></span></button>
                             </div>
                             <input type="number" name="quantity" value="1" min="1" max="5"
-                                class="form-control qty-input" data-item-id="{{ toy.id }}" id="id_qty_{{toy.id}}">
+                                class="form-control qty_input" data-item-id="{{ toy.id }}" id="id_qty_{{ toy.id }}">
                             <div class="input-group-append">
-                                <button class="increment-qty btn" data-item-id="{{ toy.id }}"
-                                    id="increment-qty_{{toy.id}}"><span class="icon"><i
+                                <button class="increment-qty btn mt-2" data-item-id="{{ toy.id }}"
+                                    id="increment-qty_{{ toy.id }}"><span class="icon"><i
                                             class="fas fa-plus"></i></span></button>
                             </div>
                         </div>
