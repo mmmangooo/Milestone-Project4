@@ -114,14 +114,14 @@
             </table>
             <div class="row  mt-5 align-items-center justify-content-end">
                 <div class="col-8 mt-5 text-right">
-                    <a href="{ % url 'toys' %} "><span class="icon"><i class="fas fa-arrow-left"></i> </span> Continue
+                    <a href="{% url 'toys' %} "><span class="icon"><i class="fas fa-arrow-left"></i> </span> Continue
                         shopping</a>
 
                     <a class="btn submit-btn rounded-pill" href="{% url 'checkout' %} "> Checkout</a>
 
                     {% else %}
                     <p class="my-5">No items in your bag yet.</p>
-                    <a class="btn submit-btn rounded-pill" href="{% url 'toys' %"> Go shopping!</a>
+                    <a class="btn submit-btn rounded-pill" href="{% url 'toys' %}"> Go shopping!</a>
                     {% endif %}
                 </div>
             </div>

@@ -110,9 +110,9 @@
       let currentUrl = new URL(window.location);
   
       let selectedVal = selector.val();
-      let category = selectedVal.replace('_', ' ');
-      console.log(category);
       if (selectedVal != 'reset') {
+      let category = selectedVal.replace('_', ' ');
+      
         currentUrl.searchParams.set('category', category);
   
         window.location.replace(currentUrl);
