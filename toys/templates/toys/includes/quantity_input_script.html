@@ -1,5 +1,8 @@
 <script type="text/javascript">
 
+// Code from Boutique Ado walkthrough project:
+https://github.com/ckz8780/boutique_ado_v1/blob/master/products/templates/products/product_detail.html
+
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
@@ -7,7 +10,7 @@
         var plusDisabled = currentValue > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-    }
+    } 
 
     // Ensure proper enabling/disabling of all inputs on page load
     var allQtyInputs = $('.qty_input');
