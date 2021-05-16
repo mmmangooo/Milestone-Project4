@@ -71,15 +71,16 @@
       </form>
     </div>
 
-    <p>{% if order_total %}
-          € {{order_total|floatformat:2}}     
-      {% else % }
+    <p class="mt-2">{% if grand_total %}
+          € {{grand_total|floatformat:2}}     
+      {% else %}
           € 0.00
           
       {% endif %}
     </p>
+    <span class="mb-2">
     <a href="{% url 'view_bag' %}"><img class="shopping-cart" src="{{ MEDIA_URL }}cart-icon.png" alt="Green shopping cart"></a>
-
+  </span>
   </div>
 
 

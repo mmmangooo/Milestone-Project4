@@ -133,7 +133,7 @@ a {
     color: #fff;
 }
 
-/*------------------------ Hero section */
+/*------------------------ Home page */
 
 
 .index-hero {
@@ -160,7 +160,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     color: #747272;
 }
 
-/*----------------- Index content section */
 
 .index-grid-container {
     width: 75%;
@@ -179,6 +178,14 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .index-drawing {
     width: 100%;
+}
+
+.index-card {
+    padding: 1rem 2rem;
+  /*  border: .1rem solid #6D564D;*/
+    border-radius: .2rem;
+    box-shadow: .15rem .15rem .2rem .2rem #7a675f;
+
 }
 
 /*-------------------- All toys page */

@@ -5,54 +5,72 @@
 
 {% block content %}
 <div class="index-hero container-fluid" style="background-image: url('{{ MEDIA_URL }}hero-img.jpg');">
-    <div class="row justify-content-start justify-content-lg-end align-content-center h-100"> 
-    <div class="col-12 col-lg-6"><h1 class="my-2 ms-2">Green Toys</h1>
-        <h2 class="mt-3 ms-2">GIVE YOUR KID AND EARTH THE BEST</h2>
-    <a class="hero-btn btn rounded-pill mt-5 ms-2" href="{% url 'toys' %}">  SHOP NOW <span class="icon"><i class="fas fa-arrow-right ps-3"></i></span></a></div>
-</div>
+    <div class="row justify-content-start justify-content-lg-end align-content-center h-100">
+        <div class="col-12 col-lg-6">
+            <h1 class="my-2 ms-2">Green Toys</h1>
+            <h2 class="mt-3 ms-2">GIVE YOUR KID AND EARTH THE BEST</h2>
+            <a class="hero-btn btn rounded-pill mt-5 ms-2" href="{% url 'toys' %}"> SHOP NOW <span class="icon"><i
+                        class="fas fa-arrow-right ps-3"></i></span></a>
+        </div>
+    </div>
 </div>
 
 
 
 <div class="container-fluid my-3 index-grid-container">
-    <div class="row my-2">
-    
+    <div class="row my-3">
+
         <div class="col-12 col-lg-4">
-            <h3>Campaign</h3></div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-        
-    </div>
+            <h3>Campaign</h3>
 
 
-    <div class="row my-2">
-        <div class="col-12 col-lg-4">
-            <h3>Popular</h3> </div>
-            {% for toy in toys|dictsort:"toy.rating" %}
+            <div class="col-12 col-sm-3 col-lg-2"> {{ campaign }} </div>
+
+
+
+
+        </div>
+
+
+        <div class="row my-3">
+            <div class="col-12 col-lg-4">
+                <h3>Popular</h3>
+            </div>
+            {% for toy in toys %}
             <div class="col-12 col-sm-3 col-lg-2"> {{ toy.name }}</div>
-       
+
             {% endfor %}
-       
+
+        </div>
+
+
+        <div class="row my-3 align-items-center">
+            <div class="col-12 col-lg-4">
+                <h3>Blog</h3>
+            </div>
+            {% for blogpost in blogposts %}
+            <div class="col-12 col-sm-4 col-lg-3">
+                <div class="index-card">
+                    <h5>{{ blogpost.title }}</h5>
+
+                    <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read
+                            blogpost</a></button>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
     </div>
 
-  
-    <div class="row my-2">
-        <div class="col-12 col-lg-4">
-            <h3>Blog</h3></div>
-            {{ blogpost.title }}
-            <div class="col-12 col-sm-3 col-lg-2">Product</div>
-           
-        
+    <div class="container-fluid index-side-container my-3">
+        <a href="{% url 'toys' %}">
+            <h4 class="index-link my-3"></h4>See All Toys
+        </a>
+        <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png"
+            alt="Drawing of green twig with delicate leaves">
+        <a href="{% url 'blog' %}">
+            <h4 class="index-link my-3"></h4>See All Blog Posts
+        </a>
     </div>
-</div>
-
-<div class="container-fluid index-side-container my-3">
-    <a href="{% url 'toys' %}"><h4 class="index-link my-3"></h4>See All Toys</a>
-    <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png" alt="Drawing of green twig with delicate leaves">
-   <a href="{% url 'blog' %}"> <h4 class="index-link my-3"></h4>See All Blog Posts</a>
-</div>
-{% endblock %}
-
-
+    {% endblock %}
