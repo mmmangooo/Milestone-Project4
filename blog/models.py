@@ -22,8 +22,8 @@ class BlogComment(models.Model):
     This model defines comments on blog posts in the db
     """
     post = models.ForeignKey(
-        BlogPost, related_name='comments',
-        null=False, blank=False, on_delete=models.CASCADE)
+        BlogPost, on_delete=models.CASCADE, null=True, blank=True,
+        related_name='comments')
     author = models.CharField(max_length=254,
                               null=False, blank=False, default='Your name')
     content = models.TextField()

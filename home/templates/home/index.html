@@ -17,14 +17,28 @@
 
 
 
-<div class="container-fluid my-3 index-grid-container">
-    <div class="row my-3">
+<div class="container-fluid my-5 index-grid-container">
+    <div class="row pb-5 align-items-center">
 
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-2 ">
             <h3>Campaign</h3>
-
-
-            <div class="col-12 col-sm-3 col-lg-2"> {{ campaign }} </div>
+</div>
+            {% for has_campaign in has_campaigns %}
+            <div class="col-12 col-sm-4 col-lg-3">
+                <div class="index-card">
+                    <h5>{{ has_campaign.name }}</h5>
+                    {% if has_campaign.image %} <img src="{{ has_campaign.image }}" alt="{{ has_campaign.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}no-image.png"
+                        alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+                    {% endif %}
+                    <p>{{ has_campaign.rating }}</p>
+                    <p class="text-danger"> Now € {{ has_campaign.price }}!</p>
+                    <a href="{% url 'toy_details' has_campaign.id%}" class="btn rounded-pill submit-btn text-white my-2">Read
+                        more</a>
+                </div>
+            </div>
+            {% endfor %}
 
 
 
@@ -32,26 +46,41 @@
         </div>
 
 
-        <div class="row my-3">
-            <div class="col-12 col-lg-4">
+        <div class="row align-items-center pb-5">
+            <div class="col-12 col-lg-2">
                 <h3>Popular</h3>
             </div>
             {% for toy in toys %}
-            <div class="col-12 col-sm-3 col-lg-2"> {{ toy.name }}</div>
+            <div class="col-12 col-sm-4 col-lg-3">
+                <div class="index-card">
+                    <h5 class="card-title">{{ toy.name }}</h5>
+                    {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}no-image.png"
+                        alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+                    {% endif %}
+                    <p>{{ toy.rating }}</p>
+                    <p> {% if toy.campaign %} € {{toy.campaign.price }} {% else %} € {{toy.price }}
+                        {%endif %}</p>
+                    <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white my-2">Read
+                        more</a>
+                </div>
+            </div>
 
             {% endfor %}
 
         </div>
 
 
-        <div class="row my-3 align-items-center">
-            <div class="col-12 col-lg-4">
+        <div class="row pb-5 align-items-center">
+            <div class="col-12 col-lg-2">
                 <h3>Blog</h3>
             </div>
             {% for blogpost in blogposts %}
             <div class="col-12 col-sm-4 col-lg-3">
                 <div class="index-card">
                     <h5>{{ blogpost.title }}</h5>
+                   <p class="index-card-text">{{ blogpost.content }}</p>
 
                     <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read
                             blogpost</a></button>

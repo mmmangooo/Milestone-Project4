@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from toys.models import Toy
-from blog.models import BlogPost
+from blog.models import BlogPost, BlogComment
 
 
 def index(request):
     """ This view returns the index page """
 
-    popular = Toy.objects.filter(rating=4)
-    campaign = Toy.objects.filter(campaign=True)[:4]
-    blogposts = BlogPost.objects.all()[:4]
+    toys = Toy.objects.order_by('-rating')[:3]
+    has_campaigns = Toy.objects.filter(campaign=True)[:3]
+    blogposts = BlogPost.objects.all()[:3]
+   # if blogposts.comments:
+    #    blogcomments = blogposts.comments.all()
 
     context = {
-        'popular': popular,
-        'campaign': campaign,
-        'blogposts': blogposts
+        'toys': toys,
+        'has_campaigns': has_campaigns,
+        'blogposts': blogposts,
+     #   'blogcomments': blogcomments
     }
 
     return render(request, 'home/index.html', context)
