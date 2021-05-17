@@ -31,7 +31,7 @@
         </div>
         {% for has_campaign in has_campaigns %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="index-card">
+            <div class="square-card">
                 <h5>{{ has_campaign.name }}</h5>
                 {% if has_campaign.image %} <img src="{{ has_campaign.image }}" alt="{{ has_campaign.name }}">
                 {% else %}
@@ -60,7 +60,7 @@
         </div>
         {% for toy in toys %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="index-card">
+            <div class="square-card">
                 <h5 class="card-title">{{ toy.name }}</h5>
                 {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
                 {% else %}
@@ -85,7 +85,7 @@
         </div>
         {% for blogpost in blogposts %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="index-card">
+            <div class="square-card">
                 <h5>{{ blogpost.title }}</h5>
                 <p class="index-card-text">{{ blogpost.content }}</p>
 

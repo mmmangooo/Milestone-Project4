@@ -3,35 +3,42 @@
 
 {% block content %}
 
-<div class="container blog-wrapper py-3">
+<div class="container-fluid page-wrapper py-3">
     {% if search_term %} <a class="back-from-search" href="{% url 'blog' %}"><span class="icon"><i
-                class="fas fa-arrow-left"></i></span> Back to all blog posts</a>{% else %}<h3>Blog</h3> <h4 class=" my-5">Learn more about why sustainable toys are important and which materials to look for, or avoid!
-                </h4>{% endif %}
-    <div class="row justify-content-center">
-        <div class="col-12 justify-content-center">
+                class="fas fa-arrow-left"></i></span> Back to all blog posts</a> {% else %} <h3>Blog</h3>{% endif %}
+    <div class="row">
+        <div class="col-12">
             {% if search_term %} <h4>You searched for '{{ search_term }}'. {{blogposts|length}} blogpost /-s found:</h4>
             {% endif %}
-
-            <form method="GET" action="{% url 'blog' %}" class="blog-search text-center">
-
-
-                <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
-                    placeholder="Search our blog" aria-label="Search">
-                <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
-                            class="fas fa-search"></i></span></button>
-            </form>
         </div>
-    </div>
-   
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <form method="GET" action="{% url 'blog' %}" class="d-flex">
 
-    <div class="row align-items-center ">
-        <div class="d-none d-lg-block col-lg-2 mt-3">
+
+                    <input class="form-control nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
+                        placeholder="Search our blog" aria-label="Search">
+                    <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
+                                class="fas fa-search"></i></span></button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row align-items-center justify-content-center">
+        <div class="d-none d-xl-block col-xl-2 mt-3">
             <img src="{{ MEDIA_URL }}bulb.png" class="blog-img"
                 alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
         </div>
-        <div class="col-12 col-lg-10 my-3">
+        <div class="col-12 col-xl-8 my-3 offset-xl-1 mt-3">
+
+            <h4 class=" my-5">Learn more about why sustainable toys are important and which materials to look for, or
+                avoid!
+            </h4>
             {% for blogpost in blogposts %}
-            <div class="blog-card p-2 my-3">
+            <div class="square-card my-3">
 
                 <h5>{{ blogpost.title }}</h5>
                 <p>{{ blogpost.content }}</p>

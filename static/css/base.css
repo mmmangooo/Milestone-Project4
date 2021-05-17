@@ -66,6 +66,13 @@ p {
     padding: .5rem 1rem;
 }
 
+.square-card {
+    padding: 2rem 2rem;
+    border: .02rem solid #6D564D;
+    border-radius: .2rem;
+    box-shadow: .08rem .08rem .12rem .12rem #a08d86;
+}
+
 input, label {
     margin: .5rem 0;
 }
@@ -148,7 +155,7 @@ hr {
 .header-banner {
     background-color: #CAEF84;
     margin-top: 3.5rem;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 .header-banner span {
@@ -183,7 +190,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 .index-header {
-    color: #8CC63F;
     margin: 4rem 0 1rem;
     font-size: 1.5rem;
 }
@@ -201,13 +207,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .index-drawing {
     width: 100%;
-}
-
-.index-card {
-    padding: 1rem 2rem;
-    border: .02rem solid #6D564D;
-    border-radius: .2rem;
-    box-shadow: .08rem .08rem .12rem .12rem #a08d86;
 }
 
 .index-card-text {
@@ -481,15 +480,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
   }
   
 
-
-/*------------------- Allauth templates */
-
-.account-container {
-    margin: 12rem 0;
-}
-
-
-
 /* ----------------- Add/edit/delete toys and blog */
 
 .form-container-wrapper {
@@ -509,16 +499,8 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin: 9rem 0;
 }
 
-.blog-search {
-    float: right;
-}
-
 .blog-img {
     width: 50%;
-}
-
-.blog-card {
-    border: .3rem solid #6D564D;
 }
 
 .edit-blogpost-link {
