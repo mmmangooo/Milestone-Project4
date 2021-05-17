@@ -4,22 +4,25 @@
 {% block content %}
 
 <div class="container blog-wrapper py-3">
-    <h3>Blog</h3>
+    {% if search_term %} <a class="back-from-search" href="{% url 'blog' %}"><span class="icon"><i
+                class="fas fa-arrow-left"></i></span> Back to all blog posts</a>{% else %}<h3>Blog</h3> <h4 class=" my-5">Learn more about why sustainable toys are important and which materials to look for, or avoid!
+                </h4>{% endif %}
     <div class="row justify-content-center">
         <div class="col-12 justify-content-center">
-        {% if search_term %}<h3>You searched for '{{ search_term }}'. {{blogposts|length}} blog posts found:</h3>{% endif %}
-    
-        <form method="GET" action="{% url 'toys' %}" class="blog-search text-center">
-      
-    
-            <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
-                placeholder="Search our blog" aria-label="Search">
-            <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
-                        class="fas fa-search"></i></span></button>
-        </form>
+            {% if search_term %} <h4>You searched for '{{ search_term }}'. {{blogposts|length}} blogpost /-s found:</h4>
+            {% endif %}
+
+            <form method="GET" action="{% url 'blog' %}" class="blog-search text-center">
+
+
+                <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
+                    placeholder="Search our blog" aria-label="Search">
+                <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
+                            class="fas fa-search"></i></span></button>
+            </form>
+        </div>
     </div>
-    </div>
-    <h4 class=" mb-5">Learn more about why sustainable toys are important and which materials to look for, or avoid!</h4>
+   
 
     <div class="row align-items-center ">
         <div class="d-none d-lg-block col-lg-2 mt-3">
@@ -32,7 +35,8 @@
 
                 <h5>{{ blogpost.title }}</h5>
                 <p>{{ blogpost.content }}</p>
-               <button class="btn submit-btn rounded-pill"><a  href="{% url 'blog_details' blogpost.id %}">Read and comment blogpost</a></button> 
+                <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read and
+                        comment blogpost</a></button>
 
                 {% if request.user.is_superuser %}
 

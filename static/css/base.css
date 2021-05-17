@@ -67,6 +67,7 @@ input, label {
 
 a {
     text-decoration: none;
+    color: #6D564D;
 }
 
 hr {
@@ -176,6 +177,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     color: #747272;
 }
 
+.index-header {
+    color: #8CC63F;
+    margin: 4rem 0 1rem;
+    font-size: 1.5rem;
+}
 
 .index-grid-container {
     width: 75%;
@@ -186,10 +192,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     width: 20%;
     position: absolute;
     right: 1rem;
-}
-
-.index-link {
-    float: right;
 }
 
 .index-drawing {
@@ -531,6 +533,12 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .delete-confirm-legend {
     font-size: 1.2rem;
+}
+
+.back-from-search {
+    color: #6D564D;
+    position: absolute;
+    left: 2rem;
 }
 
 /*------------------- Footer */

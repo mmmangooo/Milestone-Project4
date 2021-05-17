@@ -17,7 +17,11 @@
 
             <p>{{ blogpost.content }}
             </p>
+<hr>
 
+<h5>Comments:</h5>
+{% if comments != 'None_None' %} <p>{{ blogpost.comments }} </p>
+{% else %} <p>This blog post has no comments yet.</p>{% endif %}
 <hr>
     
                 <h5 class="blog-comment-header">Comment on blogpost</h5>

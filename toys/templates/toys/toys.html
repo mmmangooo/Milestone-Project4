@@ -8,7 +8,7 @@
 <div class="container-fluid all-toys-wrapper">
   <h3>Our Toys</h3>
   {% if request.user.is_superuser %}
-  <a class="add-toy-link" href=""><span><i class="fas fa-plus"></i> Add Toy</span></a>
+  <a class="add-toy-link" href="{% url 'add_toy' %}"><span><i class="fas fa-plus"></i> Add Toy</span></a>
   {% endif %}
   <div class="container-fluid mt-5">
     <div class="toys-select-container">
