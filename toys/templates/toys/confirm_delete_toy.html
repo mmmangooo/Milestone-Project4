@@ -11,6 +11,8 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6 mt-5 text-center">
 
+            <!-- Conformating that the specific toy is going to be deleted from the db -->
+
             <form action="{% url 'delete_toy' toy.id %}" method="POST" enctype="multipart/form-data" class="site-form">
                   {% csrf_token %}
 

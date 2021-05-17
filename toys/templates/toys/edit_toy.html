@@ -11,6 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6 col-xl-5 mt-5 text-center">
        
+            <!-- Form for editing details about a toy in the db-->
             <form action="{% url 'edit_toy' toy.id %}" method="POST" enctype="multipart/form-data" class="site-form">
                   {% csrf_token %}
 

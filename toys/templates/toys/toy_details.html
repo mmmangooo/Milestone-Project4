@@ -12,6 +12,7 @@
     <div class="row align-items-center mt-5">
         <div class="col-12 col-lg-4">
           
+            <!-- Showing image of the toy if there is one, otherwise showing a generic 'no image found'-image -->
             <div class="details-img-container py-5 mx-5 my-5">
                 {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}"> 
                 {% else %}
@@ -20,6 +21,8 @@
                 {% endif %}
             </div>
         </div>
+
+        <!-- Showing details about the specific toy -->
         <div class="col-12 col-lg-4 my-5">
             <h4>{{ toy.name }}</h4>
 
@@ -27,11 +30,13 @@
             <p>{% if toy.description %} {{ toy.description }} {% else %} This toy has no description yet. {% endif %}
             </p>
 
+            <!-- Showing the toy's campaign price if it has one, otherwose showing original price -->
             <p>{% if toy.campaign %} {{toy.campaign.price}} {% else %} € {{toy.price }} {%endif %}</p>
             <div class="container align-items-center mt-5">
                 <form method="POST" action="{% url 'add_to_bag' toy.id %}">
                     {% csrf_token %}
                     <p>Quantity:</p>
+                    <!-- Form for choosing what quantity of the toy to add to the bag -->
                     <div class="form-group py-1 my-3 mx-auto mr-lg-2">
                         <div class="input-group w-50 mx-auto mx-lg-0">
                             <div class="input-group-prepend">
@@ -59,7 +64,7 @@
 
 
 
-
+<!-- Decorative image -->
         </div>
         <div class="col-12 col-lg-4 ">
             <img class="toy-details-bgimg mt-5" src="/media/happy-child.png"
@@ -71,6 +76,7 @@
 {% endblock %}
 
 {% block postloadjs %} 
+<!-- Link to script for handling the increment/decrement quantity buttons on the form -->
 {{ block.super }}
 {% include 'toys/includes/quantity_input_script.html' %}
 {% endblock %}

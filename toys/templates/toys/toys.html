@@ -7,11 +7,17 @@
 {% block content %}
 <div class="container-fluid all-toys-wrapper">
   <h3>Our Toys</h3>
+
+  <!-- Link to 'add toy'-form, only shown if the user is logged in with superuser credentials-->
   {% if request.user.is_superuser %}
   <a class="add-toy-link" href="{% url 'add_toy' %}"><span><i class="fas fa-plus"></i> Add Toy</span></a>
   {% endif %}
+
+
   <div class="container-fluid mt-5">
     <div class="toys-select-container">
+
+      <!-- Selecting which category of toys to show on page -->
        <select id="category-selector" class="category-selector">
         <option value="reset" {% if category == 'None_None' %} selected {% endif %}>All Categories</option>
 
@@ -21,6 +27,7 @@
 
       </select>
 
+      <!-- Selecting how to sort the toys shown on the page -->
        <select id="sort-selector" class="sort-selector">
         <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
 
@@ -34,15 +41,16 @@
         </option>
 
       </select>
-
-           
-
-        
+  
     </div>
+
+    <!-- Showing an informative text about the search results if the user has searched for a toy on the site. If not, this content is not shown -->
     <div class="container">
       {% if search_term %}<h3>You searched for '{{ search_term }}'. {{toys|length}} toys found:</h3>{% endif %}
 
       <div class="row ">
+
+        <!-- Showing toys in a card grid -->
         {% for toy in toys %}
         <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
@@ -55,10 +63,14 @@
             <div class="card-body">
               <h5 class="card-title">{{ toy.name }}</h5>
             
+              <!-- If the toy has a rating, it is shown here -->
               <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
-
+              
+              <!-- If the toy has a campaign price, it is shown here. Otherwise the original price is shown -->
               <p class="card-text "> {% if toy.campaign %} € {{toy.campaign.price }}  {% else %}  € {{toy.price }}  {%endif %}</p>
               <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
+
+              <!-- If the user is logged in with superuser credentials, links to edit toy and delete toy pages are shown here -->
               {% if request.user.is_superuser %}
               <br>
               <span class="edit-toy-link mt-2 bg-white"><a class="bg-white text-secondary" href="{% url 'edit_toy' toy.id %}">Edit</a></span>
@@ -84,41 +96,66 @@
   https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/products/templates/products/products.html
   */
   
+  // Functionality of sorting the toys on the page by
+  // different parameters depending of what choice the 
+  // user has made
+
     $('#sort-selector').change(function () {
       let selector = $(this);
       let currentUrl = new URL(window.location);
   
+      // Getting the users choice of sort-parameter
+      // from the option element's value, if the choice is not 'reset'
       let selectedVal = selector.val();
       if (selectedVal != 'reset') {
+        // Taking away the underscore from the selected value
         let sort = selectedVal.split('_')[0];
         let direction = selectedVal.split('_')[1];
   
+        // Setting the search parameters in the url to the selected value
         currentUrl.searchParams.set('sort', sort);
         currentUrl.searchParams.set('direction', direction)
-  
+        
+        // Reloading the window and showing page by the url with selected value 
         window.location.replace(currentUrl);
       } else {
+
+        // Deleting previous choices of sort parameters if the option 
+        // value is 'reset'
         currentUrl.searchParams.delete('sort');
         currentUrl.searchParams.delete('direction');
-  
+       
+        // Load new window with the updated url
         window.location.replace(currentUrl);
       }
     })
   
+    // Functionality of showing toys in specific categories,
+    // depending of what choice the user has made
+
     $('#category-selector').change(function () {
       let selector = $(this);
       let currentUrl = new URL(window.location);
-  
+      
+      // Getting the users choice of cateogory to be shown
+      // from the option element's value, if the choice is not 'reset'
       let selectedVal = selector.val();
       if (selectedVal != 'reset') {
+          // Taking away the underscore from the selected value
       let category = selectedVal.replace('_', ' ');
-      
+        
+      // Setting the search parameters in the url to the selected value
         currentUrl.searchParams.set('category', category);
   
+        // Reloading the window and showing page by the url with selected value 
         window.location.replace(currentUrl);
       } else {
+
+        // Deleting previous choices of sort parameters if the option 
+        // value is 'reset'
         currentUrl.searchParams.delete('category');
   
+        // Load new window with the updated url
         window.location.replace(currentUrl);
       }
     })

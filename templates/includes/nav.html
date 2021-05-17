@@ -1,3 +1,5 @@
+
+<!-- Navbar template with bootstrap navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light mw-100">
   <div class="container-fluid">
 
@@ -17,6 +19,8 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'blog' %}">Blog</a>
         </li>
+
+        <!-- Nav links showing only if user is logged in -->
         {% if request.user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
@@ -32,6 +36,8 @@
           <a class="nav-link" href="{% url 'account_login' %}">Login</a>
         </li>
         {% endif %}
+
+        <!-- Nav links showing only if user is logged in with superuser credentials -->
         {% if request.user.is_superuser %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'add_toy' %}">Add Toy</a>
@@ -50,7 +56,7 @@
 
 
 
-
+<!-- Search field for searching for toys on the site -->
     <form class="d-flex" method="GET" action="{% url 'toys' %}">
 
       <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
@@ -58,6 +64,8 @@
       <button class="btn d-none d-sm-block" type="submit"> <span class="icon nav-icon"><i
             class="fas fa-search"></i></span></button>
     </form>
+
+    <!-- Navbar toggler and collapse for responsive nav on smaller screens -->
 
     <a class="navbar-toggler search-toggler mx-auto d-sm-none" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -71,6 +79,9 @@
       </form>
     </div>
 
+    <!-- Showing the total cost of items in the users shopping bag including shipping cost,
+         if the user has any items in their bag. Otherwosw showing 0 -->
+
     <p class="mt-2">{% if bag_items %}
           € {{grand_total|floatformat:2}}     
       {% else %}
@@ -78,6 +89,8 @@
           
       {% endif %}
     </p>
+
+    <!-- Link to shopping bag -->
     <span class="mb-2">
     <a href="{% url 'view_bag' %}"><img class="shopping-cart" src="{{ MEDIA_URL }}cart-icon.png" alt="Green shopping cart"></a>
   </span>
