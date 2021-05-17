@@ -45,7 +45,8 @@ p {
 }
 
 .page-wrapper {
-    margin: 8rem 0 0;
+    margin: 10rem 0 0;
+    max-width: 100vw;
 }
 
 .site-form {
