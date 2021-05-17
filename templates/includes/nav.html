@@ -15,9 +15,6 @@
           <a class="nav-link" href="{% url 'toys' %}">All Toys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Campaign</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{% url 'blog' %}">Blog</a>
         </li>
         {% if request.user.is_authenticated %}
@@ -43,6 +40,9 @@
           <a class="nav-link" href="{% url 'add_blogpost' %}">Add Blog Post</a>
         </li>
         {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
 
       </ul>
 

@@ -3,12 +3,8 @@ body {
     text-align: center;
 }
 
-.bg-leaves {
-    background: url('/media/leaves2.png') repeat fixed;
-    padding: 5rem 0;
-    margin: 6rem 0 0;
-    max-width: 100vw;
-}
+
+/*------------------- Headers and text */
 
 h1 {
     color: #81E157;
@@ -38,11 +34,14 @@ p {
     color: #383636;
 }
 
-hr {
-    width: 80%;
-    margin: 3rem auto;
-    border-bottom: .2rem solid #6D564D;
-    border-radius: 50%;
+
+/*--------------------------- General styling */
+
+.bg-leaves {
+    background: url('/media/leaves2.png') repeat fixed;
+    padding: 5rem 0;
+    margin: 6rem 0 0;
+    max-width: 100vw;
 }
 
 .site-form {
@@ -53,6 +52,15 @@ hr {
     filter: drop-shadow(0 0 0.5rem #a7a7a7);
 }
 
+.submit-btn {
+    background-color: #8CC63F;
+    color: #fff !important;
+    border: none;
+    filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
+    margin: 1rem !important;
+    padding: .5rem 1rem;
+}
+
 input, label {
     margin: .5rem 0;
 }
@@ -61,7 +69,15 @@ a {
     text-decoration: none;
 }
 
-/*------------------ Toasts */
+hr {
+    width: 80%;
+    margin: 3rem auto;
+    border-bottom: .2rem solid #6D564D;
+    border-radius: 50%;
+}
+
+
+/*----------------------------- Toasts */
 
 .message-container {
     margin: 7.7rem 0 0;
@@ -465,14 +481,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     margin: 12rem 0;
 }
 
-.submit-btn {
-    background-color: #8CC63F;
-    color: #fff !important;
-    border: none;
-    filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
-    margin: 1rem !important;
-    padding: .5rem 1rem;
-}
+
 
 /* ----------------- Add/edit/delete toys and blog */
 
@@ -524,8 +533,17 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     font-size: 1.2rem;
 }
 
+/*------------------- Footer */
 
+.page-footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
 
+.page-footer a, p {
+    color: #6D564D;
+}
 
 /*------------------ Media queries */
 
