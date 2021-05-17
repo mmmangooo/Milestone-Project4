@@ -5,42 +5,45 @@
 {% block content %}
 
 
-<div class="container-fluid blog-wrapper">
+<div class="container-fluid bg-leaves">
 
 
-    <div class="row align-items-center mt-5 justify-content-center px-3">
+    <div class="row mt-5 px-3 justify-content-center align-items-center">
 
-        <div class="col-12 col-lg-6 my-5 site-form">
+        <div class="col-12 col-lg-5 my-5 site-form px-3">
 
             <h3 class="mb-3">{{ blogpost.title }}</h3>
 
 
             <p>{{ blogpost.content }}
             </p>
-<hr>
+            <hr>
 
-<h5>Comments:</h5>
-{% if comments != 'None_None' %} <p>{{ blogpost.comments }} </p>
-{% else %} <p>This blog post has no comments yet.</p>{% endif %}
-<hr>
-    
-                <h5 class="blog-comment-header">Comment on blogpost</h5>
-                {% if user.is_authenticated %}
-                <form method="POST" action="">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                   
-                  
-                  
-                    <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add comment">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-                {% else %}
-                <p>You have to be signed in to leave a comment. </p><br>
-                 <p>  <a href="{% url 'account_login' %} ">Sign in here</a> or
-                    <a href="{% url 'account_signup' %} ">Sign up for an account here!</a>
-                </p>
-                {% endif %}
+            <h5>Comments:</h5>
+            {% if blogpost.comments %} 
+            {% for comment in comments %}
+            <p>{{ comment.content }} </p>
+            {% endfor %}
+            {% else %} <p>This blog post has no comments yet.</p>
+            {% endif %}
+            <hr>
+
+            <h5 class="blog-comment-header">Comment on blogpost</h5>
+            {% if user.is_authenticated %}
+            <form method="POST" class="mx-auto">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+
+                <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add comment">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <p>* = required field</p>
+            </form>
+            {% else %}
+            <p>You have to be signed in to leave a comment. </p><br>
+            <p> <a href="{% url 'account_login' %} ">Sign in here</a> or
+                <a href="{% url 'account_signup' %} ">Sign up for an account here!</a>
+            </p>
+            {% endif %}
 
 
 
@@ -48,8 +51,8 @@
 
 
         </div>
-        <div class="col-12 col-lg-3 ">
-            <img class="toy-details-bgimg mt-5 ms-lg-5" src="{{ MEDIA_URL }}bulb.png"
+        <div class="col d-none d-lg-block col-lg-5">
+            <img class="ms-5 mt-5 w-50" src="{{ MEDIA_URL }}bulb.png"
                 alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
         </div>
     </div>
