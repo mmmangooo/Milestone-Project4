@@ -188,13 +188,28 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 .index-header {
-    margin: 4rem 0 1rem;
+    margin: 2rem .7rem;
     font-size: 1.5rem;
 }
 
 .index-grid-container {
-    width: 75%;
+    width: 100%;
+}
+
+.index-link-toys, 
+.index-link-blog {
+    font-size: .95rem;
+    color: #6d6b6b;
+}
+
+.index-link-toys {
     float: left;
+    margin-left: 1rem;
+}
+
+.index-link-blog {
+    float: right;
+    margin-right: 1rem;
 }
 
 .index-side-container {
@@ -542,8 +557,10 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 
 @media (min-width: 768px) {
-
-
+    .index-grid-container {
+        width: 75%;
+        float: left;
+    }
     .index-drawing {
         visibility: visible !important;
     }

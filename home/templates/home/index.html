@@ -19,19 +19,20 @@
 
 <!-- Section for showing popular products, products with campaign prices and latest blog posts -->
 
-<h3 class="index-header">Check out our campaigns, popular products and latest blog posts!</h3>
+<h3 class="index-header mb-3">Check out our campaigns, popular toys and latest blogs!</h3>
 
 <div class="container-fluid my-5 index-grid-container">
 
     <div class="row pb-5 align-items-center">
 
-    <!-- Showing three toys that have campaign prices -->
-        <div class="col-12 col-lg-2 ">
+
+        <!-- Showing three toys that have campaign prices -->
+        <div class="col-12 col-lg-2 mt-2">
             <h4>Campaign</h4>
         </div>
         {% for has_campaign in has_campaigns %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="square-card">
+            <div class="square-card mt-2">
                 <h5>{{ has_campaign.name }}</h5>
                 {% if has_campaign.image %} <img src="{{ has_campaign.image }}" alt="{{ has_campaign.name }}">
                 {% else %}
@@ -60,7 +61,7 @@
         </div>
         {% for toy in toys %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="square-card">
+            <div class="square-card mt-2">
                 <h5 class="card-title">{{ toy.name }}</h5>
                 {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
                 {% else %}
@@ -78,14 +79,14 @@
 
     </div>
 
-<!-- Showing the three last added blogposts -->
+    <!-- Showing the three last added blogposts -->
     <div class="row pb-5 align-items-center">
         <div class="col-12 col-lg-2">
             <h4>Blog</h4>
         </div>
         {% for blogpost in blogposts %}
         <div class="col-12 col-sm-4 col-lg-3">
-            <div class="square-card">
+            <div class="square-card mt-2">
                 <h5>{{ blogpost.title }}</h5>
                 <p class="index-card-text">{{ blogpost.content }}</p>
 
@@ -99,8 +100,19 @@
     </div>
 </div>
 
-<!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content-->
-<div class="container-fluid index-side-container my-3">
+<!-- Showing links to all toys page and blogs page on x-small and small screens -->
+
+<div class="d-md-none">
+    <h4><a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a></h4>
+
+    <h4> <a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
+
+        </a> </h4>
+</div>
+
+<!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on medium screens and up
+-->
+<div class="container-fluid index-side-container my-3 d-none d-md-block">
     <a href="{% url 'toys' %}">
         <h4 class="my-3"></h4>See All Toys
     </a>
