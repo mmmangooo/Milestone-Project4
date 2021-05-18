@@ -129,7 +129,7 @@ def edit_toy(request, toy_id):
                     The toy was not updated.')
     else:
         form = ToyForm(instance=toy)
-        messages.info(request, 'You are editing {toy.name}')
+        messages.info(request, f'You are editing {toy.name}')
 
     template = 'toys/edit_toy.html'
     context = {
@@ -172,5 +172,5 @@ def delete_toy(request, toy_id):
 
     toy = get_object_or_404(Toy, pk=toy_id)
     toy.delete()
-    messages.success(request, 'Toy deleted from the store.')
+    messages.success(request, f'{toy.name} deleted from the store.')
     return redirect(reverse('toys'))
