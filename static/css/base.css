@@ -41,12 +41,12 @@ p {
     background: url('/media/leaves2.png') repeat fixed;
     padding: 5rem 0;
     margin: 6rem 0 0;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 .page-wrapper {
     margin: 10rem 0 0;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 .site-form {
@@ -110,11 +110,8 @@ hr {
     bottom: .5rem;
 }
 
-/*-------------------------Navigation bar */
+/*-------------------------Navigation bar and header banner */
 
-.nav-container {
-    max-width: 100vw;
-}
 
 .nav-link {
     color: #6D564D !important;
@@ -152,15 +149,16 @@ hr {
     margin-left: 1rem;
 }
 
+.header-banner span {
+    color: #fff;
+}
+
 .header-banner {
     background-color: #CAEF84;
     margin-top: 3.5rem;
     max-width: 100%;
 }
 
-.header-banner span {
-    color: #fff;
-}
 
 /*------------------------ Home page */
 

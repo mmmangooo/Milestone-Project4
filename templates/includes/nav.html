@@ -1,14 +1,17 @@
-
 <!-- Navbar template with bootstrap navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light mw-100">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
   <div class="container-fluid">
 
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Navbar toggler and collapse for responsive nav on smaller screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+      aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+    <div class="collapse navbar-collapse" id="navbar">
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -52,50 +55,38 @@
 
       </ul>
 
-    </div>
+            <!-- Search field for searching for toys on the site -->
+      <form class="d-flex" method="GET" action="{% url 'toys' %}">
 
-
-
-<!-- Search field for searching for toys on the site -->
-    <form class="d-flex" method="GET" action="{% url 'toys' %}">
-
-      <input class="form-control me-2 nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
-        placeholder="Search our site" aria-label="Search">
-      <button class="btn d-none d-sm-block" type="submit"> <span class="icon nav-icon"><i
-            class="fas fa-search"></i></span></button>
-    </form>
-
-    <!-- Navbar toggler and collapse for responsive nav on smaller screens -->
-
-    <a class="navbar-toggler search-toggler mx-auto d-sm-none" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="icon nav-icon"><i class="fas fa-search"></i></span>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-      <form class="" action="">
-        <input class="form-control me-2 nav-search-input mt-1 d-sm-none" type="search" placeholder="Search site"
-          aria-label="Search">
+        <input class="form-control nav-search-input" type="text" name="query"
+          placeholder="Search our site" aria-label="Search">
+        <button class="btn" type="submit"> <span class="icon nav-icon"><i
+              class="fas fa-search"></i></span></button>
       </form>
     </div>
 
-    <!-- Showing the total cost of items in the users shopping bag including shipping cost,
+          <!-- Showing the total cost of items in the users shopping bag including shipping cost,
          if the user has any items in their bag. Otherwosw showing 0 -->
+         <div class="ms-3">
+          <span>{% if bag_items %}
+           € {{grand_total|floatformat:2}}
+           {% else %}
+           € 0.00
+   
+           {% endif %}
+          </span>
+   
+   
+         <!-- Link to shopping bag -->
+         <span class="mb-2">
+           <a href="{% url 'view_bag' %}"><img class="shopping-cart" src="{{ MEDIA_URL }}cart-icon.png"
+               alt="Green shopping cart"></a>
+         </span>
+       </div>
 
-    <p class="mt-2">{% if bag_items %}
-          € {{grand_total|floatformat:2}}     
-      {% else %}
-          € 0.00
-          
-      {% endif %}
-    </p>
 
-    <!-- Link to shopping bag -->
-    <span class="mb-2">
-    <a href="{% url 'view_bag' %}"><img class="shopping-cart" src="{{ MEDIA_URL }}cart-icon.png" alt="Green shopping cart"></a>
-  </span>
+
+   
   </div>
-
-
 
 </nav>

@@ -37,20 +37,20 @@ toys for their children" />
 <body>
 
     <!-- Including the navbar in template -->
-    <div class="container-fluid fixed-top px-0 mb-5 nav-container">
+    <div class="container-fluid fixed-top px-0">
 
         {% include 'includes/nav.html' %}
 
-
     </div>
+
 
     <!-- Loading a header banner into template -->
 
     {% block page_header %}
-    <div class="container-fluid header-banner py-3 fixed-top">
+ <!--  <div class="container-fluid header-banner py-3 fixed-top">
         <h2 class="text-uppercase text-white">Free shipping on orders over € {{ free_delivery_threshold }}</h2>
 
-    </div>
+    </div>--> 
     {% endblock %}
 
     <!-- Including messages in template, if there are any -->
@@ -73,7 +73,7 @@ toys for their children" />
     {% endif %}
 
     <!-- Section for main content -->
-    <main>
+
         {%block content %}
 
 
@@ -83,7 +83,7 @@ toys for their children" />
         <!-- Including footer -->
 {% include 'includes/footer.html' %}
 
-    </main>
+
 
 
 <!-- Core js code -->
