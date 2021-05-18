@@ -3,12 +3,12 @@
 {% load bag_tools %}
 
 {% block content %}
-<div class="container-fluid bag-container py-3">
+<div class="container-fluid page-wrapper">
 
-    <h3 class="mb-3">Shopping bag</h3>
+    <h3>Shopping bag</h3>
 
     <div class="row align-items-center">
-        <div class="col-12 col-lg-4 my-5">
+        <div class="col-12 col-lg-4 my-3">
             <img class="bag-page-img" src="{{ MEDIA_URL }}dino.png"
                 alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indogo baby dinosaur smiling with eyes closed.">
         </div>
@@ -31,7 +31,7 @@
                 <tr>
                     <td>
                         {% if item.toy.image %}
-                        <img src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
+                        <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
                         {% else %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
                         {% endif %}

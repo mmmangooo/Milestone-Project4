@@ -8,14 +8,14 @@
 <div class="container-fluid toy-details-container">
 
 
-    <div class="row align-items-center mt-5">
+    <div class="row align-items-center">
         <div class="col-12 col-lg-4">
           
             <!-- Showing image of the toy if there is one, otherwise showing a generic 'no image found'-image -->
             <div class="details-img-container py-5 mx-5 my-5">
-                {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}"> 
+                {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}"> 
                 {% else %}
-                <img src="{{ MEDIA_URL }}no-image.png"
+                <img class="w-50 " src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below"> 
                 {% endif %}
             </div>

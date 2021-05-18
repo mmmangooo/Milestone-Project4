@@ -31,12 +31,12 @@
             <h4>Campaign</h4>
         </div>
         {% for has_campaign in has_campaigns %}
-        <div class="col-12 col-sm-4 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5>{{ has_campaign.name }}</h5>
-                {% if has_campaign.image %} <img src="{{ has_campaign.image }}" alt="{{ has_campaign.name }}">
+                <h5 class="mb-5">{{ has_campaign.name }}</h5>
+                {% if has_campaign.image %} <img class="w-75" src="{{ toy.image.url }}" alt="{{ has_campaign.name }}">
                 {% else %}
-                <img src="{{ MEDIA_URL }}no-image.png"
+                <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
                 <p>{{ has_campaign.rating }}</p>
@@ -60,12 +60,12 @@
             <h4>Popular</h4>
         </div>
         {% for toy in toys %}
-        <div class="col-12 col-sm-4 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5 class="card-title">{{ toy.name }}</h5>
-                {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
+                <h5 class="mb-5">{{ toy.name }}</h5>
+                {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}">
                 {% else %}
-                <img src="{{ MEDIA_URL }}no-image.png"
+                <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
                 <p>{{ toy.rating }}</p>
@@ -85,9 +85,9 @@
             <h4>Blog</h4>
         </div>
         {% for blogpost in blogposts %}
-        <div class="col-12 col-sm-4 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5>{{ blogpost.title }}</h5>
+                <h5 class="mb-3">{{ blogpost.title }}</h5>
                 <p class="index-card-text">{{ blogpost.content }}</p>
 
                 <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read
@@ -112,7 +112,7 @@
 
 <!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on medium screens and up
 -->
-<div class="container-fluid index-side-container my-3 d-none d-md-block">
+<div class="container-fluid index-side-container my-5 d-none d-md-block">
     <a href="{% url 'toys' %}">
         <h4 class="my-3"></h4>See All Toys
     </a>

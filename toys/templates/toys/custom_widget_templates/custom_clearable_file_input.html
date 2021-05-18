@@ -21,7 +21,7 @@
 
 {% endif %} 
 
-<span class="my-3">
-    Select Image <input class="mt-5 btn" type="{{widget.type}}" id="new-image" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
+<span>
+    Upload Image <input class="btn" type="{{widget.type}}" id="new-image" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
 </span>
 <p id="filename"></p>

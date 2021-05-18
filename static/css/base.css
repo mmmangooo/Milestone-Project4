@@ -40,12 +40,11 @@ p {
 .bg-leaves {
     background: url('/media/leaves2.png') repeat fixed;
     padding: 5rem 0;
-    margin: 6rem 0 0;
     max-width: 100%;
 }
 
 .page-wrapper {
-    margin: 5rem 0 0;
+    padding: 5rem 0 0;
     max-width: 100%;
 }
 
@@ -54,6 +53,7 @@ p {
     border-radius: 1.5rem;
     padding: 2.5rem 2.5rem;
     margin: 2rem 0;
+    width: 90%;
     filter: drop-shadow(0 0 0.5rem #a7a7a7);
 }
 
@@ -71,6 +71,7 @@ p {
     border: .02rem solid #6D564D;
     border-radius: .2rem;
     box-shadow: .08rem .08rem .12rem .12rem #a08d86;
+    height: 27rem;
 }
 
 input, label {
@@ -96,7 +97,10 @@ hr {
     margin: 7.7rem 0 0;
     padding: 1rem;
     background-color: #c9ef849a;
+}
 
+.toast {
+    float: right;
 }
 
 .toast p {
@@ -223,9 +227,8 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 .index-card-text {
-    max-height: 5rem;
-    overflow: hidden;
-  
+    max-height: 12rem;
+    overflow: hidden; 
 }
 
 /*-------------------- All toys page */
@@ -284,7 +287,8 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 .details-img-container {
     border: 0.15rem solid #6D564D;
     border-radius: 1.5rem;
-    box-shadow: 0.2rem 0.4rem 1rem #46454533;
+    box-shadow: 0.2rem 0.4rem .8rem #927f78;
+    text-align: center;
 }
 .toy-details-bgimg {
     width: 50%;
@@ -572,7 +576,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 @media (min-width: 993px) {
     .page-wrapper {
-        margin: 9rem 0 0;
+        padding: 7rem 0 0;
     }
 
     .toy-details-bgimg {

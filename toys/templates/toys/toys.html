@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container-fluid page-wrapper">
-  <h3 class="mb-5">Our Toys</h3>
+  <h3>Our Toys</h3>
 
   <div class="container-fluid">
     <div class="mt-2">
@@ -51,9 +51,9 @@
         <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
           <div class="toy-card card">
-            {% if toy.image %} <img src="{{ toy.image }}" alt="{{ toy.name }}">
+            {% if toy.image %} <img src="{{ toy.image.url }}" alt="{{ toy.name }}">
             {% else %}
-            <img src="{{ MEDIA_URL }}no-image.png"
+            <img class="w-75 mx-auto" src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
             {% endif %}
             <div class="card-body">

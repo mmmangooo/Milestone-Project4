@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
+
+fs = FileSystemStorage(location='/media/')
 
 
 class Category(models.Model):
@@ -31,7 +34,7 @@ class Toy(models.Model):
         null=True, blank=True)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    image = models.ImageField
+    image = models.ImageField(upload_to='toys', null=True, blank=True)
     campaign= models.ForeignKey(
         'Campaign', null=True, blank=True,
         on_delete=models.CASCADE, related_name='campaign')
