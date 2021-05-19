@@ -57,7 +57,6 @@ def all_toys(request):
         'campaign': campaign,
         'search_term': query,
         'current_sorting': current_sorting,
-
     }
 
     return render(request, 'toys/toys.html', context)

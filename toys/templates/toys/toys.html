@@ -9,8 +9,8 @@
     <div class="mt-2">
 
       <!-- Selecting which category of toys to show on page -->
-       <select id="category-selector" class="category-selector">
-        <option value="reset" {% if category == 'None_None' %} selected {% endif %}>All Categories</option>
+      <select id="category-selector" class="category-selector">
+        <option value="reset" {% if categories == 'None_None' %} selected {% endif %}>All Categories</option>
 
         <option value="Wooden_Toys" {% if categories == 'wooden_toys' %} selected {% endif %}>Wooden Toys</option>
         <option value="Rubber_Toys" {% if categories == 'rubber_toys' %} selected {% endif %}>Rubber Toys</option>
@@ -19,7 +19,7 @@
       </select>
 
       <!-- Selecting how to sort the toys shown on the page -->
-       <select id="sort-selector" class="sort-selector mw-25">
+       <select id="sort-selector" class="sort-selector">
         <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
 
         <option value="price_asc" {% if current_sorting == 'price_asc' %} selected {% endif %}>Price (low to high)
@@ -138,13 +138,13 @@
       let selectedVal = selector.val();
       if (selectedVal != 'reset') {
           // Taking away the underscore from the selected value
-      let category = selectedVal.replace('_', ' ');
+          let category = selectedVal.replace('_', ' ');
         
-      // Setting the search parameters in the url to the selected value
-        currentUrl.searchParams.set('category', category);
+          // Setting the search parameters in the url to the selected value
+          currentUrl.searchParams.set('category', category);
   
-        // Reloading the window and showing page by the url with selected value 
-        window.location.replace(currentUrl);
+          // Reloading the window and showing page by the url with selected value 
+           window.location.replace(currentUrl);
       } else {
 
         // Deleting previous choices of sort parameters if the option 
