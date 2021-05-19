@@ -9,20 +9,10 @@
 
     <div class="row justify-content-center">
 <div class="col-12 col-md-8 col-lg-6 col-xl-4">
-<form class="site-form" action="{% url 'contact' %}">
+<form class="site-form" action="{% url 'contact' %}" method="POST">
     {% csrf_token %}
 
-      <label for="input_email" class="form-label">Your email</label>
-      <input type="email" class="form-control" id="input_email" name="input_email">
-
-  
-      <label for="input_name" class="form-label">Name</label>
-      <input type="password" class="form-control" id="input_name" name="input_name">
-
-
-   
-      <label for="input_message" class="form-label">Message</label>
-      <textarea type="text" class="form-control" id="input_message" name="input_message"></textarea>
+      {{contact_form|crispy}}
 
   
  

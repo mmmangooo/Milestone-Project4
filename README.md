@@ -314,3 +314,8 @@ and https://djangocentral.com/creating-comments-system-with-django/
 404 and 500 custom template setup:
 
 https://github.com/GBrachetta/guillermo/blob/master/guillermo/
+
+
+Code credits for send email view:
+https://docs.djangoproject.com/en/3.2/topics/email/
+and https://www.youtube.com/watch?v=4b3yvjcPLnk&list=PLXcnmXd-db_hO1v3SLAzVcNieoS_Tcn-6
