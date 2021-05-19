@@ -63,7 +63,7 @@
               <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
               
               <!-- If the toy has a campaign price, it is shown here. Otherwise the original price is shown -->
-              <p class="card-text "> {% if toy.campaign %} € {{toy.campaign.price }}  {% else %}  € {{toy.price }}  {%endif %}</p>
+              <p class="card-text "> {% if toy.campaign == True %} € {{ get_campaign }}  {% else %}  € {{toy.price }}  {%endif %}</p>
               <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
 
               <!-- If the user is logged in with superuser credentials, links to edit toy and delete toy pages are shown here -->

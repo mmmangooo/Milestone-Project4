@@ -16,13 +16,14 @@ class ToyAdmin(admin.ModelAdmin):
         'price',
         'description',
         'rating',
-        'image'
+        'image',
+        'campaign'
     )
 
 
 class CampaignAdmin(admin.ModelAdmin):
     list_display = (
-        
+
         'price',
     )
 

@@ -18,9 +18,9 @@ class ContactForm(forms.Form):
         super().__init__(*args, **kwargs)
         # Setting placeholders on fields
         placeholders = {
-            'input_email': 'Email *',
-            'input_name':  'Name *',
-            'input_message': 'Message *'
+            'input_email': 'Email',
+            'input_name':  'Name',
+            'input_message': 'Message'
         }
 
         self.fields['input_email'].widget.attrs['autofocus'] = True
