@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from .models import Toy, Category, Campaign
+from .models import Toy, Category
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .forms import ToyForm

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Toy, Campaign
+from .models import Category, Toy
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -21,13 +21,7 @@ class ToyAdmin(admin.ModelAdmin):
     )
 
 
-class CampaignAdmin(admin.ModelAdmin):
-    list_display = (
-
-        'price',
-    )
-
 
 admin.site.register(Toy, ToyAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Campaign, CampaignAdmin)
+
