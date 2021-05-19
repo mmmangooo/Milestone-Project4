@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid page-wrapper">
+    <h3>Contact us</h3>
+    <p>Do you have questions about your order? Suggestions of toys you think we should sell or feedback on how our site is working? Pop us an email, we'll be glad to hear from you!</p>
+
+    <div class="row justify-content-center">
+<div class="col-12 col-md-8 col-lg-6 col-xl-4">
+<form class="site-form" action="{% url 'contact' %}">
+    {% csrf_token %}
+
+      <label for="input_email" class="form-label">Your email</label>
+      <input type="email" class="form-control" id="input_email" name="input_email">
+
+  
+      <label for="input_name" class="form-label">Name</label>
+      <input type="password" class="form-control" id="input_name" name="input_name">
+
+
+   
+      <label for="input_message" class="form-label">Message</label>
+      <textarea type="text" class="form-control" id="input_message" name="input_message"></textarea>
+
+  
+ 
+    <div class="col-12">
+      <button type="submit" class="btn submit-btn rounded-pill">Send</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

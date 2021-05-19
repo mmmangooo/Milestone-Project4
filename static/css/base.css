@@ -561,11 +561,13 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
    position: relative;
    clear: both;
    height: 2.5rem;
-   margin-top: 2.5rem;
+   margin-top: 4rem;
+   
 }
 
-.page-footer a, p {
+.page-footer a {
     color: #6D564D;
+    font-weight: bold;
 }
 
 /*------------------ Media queries */

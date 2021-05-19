@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .models import BlogPost, BlogComment
 from .forms import BlogpostForm, BlogCommentForm
 from django.db.models import Q
