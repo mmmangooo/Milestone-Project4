@@ -1,6 +1,12 @@
+/* Body height and min height fix for keeping footer in place on all pages, from here: 
+   https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+   */
+
 body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
+    height: 100%;
+    min-height: 100%;
 }
 
 
@@ -36,6 +42,7 @@ p {
 
 
 /*--------------------------- General styling */
+
 
 .bg-leaves {
     background: url('/media/leaves2.png') repeat fixed;
@@ -546,10 +553,15 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 /*------------------- Footer */
 
+/* Fix for keeping footer in place on all pages, from here: 
+   https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+   */
+
 .page-footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
+   position: relative;
+   clear: both;
+   height: 2.5rem;
+   margin-top: 2.5rem;
 }
 
 .page-footer a, p {

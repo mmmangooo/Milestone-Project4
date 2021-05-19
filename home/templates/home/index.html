@@ -71,7 +71,7 @@
                 <p>{{ toy.rating }}</p>
                 <p> {% if toy.campaign %} € {{toy.campaign.price }} {% else %} € {{toy.price }}
                     {%endif %}</p>
-                <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white my-2">Info</a>
+                <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white my-1">Info</a>
             </div>
         </div>
 
