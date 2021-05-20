@@ -282,7 +282,6 @@ The blog details page contains the entire text content of the blogpost shown, an
 
 
 
-
 ### Add blog page
 
 This page is only available for superuser, and is accessed from the navigation bar (where it is only showed for signed in superuser). This page contains a form where the superuser can fill in title and content and add a blogpost to the database by clicking "add blogpost". The page also contains a "cancel"-link that leads back to the blogs-page when clicked.
@@ -295,6 +294,13 @@ This page is only available for superuser, and is accessed from the navigation b
 
 This page is shown when superuser clicks the "delete"-link on a blogpost on the blog page. This page only contains a question "Are you sure you want to delete (title of the blogpost) ? and the choices yes or no. Clicking no takes the user back the blogs page and clicking yes deletes the toy from the database.
 
+### My Profile page
+
+This is a page where the user can see what personal info such as address and phone number is stored on their account, and change these if they need to. The page also displays the user's order history with a table showing the orders with order number and order dates so that the user can keep track of what they have ordered and when.
+
+### Contact page
+
+Contact page is available from navbar at the top of the page and from navigation links in footer, to be easily accessed by the user. The contact page contains a contact form for the user to send emails to the store if they have questions or want to give feedback or suggestions.
 
 ## Credits
 

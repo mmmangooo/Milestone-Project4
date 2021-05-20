@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('toys', '0005_alter_toy_campaign'),
+        ('toys', '0004_toy_image'),
     ]
 
     operations = [
