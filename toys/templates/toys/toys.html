@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block content %}
 <div class="container-fluid page-wrapper">
   <h3>Our Toys</h3>
@@ -63,7 +64,7 @@
               <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
               
               <!-- If the toy has a campaign price, it is shown here. Otherwise the original price is shown -->
-              <p class="card-text "> {% if toy.campaign == True %} € {{ toy.get_campaign }}  {% else %}  € {{toy.price }}  {%endif %}</p>
+              <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign == True %} Now only € {{ toy.get_campaign }}!  {% else %}  € {{toy.price }}  {% endif %}</p>
               <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
 
               <!-- If the user is logged in with superuser credentials, links to edit toy and delete toy pages are shown here -->

@@ -30,7 +30,7 @@
             </p>
 
             <!-- Showing the toy's campaign price if it has one, otherwose showing original price -->
-            <p>{% if toy.campaign %} {{toy.campaign.price}} {% else %} € {{toy.price }} {%endif %}</p>
+            <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign == True %} Now only € {{ toy.get_campaign }}!  {% else %}  € {{toy.price }}  {% endif %}</p>
             <div class="container align-items-center mt-5">
                 <form method="POST" action="{% url 'add_to_bag' toy.id %}">
                     {% csrf_token %}

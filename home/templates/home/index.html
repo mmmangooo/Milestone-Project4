@@ -30,23 +30,28 @@
         <div class="col-12 col-lg-2 mt-2">
             <h4>Campaign</h4>
         </div>
-        {% for has_campaign in has_campaigns %}
+  {%if toy.campaign == True %}
+        {% for toy in toys  %}
+     
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5 class="mb-5">{{ has_campaign.name }}</h5>
-                {% if has_campaign.image %} <img class="w-75" src="{{ toy.image.url }}" alt="{{ has_campaign.name }}">
+                <h5 class="mb-5">{{ toy.name }}</h5>
+                {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}" alt="{{ has_campaign.name }}">
                 {% else %}
                 <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
-                <p>{{ has_campaign.rating }}</p>
-                <p class="text-danger"> Now € {{ has_campaign.price }}!</p>
-                <a href="{% url 'toy_details' has_campaign.id%}"
+                <p>{{ toy.rating }}</p>
+                <p class="text-danger"> Now only € {{ toy.get_campaign }}! </p>
+                <a href="{% url 'toy_details' toy.id%}"
                     class="btn rounded-pill submit-btn text-white my-2">Read
                     more</a>
             </div>
         </div>
+      
+        
         {% endfor %}
+       {% endif %}
 
 
 
@@ -69,8 +74,8 @@
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
                 <p>{{ toy.rating }}</p>
-                <p> {% if toy.campaign %} € {{toy.campaign.price }} {% else %} € {{toy.price }}
-                    {%endif %}</p>
+                <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign == True %} Now only € {{ toy.get_campaign }}!  {% else %}  € {{toy.price }}  {% endif %}</p>
+                  
                 <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white my-1">Info</a>
             </div>
         </div>

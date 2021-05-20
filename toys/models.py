@@ -1,8 +1,7 @@
 from django.db import models
-from django.core.files.storage import FileSystemStorage
 from decimal import Decimal
 
-fs = FileSystemStorage(location='/media/')
+
 
 
 class Category(models.Model):
@@ -38,13 +37,13 @@ class Toy(models.Model):
     image = models.ImageField(upload_to='toys', null=True, blank=True)
     campaign = models.BooleanField(default=False, null=True, blank=True)
 
+    @property
     def get_campaign(self):
         """
         Calculate 20% discount on price for toys that are on campaign
         """
-        price = self.price * Decimal(20/100)
+        price = self.price - (self.price*20/100)
         return price
 
     def __str__(self):
         return self.name
-
