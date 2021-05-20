@@ -113,6 +113,7 @@ hr {
 
 .toast {
     float: right;
+    margin-right: 1rem;
 }
 
 .toast p {

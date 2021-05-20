@@ -14,7 +14,6 @@ def all_toys(request):
         sort, show by category and search them"""
 
     toys = Toy.objects.all()
-    campaign = Campaign.objects.all()
     query = None
     categories = None
     sort = None
@@ -54,7 +53,6 @@ def all_toys(request):
     context = {
         'toys': toys,
         'categories': categories,
-        'campaign': campaign,
         'search_term': query,
         'current_sorting': current_sorting,
     }
