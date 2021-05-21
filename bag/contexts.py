@@ -14,10 +14,7 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
             toy = get_object_or_404(Toy, pk=item_id)
-            if toy.campaign is True:
-                total += item_data * toy.get_campaign
-            else:
-                total += item_data * toy.price
+            total += item_data * toy.price
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,

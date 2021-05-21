@@ -37,13 +37,17 @@ class Toy(models.Model):
     image = models.ImageField(upload_to='toys', null=True, blank=True)
     campaign = models.BooleanField(default=False, null=True, blank=True)
 
-    @property
-    def get_campaign(self):
+    def get_price(self):
         """
-        Calculate 20% discount on price for toys that are on campaign
+        Check if toy is on campaign and if so calculate 20% discount
+        on the price, and otherwise returning price
         """
-        price = self.price - (self.price*20/100)
-        return price
+        if self.campaign is True:
+            price = self.price - (self.price*20/100)
+            return price
+        else:
+            price = self.price
+            return price
 
     def __str__(self):
         return self.name

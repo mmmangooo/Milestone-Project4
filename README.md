@@ -302,6 +302,48 @@ This is a page where the user can see what personal info such as address and pho
 
 Contact page is available from navbar at the top of the page and from navigation links in footer, to be easily accessed by the user. The contact page contains a contact form for the user to send emails to the store if they have questions or want to give feedback or suggestions.
 
+
+## Technologies used
+
+* This site was built with HTML, CSS, Javascript and Python languages and with Python framework [Django](https://www.djangoproject.com/)
+
+* The following Python modules were used in this project (can also be found in requirements.txt file):
+    * django-countries=7.1
+    * django-crispy-forms=1.11.2
+    * django-storages=1.11.1
+    * gunicorn=20.1.0
+    * jmespath=0.10.0
+    * oauthlib=3.1.0
+    * Pillow=8.2.0
+    * psycopg2-binary=2.8.6
+    * PyJWT=2.0.1
+    * python3-openid=3.2.0
+    * pytz=2021.1
+    * requests-oauthlib=1.3.0
+    * s3transfer=0.4.2
+    * sqlparse=0.4.1
+    * standardjson=0.3.1
+    * stripe=2.56.0
+    * webhooks=0.4.2
+
+* [Git](https://git-scm.com/) was used for version control
+
+* [Github](https://github.com/) was used for hosting and store source code
+
+* [Heroku](https://heroku.com) was used for deployment of live site
+
+* [PostgresSQL](https://www.postgresql.org/) was used for relational database storage
+
+* [jQuery](https://jquery.com/) was used for simplified use of javascript
+
+* [Bootstrap](https://getbootstrap.com/) was used throughout the site for creating layout and responsiveness
+
+* [Balsamiq](https://balsamiq.com/) was used for creating wireframes
+
+* [Canva](https://www.canva.com/) was used for testing different colors and for 
+
+
+
 ## Credits
 
 Unsplash

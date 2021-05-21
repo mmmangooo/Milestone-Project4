@@ -12,8 +12,8 @@ def index(request):
 
     context = {
         'toys': toys,
-        'has_campaigns': has_campaigns,
         'blogposts': blogposts,
+        'has_campaigns': has_campaigns
     }
 
     return render(request, 'home/index.html', context)
