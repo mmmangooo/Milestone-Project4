@@ -81,7 +81,12 @@ p {
     border: .02rem solid #6D564D;
     border-radius: .2rem;
     box-shadow: .08rem .08rem .12rem .12rem #a08d86;
-    height: 27rem;
+    height: 38.5rem;
+}
+
+.square-card hr {
+    margin: 1.2rem auto;
+    width: 90%;
 }
 
 input, label {
@@ -581,7 +586,11 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 /*------------------ Media queries */
 
-
+@media (min-width: 576px) {
+    .square-card {
+        height: 33rem;
+    }
+}
 
 @media (min-width: 768px) {
     .index-grid-container {
@@ -594,6 +603,9 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     
     .add-to-cart-icon {
         width: 6%;
+    }
+    .square-card {
+        height: 28rem;
     }
 }
 

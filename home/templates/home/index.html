@@ -29,23 +29,24 @@
         <!-- Showing three toys that have campaign prices -->
         <div class="col-12 col-lg-2 mt-2">
             <h4>Campaign</h4>
+            <p class="text-danger">20% off original price!</p>
         </div>
 
         {% for has_campaign in has_campaigns  %}
      
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5 class="mb-5">{{ has_campaign.name }}</h5>
+                <h5 class="mb-2">{{ has_campaign.name }}</h5>
                 {% if has_campaign.image %} <img class="w-75" src="{{ has_campaign.image.url }}" alt="{{ has_campaign.name }}">
                 {% else %}
                 <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
+                <hr>
                 <p>{{ has_campaign.rating }}</p>
                 <p class="text-danger"> Now only € {{ has_campaign.get_price}}! </p>
                 <a href="{% url 'toy_details' has_campaign.id %}"
-                    class="btn rounded-pill submit-btn text-white my-2">Read
-                    more</a>
+                    class="btn rounded-pill submit-btn text-white my-2">Info</a>
             </div>
         </div>
       
@@ -67,16 +68,17 @@
         {% for toy in toys %}
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5 class="mb-5">{{ toy.name }}</h5>
+                <h5 class="mb-2">{{ toy.name }}</h5>
                 {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}">
                 {% else %}
                 <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
                     alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
                 {% endif %}
+                <hr>
                 <p>{{ toy.rating }}</p>
                 <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %}  </p>
                   
-                <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white my-1">Info</a>
+                <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white">Info</a>
             </div>
         </div>
 
@@ -92,9 +94,9 @@
         {% for blogpost in blogposts %}
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="square-card mt-2">
-                <h5 class="mb-3">{{ blogpost.title }}</h5>
+                <h5 class="mb-2">{{ blogpost.title }}</h5>
                 <p class="index-card-text">{{ blogpost.content }}</p>
-
+<hr>
                 <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read
                         blogpost</a></button>
             </div>

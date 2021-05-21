@@ -52,14 +52,15 @@
         <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
 
           <div class="toy-card card">
-            {% if toy.image %} <img src="{{ toy.image.url }}" alt="{{ toy.name }}">
+            {% if toy.image %} <img class="w-75 mx-auto" src="{{ toy.image.url }}" alt="{{ toy.name }}">
             {% else %}
             <img class="w-75 mx-auto" src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
             {% endif %}
+          
             <div class="card-body">
               <h5 class="card-title">{{ toy.name }}</h5>
-            
+              <hr class="mx-auto">
               <!-- If the toy has a rating, it is shown here -->
               <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
               
