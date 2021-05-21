@@ -84,8 +84,12 @@ class StripeWH_Handler:
                 profile.save() 
 
         order_exists = False
+
+
+        # Creating a delay for stripe checking for existing order,
+        # in case it takes some time for the order to be created
         attempt = 1
-        while attempt <= 5:
+        while attempt <= 7:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
@@ -146,7 +150,7 @@ class StripeWH_Handler:
                     status=500)
         self.send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=(f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook'),
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

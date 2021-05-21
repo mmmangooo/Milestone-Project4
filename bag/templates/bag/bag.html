@@ -31,7 +31,7 @@
                 <tr>
                     <td>
                         {% if item.toy.image %}
-                        <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
+                        <img class="w-50" src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
                         {% else %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
                         {% endif %}
@@ -40,13 +40,15 @@
                         <p>{{item.toy.name }}</p>
                     </td>
                     <td>
+                        
                         <p>á € {{item.toy.price }}</p>
+                      
                     </td>
                     <td>
                         <p>{{item.quantity}}</p>
                     </td>
                     <td>
-                        <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
+                        <p> € {{ item.toy.price | calc_subtotal:item.quantity }} </p>
                     </td>
 
 
