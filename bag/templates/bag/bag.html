@@ -10,7 +10,7 @@
     <div class="row align-items-center">
         <div class="col-12 col-lg-4 my-3">
             <img class="bag-page-img" src="{{ MEDIA_URL }}dino.png"
-                alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indogo baby dinosaur smiling with eyes closed.">
+                alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indigo baby dinosaur smiling with eyes closed.">
         </div>
         <div class="col-12 col-lg-8 my-5">
             <h4 class="mb-5">Your bag:</h4>
@@ -31,7 +31,7 @@
                 <tr>
                     <td>
                         {% if item.toy.image %}
-                        <img class="w-50" src="{{ item.toy.image }}" alt="{{ item.toy.name }}">
+                        <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
                         {% else %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
                         {% endif %}
