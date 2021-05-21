@@ -53,9 +53,9 @@ p {
 }
 
 .page-wrapper {
-    padding-top: 4.5rem;
+    padding-top: 4rem;
     width: 100%;
-   
+   margin-bottom: 8rem;
 }
 
 .site-form {
@@ -81,7 +81,8 @@ p {
     border: .02rem solid #6D564D;
     border-radius: .2rem;
     box-shadow: .08rem .08rem .12rem .12rem #a08d86;
-    height: 38.5rem;
+    height: 38.5rem; 
+    position: relative;
 }
 
 .square-card hr {
@@ -113,7 +114,8 @@ hr {
 /*----------------------------- Toasts */
 
 .message-container {
-    margin: 4rem 0 0;
+    margin: 3.5rem 0 0;
+    display: inline;
 }
 
 .toast {
@@ -260,10 +262,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
  margin: 1rem 0 2rem 0;
 }
 
-.all-toys-wrapper {
-    margin-top: 10rem;
-}
-
 .toys-select-container {
     margin-bottom: 3rem;
 }
@@ -274,7 +272,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 .sort-selector {
     float: right;
-    width: 5.5rem;
+    width: 6.5rem;
 }
 
 .toy-card {
@@ -300,10 +298,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 /* ------------------ Toy details page */
-
-.toy-details-container {
-    margin: 10rem 0;
-}
 
 .details-img-container {
     border: 0.15rem solid #6D564D;
@@ -338,14 +332,10 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 /* --------------------- Shopping bag */
 
-.bag-container {
-    margin: 12rem 0;   
-}
 
 .table, .bag-container h4 {
     color: #5a5a5a;
 }
-
 
 .bag-container a {
     color: #6D564D;
@@ -447,7 +437,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     border-radius: 50%;
   }
   .spinner {
-    color: #ffffff;
+    color: #6D564D;
     font-size: 22px;
     text-indent: -99999px;
     margin: 0px auto;
@@ -519,10 +509,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 /* ----------------- Add/edit/delete toys and blog */
 
-.form-container-wrapper {
-    margin: 10rem 0 0;
-}
-
 .add-edit-card{
     border: .05rem solid #8a8888;
     border-radius: 1.5rem;
@@ -531,10 +517,6 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 }
 
 /*------------------ Blog */
-
-.blog-wrapper {
-    margin: 9rem 0;
-}
 
 .blog-img {
     width: 50%;
@@ -575,8 +557,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
    position: relative;
    clear: both;
    height: 2.5rem;
-   margin-top: 4rem;
-   
+   margin: 4rem 0;
 }
 
 .page-footer a {
@@ -605,7 +586,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
         width: 6%;
     }
     .square-card {
-        height: 28rem;
+        height: 29rem;
     }
 }
 

@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="my-5">
-                    <img class="add-to-cart-icon mr-3" src="/media/add-to-cart-icon.png" alt="Green shopping cart" />
+                    <img class="add-to-cart-icon mr-3" src="{{ MEDIA_URL }}add-to-cart-icon.png" alt="Green shopping cart" />
                     <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add to bag">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
@@ -66,7 +66,7 @@
 <!-- Decorative image -->
         </div>
         <div class="col-12 col-lg-4 ">
-            <img class="toy-details-bgimg mt-5" src="/media/happy-child.png"
+            <img class="toy-details-bgimg mt-5" src="{{ MEDIA_URL }}happy-child.png"
                 alt="Happy child in green and dotted clothes and brown pigtails, stretching arms and legs out like a star">
         </div>
     </div>
