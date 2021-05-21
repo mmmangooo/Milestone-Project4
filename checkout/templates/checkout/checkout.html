@@ -28,10 +28,10 @@
                 <tr>
                     <td>
                         {% if item.toy.image %} 
-                        <img src="{{ toy.image.url }}" alt="{{ toy.name }}">
-                        {% endif %}
+                        <img class="w-75" src="{{ item.toy.image.url }}" alt="{{ toy.name }}">
+                       {% else %}
                         <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
-                   
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{item.toy.name }}</p>
@@ -65,7 +65,7 @@
                 <tr>
                     <td><strong>Total cost</strong></td>
                     <td></td>
-                    <td><strong> € {{ grand_total }} </strong> </td>
+                    <td><strong> €{{ grand_total }} </strong> </td>
                 </tr>
 
 
@@ -105,9 +105,10 @@
                             checked>
                         {% else %}
                         <label for="save-user-info" class="form-check-label">
-                            <p><a href="{% url 'account_signup' %}">Sign up</a></p>
-                            <p>
-                                <a href="{% url 'account_login' %}">or Login </a>to save info to user profile
+                            <p>To save info to user profile:</p>
+                      <a href="{% url 'account_signup' %}">Sign up here<br>    
+                      <a href="{% url 'account_login' %}">Login here</a><br>
+                       
                             </p>
                             {% endif %}
                         </label>
