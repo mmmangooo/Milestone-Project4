@@ -139,7 +139,8 @@ def edit_blogpost(request, blogpost_id):
                 request, 'Sorry, something went wrong. \
                     The blogpost was not updated.')
 
-    # Rendering an edit form for the specific blogpost
+    # Rendering an edit form for the specific blogpost and message
+    # to the user about which blogpost they are editing
     else:
         form = BlogpostForm(instance=blogpost)
         messages.info(request, 'You are editing {blogpost.title}')

@@ -21,21 +21,29 @@ def all_toys(request):
 
     if request.GET:
 
+        # Handling returning result when user has made a search for toys
         if 'query' in request.GET:
             query = request.GET['query']
+            # Handling if user clicked search without entering search criteria
             if not query:
                 messages.error(request, "No search qriteria entered")
                 return redirect(reverse('toys'))
 
+            # Filtering db query by user's search criteria,
+            # in name and description of toy
             queries = Q(
                 name__icontains=query) | Q(description__icontains=query)
             toys = toys.filter(queries)
 
+        # Handling returning toys in the right category when user
+        # has chosen a category
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             toys = toys.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+        # Handling returning toys sorted by the criteria the user
+        # has chosen, when the user has chosen any sort criteria
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -77,11 +85,15 @@ def add_toy(request):
     """
     A view to add a toy to the store
     """
+    # Stopping a user from accessing this functionality if
+    # they are not logged in with superuser credentials
     if not request.user.is_superuser:
         messages.error(
             request, 'This functionality is only available to store owners')
         return redirect(reverse('home'))
 
+    # Handling functionality of add a btoy to the db, or returning an
+    # error message if add toy did not succeed
     if request.method == 'POST':
         form = ToyForm(request.POST, request.FILES)
         if form.is_valid():
@@ -92,6 +104,7 @@ def add_toy(request):
             messages.error(
                 request, 'Sorry, something went wrong. \
                     The toy was not added to the store')
+    # Rendering an empty add toy form
     else:
         form = ToyForm()
 
@@ -108,22 +121,30 @@ def edit_toy(request, toy_id):
     """
     A view to edit a toy in the store
     """
+    # Stopping a user from accessing this functionality if
+    # they are not logged in with superuser credentials
     if not request.user.is_superuser:
         messages.error(
             request, 'This functionality is only available to store owners')
         return redirect(reverse('home'))
 
     toy = get_object_or_404(Toy, pk=toy_id)
+
+    # Handling functionality of edit a toy to the db, or returning an
+    # error message if edit toy did not succeed
     if request.method == 'POST':
-        form = ToyForm(request.POST, request.FILES)
+        form = ToyForm(request.POST, request.FILES, instance=toy)
         if form.is_valid():
-            toy = form.save()
+            form.save()
             messages.success(request, 'Successfully updated toy!')
             return redirect(reverse('toy_details', args=[toy.id]))
         else:
             messages.error(
                 request, 'Sorry, something went wrong. \
                     The toy was not updated.')
+
+    # Rendering an edit form for the specific toy and message
+    # to the user about which toy they are editing
     else:
         form = ToyForm(instance=toy)
         messages.info(request, f'You are editing {toy.name}')
@@ -142,11 +163,14 @@ def confirm_delete_toy(request, toy_id):
     """
     A view for rendering a template where deletion is confirmed or cancelled
     """
+    # Stopping a user from accessing this functionality if
+    # they are not logged in with superuser credentials
     if not request.user.is_superuser:
         messages.error(
             request, 'This functionality is only available to store owners')
         return redirect(reverse('home'))
 
+    # Getting the specific toy from the db
     toy = get_object_or_404(Toy, pk=toy_id)
     context = {
         'toy': toy,
@@ -162,11 +186,15 @@ def delete_toy(request, toy_id):
     """
     Delete a toy from the store
     """
+
+    # Stopping a user from accessing this functionality if
+    # they are not logged in with superuser credentials
     if not request.user.is_superuser:
         messages.error(
             request, 'This functionality is only available to store owners')
         return redirect(reverse('home'))
 
+    # Getting the specific toy and deleting it from the db
     toy = get_object_or_404(Toy, pk=toy_id)
     toy.delete()
     messages.success(request, f'{toy.name} deleted from the store.')
