@@ -55,7 +55,7 @@ p {
 .page-wrapper {
     padding-top: 4rem;
     width: 100%;
-   margin-bottom: 8rem;
+    padding-bottom: 6rem;
 }
 
 .site-form {
@@ -227,6 +227,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 .index-link-blog {
     font-size: .95rem;
     color: #6d6b6b;
+    font-weight: bold;
 }
 
 .index-link-toys {
@@ -506,20 +507,18 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     }
   }
   
-
-/* ----------------- Add/edit/delete toys and blog */
-
-.add-edit-card{
-    border: .05rem solid #8a8888;
-    border-radius: 1.5rem;
-    filter: drop-shadow(0.1rem 0.2rem 0.4rem #46454533);
-    box-shadow: 0.2rem 0.4rem 1.5rem #46454533;
-}
-
 /*------------------ Blog */
 
 .blog-img {
     width: 50%;
+}
+
+.card-blog {
+    padding: 2rem 2rem;
+    border: .02rem solid #6D564D;
+    border-radius: .2rem;
+    box-shadow: .08rem .08rem .12rem .12rem #a08d86;
+    position: relative;
 }
 
 .edit-blogpost-link {

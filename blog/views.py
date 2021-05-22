@@ -47,7 +47,7 @@ def blog_details(request, blogpost_id):
     comments = blogpost.comments.all().order_by('-posted_date')
     new_comment = None
     comment_form = BlogCommentForm()
-
+    print(comments)
     # Code handling posting a comment, or rendering an error message if
     # the attempted post does not succeed
     if request.method == 'POST':

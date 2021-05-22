@@ -4,36 +4,38 @@
 
 {% block content %}
 
+<a class="float-start ms-3 mt-3" href="{% url 'blog' %}"><span class="icon"><i class="fas fa-arrow-left"> </i></span> <strong> Back to blogposts</strong></a>
+<div class="container-fluid page-wrapper bg-leaves">
 
-<div class="container-fluid bg-leaves">
+  
 
+    <div class="row align-items-center justify-content-center">
 
-    <div class="row mt-5 px-3 justify-content-center align-items-center">
-
-        <div class="col-12 col-lg-5 my-5 site-form px-3">
+        <div class="col-12 col-lg-7 col-xl-6 my-2">
+            <div class="site-form mx-auto text-start">
 
             <!-- Showing blogpost with comments, if there are any, and with a form to fill in to
         leave a comment, if the user is logged in -->
 
-            <h3 class="mb-3">{{ blogpost.title }}</h3>
+            <h3 class="mb-3 text-center">{{ blogpost.title }}</h3>
 
 
-            <p>{{ blogpost.content }}
+            <p class="mt-3">{{ blogpost.content }}
             </p>
             <hr>
 
-            <h5>Comments:</h5>
+            <h5 class="text-center">Comments:</h5>
             {% if blogpost.comments %}
             {% for comment in comments %}
-            <p>{{ comment.content }} </p>
+            <p>{{ comment }} </p>
             {% endfor %}
             {% else %} <p>This blog post has no comments yet.</p>
             {% endif %}
             <hr>
 
-            <h5 class="blog-comment-header">Comment on blogpost</h5>
+            <h5 class="text-center mb-3">Comment on blogpost</h5>
             {% if user.is_authenticated %}
-            <form method="POST" class="mx-auto">
+            <form method="POST" class="mx-auto text-center">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
 
@@ -45,17 +47,17 @@
 
             <!-- Links to login and signup pages, shown if user is not logged in -->
 
-            <p>You have to be signed in to leave a comment. </p><br>
-            <p> <a href="{% url 'account_login' %} ">Sign in here</a> or
-                <a href="{% url 'account_signup' %} ">Sign up for an account here!</a>
+            <p>You have to be signed in to leave a comment. </p>
+            <p> <a href="{% url 'account_login' %} ">Sign in here</a> <br>
+                <a href="{% url 'account_signup' %} ">Sign up for an account here</a>
             </p>
             {% endif %}
-
+        </div>
         </div>
 
         <!-- Decorative image -->
-        <div class="col d-none d-lg-block col-lg-5">
-            <img class="ms-5 mt-5 w-50" src="{{ MEDIA_URL }}bulb.png"
+        <div class="col d-none d-lg-block col-lg-4 col-xl-3">
+            <img class="ms-5 mt-3 w-75 mx-auto" src="{{ MEDIA_URL }}bulb.png"
                 alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
         </div>
     </div>
