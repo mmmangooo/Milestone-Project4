@@ -13,7 +13,8 @@ class BlogCommentAdmin(admin.ModelAdmin):
     list_display = (
         'author',
         'content',
-        'posted_date'
+        'posted_date',
+        'post'
     )
 
 

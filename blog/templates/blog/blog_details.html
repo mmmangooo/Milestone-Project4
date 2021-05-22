@@ -27,7 +27,9 @@
             <h5 class="text-center">Comments:</h5>
             {% if blogpost.comments %}
             {% for comment in comments %}
-            <p>{{ comment }} </p>
+            <p>Commented by: {{ comment.author }} </p>
+            <p>{{ comment.content }}</p>
+            <p>Posted on {{ comment.posted_date }}</p>
             {% endfor %}
             {% else %} <p>This blog post has no comments yet.</p>
             {% endif %}

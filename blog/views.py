@@ -44,19 +44,19 @@ def blog_details(request, blogpost_id):
     A view to show blogpost details with content text, and add comments to them
     """
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
-    comments = blogpost.comments.all().order_by('-posted_date')
+    comments = BlogComment.objects.filter(post=blogpost)
     new_comment = None
     comment_form = BlogCommentForm()
-    print(comments)
+
     # Code handling posting a comment, or rendering an error message if
     # the attempted post does not succeed
     if request.method == 'POST':
-        comment_form = BlogCommentForm(data=request.POST)
+        comment_form = BlogCommentForm(request.POST)
         if comment_form.is_valid():
             # Creating new comment object, not saving yet
             new_comment = comment_form.save(commit=False)
             # Assigning the comment to the current blogpost
-            new_comment.blogpost = blogpost
+            new_comment.post = blogpost
             new_comment.save()
             messages.success(request, 'Your comment has been added!')
             # Rendering an empty comment form after comment is posted
@@ -129,7 +129,7 @@ def edit_blogpost(request, blogpost_id):
     # Handling functionality of edit a blogpost to the db, or returning an
     # error message if edit blogpost did not succeed
     if request.method == 'POST':
-        form = BlogpostForm(request.POST, request.FILES)
+        form = BlogpostForm(request.POST, request.FILES, instance=blogpost)
         if form.is_valid():
             blogpost = form.save()
             messages.success(request, 'Successfully updated blogpost!')
@@ -143,7 +143,7 @@ def edit_blogpost(request, blogpost_id):
     # to the user about which blogpost they are editing
     else:
         form = BlogpostForm(instance=blogpost)
-        messages.info(request, 'You are editing {blogpost.title}')
+        messages.info(request, f'You are editing "{blogpost.title}"')
 
     template = 'blog/edit_blog.html'
     context = {

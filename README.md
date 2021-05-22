@@ -4,7 +4,7 @@ This site is the Milestone Project 4 for the Software Development Diploma course
 understanding of full stack development with Django framework and building upon all previous learning in the course to put together a fully functional
 website.
 
-[A live version of the website can be virwed here]()
+[A live version of the website can be viewed here](https://greentoys.herokuapp.com/)
 
 (Image of the site on differents viewports)
 
