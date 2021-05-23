@@ -9,7 +9,7 @@ from profiles.models import UserProfile
 import json
 import time
 
-# From Boutique Ado walkthrough project: 
+# From Boutique Ado walkthrough project:
 # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/2229819dd50d944117bfe9837c590d59d70bbc66/checkout/webhook_handler.py
 
 

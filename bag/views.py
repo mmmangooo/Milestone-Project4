@@ -23,10 +23,13 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
+    # Increasing the quantity of the toy in the bag,
+    # if the used adds another of a toy already in the bag
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
         messages.success(
             request, f'Updated quantity of {toy.name} to {bag[item_id]}')
+    # Adding a toy to the bag when that toy is not already in the user's bag
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {quantity} {toy.name} to your bag')
@@ -43,10 +46,15 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
+    # Updating the quantity of a toy in the bag when there is still
+    # one or more of the toys left in the bag after quantity update
     if quantity > 0:
         bag[item_id] = quantity
         messages.success(
             request, f'Updated quantity of {toy.name} to {quantity}')
+
+    # Updating the quantity when there is none of
+    # that toy left in the bag after update
     else:
         bag.pop(item_id)
         messages.success(request, f'{toy.name} removed from your bag')
@@ -59,7 +67,8 @@ def remove_from_bag(request, item_id):
     """
     View to remove item from shopping bag
     """
-
+    # Try removing the toy from the bag and returning a success
+    # message to the user on delete completed
     try:
         toy = get_object_or_404(Toy, pk=item_id)
         bag = request.session.get('bag', {})
@@ -68,6 +77,7 @@ def remove_from_bag(request, item_id):
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
+    # Returning an error message to the user when delete is not successful
     except Exception as e:
         messages.error(
             request, f'Something went wrong, item was not removed: {e}')

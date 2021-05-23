@@ -513,4 +513,8 @@ All content on the site is written by Isabelle Ängsås
 * [Django documentaion](https://docs.djangoproject.com/en/3.2/) has been used throughout the project for understanding Django logic and functionalities 
 
 
+## Acknowledgments
 
+* Thanks to mentor Seun Owonikoko for guidance on the project
+
+* Thanks to tutor support for assistance in debugging issues
