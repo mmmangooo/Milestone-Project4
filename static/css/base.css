@@ -116,6 +116,7 @@ hr {
 .message-container {
     margin: 3.5rem 0 0;
     display: inline;
+    height: 1rem;
 }
 
 .toast {
@@ -400,7 +401,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
   }
   
   .result-message a {
-    color: rgb(89, 111, 214);
+    color: #6D564D;
     font-weight: 600;
     text-decoration: none;
   }
