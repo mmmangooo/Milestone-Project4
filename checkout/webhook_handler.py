@@ -89,7 +89,7 @@ class StripeWH_Handler:
         # Creating a delay for stripe checking for existing order,
         # in case it takes some time for the order to be created
         attempt = 1
-        while attempt <= 7:
+        while attempt <= 5:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
