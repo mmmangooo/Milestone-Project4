@@ -177,6 +177,8 @@ USE_TZ = True
 # Static and media files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# Setup of AWS S3 Bucket made following Boutique Ado walkthrough project
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -215,6 +217,7 @@ if 'USE_AWS' in os.environ:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Stripe
+# Setup made following the Boutique Ado walkthorugh project)
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_COST = 10
 

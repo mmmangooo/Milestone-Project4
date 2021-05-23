@@ -326,13 +326,15 @@ Contact page is available from navbar at the top of the page and from navigation
     * stripe=2.56.0
     * webhooks=0.4.2
 
+* [Gitpod](https://gitpod.io/) is the IDE used to develop this site
+
 * [Git](https://git-scm.com/) was used for version control
 
 * [Github](https://github.com/) was used for hosting and store source code
 
 * [Heroku](https://heroku.com) was used for deployment of live site
 
-* [PostgresSQL](https://www.postgresql.org/) was used for relational database storage
+* [Heroku PostgresSQL](https://www.postgresql.org/) was used for relational database storage
 
 * [jQuery](https://jquery.com/) was used for simplified use of javascript
 
@@ -340,30 +342,175 @@ Contact page is available from navbar at the top of the page and from navigation
 
 * [Balsamiq](https://balsamiq.com/) was used for creating wireframes
 
-* [Canva](https://www.canva.com/) was used for testing different colors and for 
+* [Canva](https://www.canva.com/) was used for testing different colors and design and for getting the drawn images on the site
 
+* [Google Fonts](https://fonts.google.com/) was used for importing the font used on the site
+
+* [Font Awesome](https://fontawesome.com/) was used for icons 
+
+* [Diagrams.net](https://www.diagrams.net/) was used for creating the database design schema
+
+* [AWS S3 Bucket](https://aws.amazon.com/) was used for storing static and media files
+
+* [Favicon](https://favicon.io/) was used to create the site's favicon 
+
+* [Picresize](https://picresize.com/) was used for resizing images used on the site
+
+* [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) was used for inspecting elements on the site to debug positioning and grid issues and test      
+  responsiveness on different screen sizes
+
+* [Unicorn Revealer Tool](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) was used for analyzing positioning and grid 
+  issues
+
+* [WC3 Markup Validation Tool](https://validator.w3.org/) was used for for validating HTML code
+
+* [Jigsaw CSS Validation Tool](https://jigsaw.w3.org/css-validator/) was used for validating CSS code
+
+* [JSHint](https://jshint.com/) was used for validating Javascript code
+
+* [Pep8 Online](http://pep8online.com/) was used for validating Python code 
+
+* [Autoprefixer](https://autoprefixer.github.io/) was used for autoprefixing CSS code 
+
+* [Free formatter CSS beautifier](https://www.freeformatter.com/css-beautifier.html) was used to ensure proper formatting of CSS code
+
+* [Free formatter HTML beautifier](https://www.freeformatter.com/html-formatter.html) was used to ensure proper formatting of HTML code 
+
+* [Lighthouse](https://developers.google.com/web/tools/lighthouse) was used in Chrome Dev tools version to test the site for acessibility and performance
+
+
+## Testing
+
+Information about testing is provided in a separate file, which can be viewed [here](TESTING.md)
+
+
+## Deployment
+
+### Project Creation
+
+* The creation of this project on Github followed these steps:
+
+    1. Navigate to [GitHub](https://github.com/) and sign in on the page
+
+    2. When signed in to the page My Repositories is shown on the left side of the screen, and on top is a green button saying "New". Clicking this button leads to the page
+       for creating a new repository
+
+    3. On the page for creating a new repository, I chose the Code Institute Template from the options under "Repository templates"
+
+    4. After entering a name for the project, click the green "Create Repository" button, which creates a repository hosting the project on GitHub
+
+### Deployment to Heroku
+
+* Create Heroku app:
+
+  1. Navigate to [Heroku](https://heroku.com) and sign on the page
+
+  2. When signed in, on the top right corner is a button saying "New". Clicking this button makes two options show - choose "Create app"
+
+  3. Clicking the create app button leads to a new page, where I entered a name for the app and chose the region closest to my location and then clicked "Create app"
+
+* Setup connection to Github repository
+
+  1. Click on the tab saying "Deploy" and select Github - Connect to Github
+
+  2. In the prompt showing after this, enter the name for the Github repository and click search
+
+  3. When the repository is found, click the "connect" button
+
+* Setup PostgresSQL Database
+
+  1. Click on the tab saying "Resources" and go to "Add-ons"
+
+  2. Search for Heroku Postgres and choose it in the appearing list
+
+  3. Select the plan named "Hobby Dev - Free" and then click Submit order form
+
+* Set enironment variables
+
+  1. Click on the tab saying "Settings" and then click "Reveal config vars"
+
+  2. Add the following variables:
+
+    * AWS_ACCESS_KEY_ID
+
+    * AWS_SECRET_ACCESS_KEY
+
+    * DATABASE_URL
+
+    * EMAIL_HOST_PASS
+
+    * EMAIL_HOST_USER
+
+    * SECRET_KEY
+
+    * STRIPE_PUBLIC_KEY
+
+    * STRIPE_SECRET_KEY
+
+    * STRIPE_WH_SECRET
+
+    * USE_AWS 
+
+  The value of the above keys depend on the users personal setup and will not be added here for security reasons
+
+* Enable automatic deployment
+
+  1. Go to the tab saying "Deploy" again and scroll to the section "Automatic Deployment"
+
+  2. Choose the branch you want to deploy from and then click "Enable Automation Deploys"
+
+
+### Run project locally 
+
+  1. Navigate to GitHub repository for this project
+
+  2. Click the button on the top right saying "Code" and from the dropdown menu, choose if you want to download he project in a zip file, or copy the Git URL
+
+  3. Open the IDE you want to work in and either:
+
+    * open a terminal window in the directory you choose and type in the "git clone" command followed by the copied URL or for zip file
+
+    * open the downloaded files from your IDE
+
+  4. Install the required packages for the projects by entering the following command in the shell: pip install -r requirements.txt 
+
+### Fork Project
+
+  1. Navigate to GitHub repository for this project
+
+  2. Click the button on the top right saying "Fork"
+
+  3. A duplicate of the project is now created in your Github repository
 
 
 ## Credits
 
-Unsplash
+### Content
 
-Sigmund
-  
+All content on the site is written by Isabelle Ängsås
 
-Code:
-Setting up signup and login, this tutorial: https://www.youtube.com/watch?v=q4jPR-M0TAQ&t=1377s
+### Media
 
+* Photos of the toys "for sale" on the site are property of Isabelle Ängsås
 
-Blog comments, this tutorial: https://www.youtube.com/watch?v=hZrlh4qU4eQ
-and https://djangocentral.com/creating-comments-system-with-django/
+* Background photo on hero section is from [Unsplash](https://unsplash.com/), photographer username Sigmund
 
-
-404 and 500 custom template setup:
-
-https://github.com/GBrachetta/guillermo/blob/master/guillermo/
+* All drawn images on the site are from [Canva](https://www.canva.com/)
 
 
-Code credits for send email view:
-https://docs.djangoproject.com/en/3.2/topics/email/
-and https://www.youtube.com/watch?v=4b3yvjcPLnk&list=PLXcnmXd-db_hO1v3SLAzVcNieoS_Tcn-6
+### Code
+
+* This project was developed based on the understanding of the course material "Boutique Ado" walkthrough project on Code Institute Full stack development course. Some of the  code is developed directly following the tutorial, customized to fit this site's purposes. Where this is the case it is commented in the code, as well as parts of the code where other tutorials have been followed closely or where the code is relying largely on some other source.
+
+* Aside from the course material, some other tutorials have been used in developing this project:
+   * [Corey Schafer Python Django Tutorial: Full-Featured Web App Part 6 - User Registration](https://www.youtube.com/watch?v=q4jPR-M0TAQ&t=1377s)
+   * [Codemy Django Blog Tutorial](https://www.youtube.com/watch?v=hZrlh4qU4eQ)
+   * [Django central: Building a blog comment system](https://djangocentral.com/creating-comments-system-with-django/)
+   * [Codemy How to build a dentist's website - Contact page and sending emails with django](https://www.youtube.com/watch?v=w4ilq6Zk-08&list=PLXcnmXd-db_hO1v3SLAzVcNieoS_Tcn-6&index=6)
+   * [Fellow Code Institute Student Guillermo Brachetta's Milestone 4 Project setup of custom 404 and 500 error pages](https://www.youtube.com/watch?v=4b3yvjcPLnk& list=PLXcnmXd-db_hO1v3SLAzVcNieoS_Tcn-6)
+
+* [Stack Overflow](https://stackoverflow.com/) has been used throughout the project for understanding error messages from Django during development
+* [Django documentaion](https://docs.djangoproject.com/en/3.2/) has been used throughout the project for understanding Django logic and functionalities 
+
+
+

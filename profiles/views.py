@@ -19,6 +19,7 @@ def profile(request):
     """
     profile = get_object_or_404(UserProfile, user=request.user)
 
+    # Handling the user updating personal info on their profile
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -46,6 +47,9 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
+    """
+    A view for showing the user's order history on their profile page
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

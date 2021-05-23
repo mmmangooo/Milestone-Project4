@@ -21,7 +21,5 @@ class ToyAdmin(admin.ModelAdmin):
     )
 
 
-
 admin.site.register(Toy, ToyAdmin)
 admin.site.register(Category, CategoryAdmin)
-

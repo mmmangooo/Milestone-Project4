@@ -39,6 +39,10 @@ def blog(request):
     return render(request, 'blog/blog.html', context)
 
 
+# Credit for code for retrieving and adding blog comments:
+# https://djangocentral.com/creating-comments-system-with-django/'
+# https://www.youtube.com/watch?v=hZrlh4qU4eQ
+
 def blog_details(request, blogpost_id):
     """
     A view to show blogpost details with content text, and add comments to them
