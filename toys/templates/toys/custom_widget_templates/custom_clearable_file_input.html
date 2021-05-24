@@ -7,21 +7,17 @@
 {% if widget.is_initial %} 
 <p>{{widget.initial_text}}:</p>
 <a href="{{ widget.value.url}}">
-    <img src="{{ widget.value.url }}" alt="Toy img" width="84" height="84">
+<img src="{{ widget.value.url }}" alt="Toy img" width="84" height="84">
 </a>
-
 {% if not widget.required %} 
 <div>
-    <input type="checkbox" name="{{widget.checkbox_name}}" id="{{widget.checkbox_id}}">
-    <label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+   <input type="checkbox" name="{{widget.checkbox_name}}" id="{{widget.checkbox_id}}">
+   <label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
 </div>
 {% endif %} 
-
 {{ widget.input_text }}
-
 {% endif %} 
-
 <span>
-    Upload Image <input class="btn mw-100" type="{{widget.type}}" id="new-image" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
+Upload Image <input class="btn mw-100" type="{{widget.type}}" id="new-image" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
 </span>
 <p id="filename"></p>

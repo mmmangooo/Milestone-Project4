@@ -6,71 +6,61 @@
 
 
 <div class="container-fluid page-wrapper">
-
-
     <div class="row align-items-center">
-        <div class="col-12 col-lg-4">
-          
-            <!-- Showing image of the toy if there is one, otherwise showing a generic 'no image found'-image -->
-            <div class="details-img-container py-5 mx-5 my-5">
-                {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}"> 
-                {% else %}
-                <img class="w-50 " src="{{ MEDIA_URL }}no-image.png"
+       <div class="col-12 col-lg-4">
+          <!-- Showing image of the toy if there is one, otherwise showing a generic 'no image found'-image -->
+          <div class="details-img-container py-5 mx-5 my-5">
+             {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}"> 
+             {% else %}
+             <img class="w-50 " src="{{ MEDIA_URL }}no-image.png"
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below"> 
-                {% endif %}
-            </div>
-        </div>
-
-        <!-- Showing details about the specific toy -->
-        <div class="col-12 col-lg-4 my-5">
-            <h4>{{ toy.name }}</h4>
-
-            <p>{% if toy.rating %} Rating {{toy.rating }} / 5 {% else %} No rating {% endif %}</p>
-            <p>{% if toy.description %} {{ toy.description }} {% else %} This toy has no description yet. {% endif %}
-            </p>
-
-            <!-- Showing the toy's price in red text if it on campaign, otherwise standard text color -->
-            <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %} </p>
-            <div class="container align-items-center mt-5">
-                <form method="POST" action="{% url 'add_to_bag' toy.id %}">
-                    {% csrf_token %}
-                    <p>Quantity:</p>
-                    <!-- Form for choosing what quantity of the toy to add to the bag -->
-                    <div class="form-group py-1 my-3 mx-auto mr-lg-2">
-                        <div class="input-group w-50 mx-auto mx-lg-0">
-                            <div class="input-group-prepend">
-
-                                <button class="decrement-qty btn mt-2" data-item-id="{{ toy.id }}"
-                                    id="decrement-qty_{{ toy.id }}"><span class="icon"><i
-                                            class="fas fa-minus"></i></span></button>
-                            </div>
-                            <input type="number" name="quantity" value="1" min="1" max="5"
-                                class="form-control qty_input" data-item-id="{{ toy.id }}" id="id_qty_{{ toy.id }}">
-                            <div class="input-group-append">
-                                <button class="increment-qty btn mt-2" data-item-id="{{ toy.id }}"
-                                    id="increment-qty_{{ toy.id }}"><span class="icon"><i
-                                            class="fas fa-plus"></i></span></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="my-5">
-                    <img class="add-to-cart-icon mr-3" src="{{ MEDIA_URL }}add-to-cart-icon.png" alt="Green shopping cart" />
-                    <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add to bag">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+             {% endif %}
+          </div>
+       </div>
+       <!-- Showing details about the specific toy -->
+       <div class="col-12 col-lg-4 my-5">
+          <h4>{{ toy.name }}</h4>
+          <p>{% if toy.rating %} Rating {{toy.rating }} / 5 {% else %} No rating {% endif %}</p>
+          <p>{% if toy.description %} {{ toy.description }} {% else %} This toy has no description yet. {% endif %}
+          </p>
+          <!-- Showing the toy's price in red text if it on campaign, otherwise standard text color -->
+          <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %} </p>
+          <div class="container align-items-center mt-5">
+             <form method="POST" action="{% url 'add_to_bag' toy.id %}">
+                {% csrf_token %}
+                <p>Quantity:</p>
+                <!-- Form for choosing what quantity of the toy to add to the bag -->
+                <div class="form-group py-1 my-3 mx-auto mr-lg-2">
+                   <div class="input-group w-50 mx-auto mx-lg-0">
+                      <div class="input-group-prepend">
+                         <button class="decrement-qty btn mt-2" data-item-id="{{ toy.id }}"
+                            id="decrement-qty_{{ toy.id }}"><span class="icon"><i
+                            class="fas fa-minus"></i></span></button>
+                      </div>
+                      <input type="number" name="quantity" value="1" min="1" max="5"
+                         class="form-control qty_input" data-item-id="{{ toy.id }}" id="id_qty_{{ toy.id }}">
+                      <div class="input-group-append">
+                         <button class="increment-qty btn mt-2" data-item-id="{{ toy.id }}"
+                            id="increment-qty_{{ toy.id }}"><span class="icon"><i
+                            class="fas fa-plus"></i></span></button>
+                      </div>
+                   </div>
                 </div>
-                </form>
-            </div>
-
-
-
-<!-- Decorative image -->
-        </div>
-        <div class="col-12 col-lg-4 ">
-            <img class="toy-details-bgimg mt-5" src="{{ MEDIA_URL }}happy-child.png"
-                alt="Happy child in green and dotted clothes and brown pigtails, stretching arms and legs out like a star">
-        </div>
+                <div class="my-5">
+                   <img class="add-to-cart-icon mr-3" src="{{ MEDIA_URL }}add-to-cart-icon.png" alt="Green shopping cart" />
+                   <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add to bag">
+                   <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+             </form>
+          </div>
+          <!-- Decorative image -->
+       </div>
+       <div class="col-12 col-lg-4 ">
+          <img class="toy-details-bgimg mt-5" src="{{ MEDIA_URL }}happy-child.png"
+             alt="Happy child in green and dotted clothes and brown pigtails, stretching arms and legs out like a star">
+       </div>
     </div>
-</div>
+ </div>
 
 {% endblock %}
 

@@ -4,34 +4,23 @@
 {% block content %} 
 
 <div class="container page-wrapper bg-leaves">
-
     <h3>Add Toy</h3>
-
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-6 col-xl-4 mt-5">
-
-        <!-- Form for adding a toy to the db-->
-    
-            <form action="{% url 'add_toy' %}" method="POST" enctype="multipart/form-data" class="site-form">
-                  {% csrf_token %}
-
-                {% for field in form %}
-                    {% if field.name != 'image' %} 
-                {{ field | as_crispy_field }}
-                    {% else %} 
-                    {{ field }} 
-                    {% endif %} 
-                {% endfor %} 
-
-                  <a href="{% url 'toys' %">Cancel</a> 
-                  <button class="primaryAction rounded-pill submit-btn px-3 py-1" type="submit">Add toy </button>
-                  
-                </form>
-     
-        
-        </div>
+       <div class="col-12 col-lg-6 col-xl-4 mt-5">
+          <!-- Form for adding a toy to the db-->
+          <form action="{% url 'add_toy' %}" method="POST" enctype="multipart/form-data" class="site-form">
+             {% csrf_token %}
+             {% for field in form %}
+             {% if field.name != 'image' %} 
+             {{ field | as_crispy_field }}
+             {% else %} 
+             {{ field }} 
+             {% endif %} 
+             {% endfor %} 
+             <a href="{% url 'toys' %">Cancel</a> 
+             <button class="primaryAction rounded-pill submit-btn px-3 py-1" type="submit">Add toy </button>
+          </form>
+       </div>
     </div>
-
-</div>
-
+ </div>
 {% endblock %}

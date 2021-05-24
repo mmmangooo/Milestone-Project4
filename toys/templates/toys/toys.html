@@ -5,24 +5,17 @@
 {% block content %}
 <div class="container-fluid mt-5">
   <h3>Our Toys</h3>
-
   <div class="container-fluid">
-    <div class="mt-5">
-
-      <!-- Selecting which category of toys to show on page -->
-      <select id="category-selector" class="category-selector">
+     <div class="mt-5">
+        <!-- Selecting which category of toys to show on page -->
+        <select id="category-selector" class="category-selector">
         <option value="reset" {% if categories == 'None_None' %} selected {% endif %}>All Categories</option>
-
         <option value="Wooden_Toys" {% if categories == 'wooden_toys' %} selected {% endif %}>Wooden Toys</option>
         <option value="Rubber_Toys" {% if categories == 'rubber_toys' %} selected {% endif %}>Rubber Toys</option>
-
-
-      </select>
-
-      <!-- Selecting how to sort the toys shown on the page -->
-       <select id="sort-selector" class="sort-selector">
+        </select>
+        <!-- Selecting how to sort the toys shown on the page -->
+         <select id="sort-selector" class="sort-selector">
         <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
-
         <option value="price_asc" {% if current_sorting == 'price_asc' %} selected {% endif %}>Price (low to high)
         </option>
         <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price (high to low)
@@ -31,65 +24,54 @@
         </option>
         <option value="rating_desc" {% if current_sorting == 'rating_desc' %} selected {% endif %}>Rating(high to low)
         </option>
-
-      </select>
-  
-    </div>
-
-      <!-- Link to 'add toy'-form, only shown if the user is logged in with superuser credentials-->
-  {% if request.user.is_superuser %}
-  <a class="add-toy-link" href="{% url 'add_toy' %}"><span><i class="fas fa-plus"></i> Add Toy</span></a>
-  {% endif %}
-
-    <!-- Showing an informative text about the search results if the user has searched for a toy on the site. If not, this content is not shown -->
-    <div class="container">
-      {% if search_term %}<h3>You searched for '{{ search_term }}'. {{toys|length}} toys found:</h3>{% endif %}
-
-      <div class="row justify-content-center mt-3">
-
-        <!-- Showing toys in a card grid -->
-        {% for toy in toys %}
-        <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
-
-          <div class="toy-card card">
-            {% if toy.image %} <img class="w-75 mx-auto" src="{{ toy.image.url }}" alt="{{ toy.name }}">
-            {% else %}
-            <img class="w-75 mx-auto" src="{{ MEDIA_URL }}no-image.png"
-                alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
-            {% endif %}
+        </select>
           
-            <div class="card-body">
-              <h5 class="card-title">{{ toy.name }}</h5>
-              <hr class="mx-auto">
-              <!-- If the toy has a rating, it is shown here -->
-              <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
-              
-              <!-- If the toy has a campaign price, it is shown here. Otherwise the original price is shown -->
-              <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}">{% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %} </p>
-              <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
-
-              <!-- If the user is logged in with superuser credentials, links to edit toy and delete toy pages are shown here -->
-              {% if request.user.is_superuser %}
-              <br>
-              <span class="edit-toy-link mt-2 bg-white"><a class="bg-white text-secondary" href="{% url 'edit_toy' toy.id %}">Edit</a></span>
-              <span class="delete-toy-link mt-2 "><a class="bg-white text-secondary" href="{% url 'confirm_delete_toy' toy.id %}">Delete</a></span>
-              {% endif %}
-            </div>
-
-          </div>
-
+     </div>
+     <!-- Link to 'add toy'-form, only shown if the user is logged in with superuser credentials-->
+     {% if request.user.is_superuser %}
+     <a class="add-toy-link" href="{% url 'add_toy' %}"><span><i class="fas fa-plus"></i> Add Toy</span></a>
+     {% endif %}
+     <!-- Showing an informative text about the search results if the user has searched for a toy on the site. If not, this content is not shown -->
+     <div class="container">
+        {% if search_term %}
+        <h3>You searched for '{{ search_term }}'. {{toys|length}} toys found:</h3>
+        {% endif %}
+        <div class="row justify-content-center mt-3">
+           <!-- Showing toys in a card grid -->
+           {% for toy in toys %}
+           <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
+              <div class="toy-card card">
+                 {% if toy.image %} <img class="w-75 mx-auto" src="{{ toy.image.url }}" alt="{{ toy.name }}">
+                 {% else %}
+                 <img class="w-75 mx-auto" src="{{ MEDIA_URL }}no-image.png"
+                    alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+                 {% endif %}
+                 <div class="card-body">
+                    <h5 class="card-title">{{ toy.name }}</h5>
+                    <hr class="mx-auto">
+                    <!-- If the toy has a rating, it is shown here -->
+                    <p class="card-text">  {% if toy.rating %} Rating {{ toy.rating }}/ 5 {% else %} No Rating {% endif %} </p>
+                    <!-- If the toy has a campaign price, it is shown here. Otherwise the original price is shown -->
+                    <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}">{% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %} </p>
+                    <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill text-white my-2">Read more</a>
+                    <!-- If the user is logged in with superuser credentials, links to edit toy and delete toy pages are shown here -->
+                    {% if request.user.is_superuser %}
+                    <br>
+                    <span class="edit-toy-link mt-2 bg-white"><a class="bg-white text-secondary" href="{% url 'edit_toy' toy.id %}">Edit</a></span>
+                    <span class="delete-toy-link mt-2 "><a class="bg-white text-secondary" href="{% url 'confirm_delete_toy' toy.id %}">Delete</a></span>
+                    {% endif %}
+                 </div>
+              </div>
+           </div>
+           {% endfor %}
         </div>
-        {% endfor %}
-      </div>
-    </div>
+     </div>
   </div>
-
 </div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
 <script>
-
   /* Code adapted from Boutique Ado walkthrough project:
   https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/products/templates/products/products.html
   */
@@ -97,7 +79,7 @@
   // Functionality of sorting the toys on the page by
   // different parameters depending of what choice the 
   // user has made
-
+  
     $('#sort-selector').change(function () {
       let selector = $(this);
       let currentUrl = new URL(window.location);
@@ -117,7 +99,7 @@
         // Reloading the window and showing page by the url with selected value 
         window.location.replace(currentUrl);
       } else {
-
+  
         // Deleting previous choices of sort parameters if the option 
         // value is 'reset'
         currentUrl.searchParams.delete('sort');
@@ -130,7 +112,7 @@
   
     // Functionality of showing toys in specific categories,
     // depending of what choice the user has made
-
+  
     $('#category-selector').change(function () {
       let selector = $(this);
       let currentUrl = new URL(window.location);
@@ -148,7 +130,7 @@
           // Reloading the window and showing page by the url with selected value 
            window.location.replace(currentUrl);
       } else {
-
+  
         // Deleting previous choices of sort parameters if the option 
         // value is 'reset'
         currentUrl.searchParams.delete('category');
@@ -157,6 +139,6 @@
         window.location.replace(currentUrl);
       }
     });
-  </script>
+</script>
 {% endblock %}
 

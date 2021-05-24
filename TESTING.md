@@ -12,12 +12,17 @@ The site has been manually tested on the functionality of the following:
 
 * HTML code has been validated using the [WC3 Markup Validation Tool](https://validator.w3.org/) with no errors found
 
-* CSS code has been validated using the [WC3 CSS Validator Tool Jigsaw](https://jigsaw.w3.org/css-validator/)
+* CSS code has been validated using the [WC3 CSS Validator Tool Jigsaw](https://jigsaw.w3.org/css-validator/) with no errors found
 
 * Javascript code has been validated using [JSHint](https://jshint.com/) with no errors or warnings, except for warnings shown for undeclared variables Stripe and Bootstrap,
   which is because these variables being sent through Stripe and Bootstrap API:s
 
-* Python code has been validated using [Pep8 Online](http://pep8online.com/)
+* Python code has been validated using [Pep8 Online](http://pep8online.com/) with no errors showing, except for some warnings for too long lines that couldn't be fixed without breaking the code. This reagards the following files:
+    checkout app: models.py, line 59
+                  webhook_handler.py, line 81 and 82
+                  webhooks.py, line 47
+    toys app: widgets.py, line 12
+    settings.py, line 147, 150, 153, 156
 
 
 ## Usability and performance testing
