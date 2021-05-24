@@ -3,12 +3,14 @@
 
 {% block content %} 
 
-<div class="container form-container-wrapper bg-leaves">
+<div class="container page-wrapper bg-leaves">
 
     <h3>Add Blogpost</h3>
 
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6 col-xl-5 mt-5">
+
+            <!-- Form for adding a blogpost to the db -->
        
             <form action="{% url 'add_blogpost' %}" method="POST" enctype="multipart/form-data" class="site-form">
                   {% csrf_token %}

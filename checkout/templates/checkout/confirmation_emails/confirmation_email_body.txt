@@ -2,12 +2,6 @@ Hi {{order.full_name }}!
 
 Thank for shopping at Green Toys! This is a confirmation of your order with order number {{ order.order_number }}.
 
-You have ordered:
-
-{% for order_line_item in order_line_items %}
-{{ order_line_item.toy }}
-{% endfor %} 
-
 Your order total is ${{ order.order_total }}.
 Your shipping cost is ${{ order.delivery_cost }}.
 The grand total for your order is ${{ order.grand_total }}.

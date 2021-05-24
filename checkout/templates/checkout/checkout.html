@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="container-fluid bag-container">
+<div class="container-fluid">
 
-    <h3 class="mb-3">Checkout</h3>
+    <h3 class="my-3 my-lg-5">Checkout</h3>
 
-    <div class="row">
-        <div class="col-12 col-lg-6 my-5 px-lg-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 my-5">
             <h4 class="mb-5">Order summary:</h4>
 
             <table class="table">
@@ -18,7 +18,7 @@
                         <th scope="col"></th>
                         <th scope="col">Product</th>
                         <th scope="col ">Price</th>
-                        <th scope="col ">Quantity</th>
+                        <th scope="col ">Qty</th>
 
                         <th scope="col">Total</th>
                     </tr>
@@ -70,17 +70,17 @@
 
 
             </table>
-            <div class="row">
+       
+            <div class="row justify-content-center">
 
-                <h4 class="mt-5"><a class="mx3" href="{% url 'view_bag'  %}"><span class="icon"><i
-                                class="fas fa-arrow-left"></i></span> Back to shopping bag</a></h4>
+      
 
 
             </div>
         </div>
         <div class="col-12 col-lg-6 my-5 px-lg-5">
-            <h4 class="mb-5">Please fill out your info here to complete the order:</h4>
-            <div class="text-left w-75 mx-auto">
+            <h4 class="mb-5">Fill out your info here to complete the order:</h4>
+            
 
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="site-form">
 
@@ -105,13 +105,13 @@
                             checked>
                         {% else %}
                         <label for="save-user-info" class="form-check-label">
-                            <p>To save info to user profile:</p>
-                      <a href="{% url 'account_signup' %}">Sign up here<br>    
+                            <p>To save info to user profile:</p>  </label>
+                      <a href="{% url 'account_signup' %}">Sign up here</a><br>    
                       <a href="{% url 'account_login' %}">Login here</a><br>
                        
-                            </p>
+                          
                             {% endif %}
-                        </label>
+                     
                     </div>
 
 
@@ -137,7 +137,7 @@
                             card will be charged € {{ grand_total }}</strong></p>
 
                 </form>
-            </div>
+            
 
 
 
@@ -145,6 +145,9 @@
 
     </div>
 </div>
+
+<h4 class="mt-5"><a class="mx3" href="{% url 'view_bag'  %}"><span class="icon"><i
+    class="fas fa-arrow-left"></i></span> Back to shopping bag</a></h4>
 
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner d-flex align-items-center justify-content-center m-0 h-100">

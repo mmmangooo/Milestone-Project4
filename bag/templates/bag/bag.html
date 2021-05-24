@@ -3,11 +3,11 @@
 {% load bag_tools %}
 
 {% block content %}
-<div class="container-fluid page-wrapper">
+<div class="container-fluid">
 
-    <h3>Shopping bag</h3>
+    <h3 class="mt-3 mt-lg-5">Shopping bag</h3>
 
-    <div class="row align-items-center">
+    <div class="row align-items-center justify-content-center">
         <div class="col-12 col-lg-4 my-3">
             <img class="bag-page-img" src="{{ MEDIA_URL }}dino.png"
                 alt="Three building blocks in bright color and with letters A-C on them in the background. In the foreground a light indigo baby dinosaur smiling with eyes closed.">
@@ -21,7 +21,7 @@
                         <th scope="col"></th>
                         <th scope="col">Product</th>
                         <th scope="col ">Price</th>
-                        <th scope="col ">Quantity</th>
+                        <th scope="col ">Qty</th>
 
                         <th scope="col">Total</th>
                     </tr>
@@ -57,12 +57,11 @@
 
 
                 <tr>
-                    <td></td>
-                    <td> </td>
-                    <td></td>
+                    
+                   
                     <td>
 
-                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                        <form class="form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">

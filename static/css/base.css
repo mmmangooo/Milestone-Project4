@@ -48,12 +48,11 @@ p {
 
 .bg-leaves {
     background: url('/media/leaves2.png') repeat fixed;
-    padding: 5rem 0;
     max-width: 100%;
 }
 
 .page-wrapper {
-    padding-top: 4rem;
+    padding-top: 2rem;
     width: 100%;
     padding-bottom: 6rem;
 }
@@ -62,7 +61,7 @@ p {
     background-color: #fff;
     border-radius: 1.5rem;
     padding: 2.5rem 2.5rem;
-    margin: 2rem 0;
+    margin: 2rem auto;
     width: 90%;
     filter: drop-shadow(0 0 0.5rem #a7a7a7);
 }
@@ -348,6 +347,10 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     width: 70%;
 }
 
+.update-form {
+    width: 80%;
+}
+
 .update-link {
     float: left;
     cursor: pointer;
@@ -389,6 +392,9 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
     color: #6D564D;
 }
 
+.loading-spinner {
+    color: #6D564D;
+}
 
 /* Stripe global CSS, from https://stripe.com/docs/payments/integration-builder */
 
