@@ -6,7 +6,7 @@
 <div class="container-fluid mt-5">
   <h3>Our Toys</h3>
   <div class="container-fluid">
-     <div class="mt-5">
+     <div class="my-5">
         <!-- Selecting which category of toys to show on page -->
         <select id="category-selector" class="category-selector">
         <option value="reset" {% if categories == 'None_None' %} selected {% endif %}>All Categories</option>
@@ -27,20 +27,22 @@
         </select>
           
      </div>
+     <div class="my-2">
      <!-- Link to 'add toy'-form, only shown if the user is logged in with superuser credentials-->
      {% if request.user.is_superuser %}
      <a class="add-toy-link" href="{% url 'add_toy' %}"><span><i class="fas fa-plus"></i> Add Toy</span></a>
      {% endif %}
+   </div>
      <!-- Showing an informative text about the search results if the user has searched for a toy on the site. If not, this content is not shown -->
-     <div class="container">
+     <div class="container mt-3">
         {% if search_term %}
         <h3>You searched for '{{ search_term }}'. {{toys|length}} toys found:</h3>
         {% endif %}
-        <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center mt-5">
            <!-- Showing toys in a card grid -->
            {% for toy in toys %}
-           <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-5">
-              <div class="toy-card card">
+           <div class="col-12 col-md-6 col-xl-4 xxl-3 mt-3">
+              <div class="toy-card card mt-3">
                  {% if toy.image %} <img class="w-75 mx-auto" src="{{ toy.image.url }}" alt="{{ toy.name }}">
                  {% else %}
                  <img class="w-75 mx-auto" src="{{ MEDIA_URL }}no-image.png"
