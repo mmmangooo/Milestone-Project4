@@ -5,62 +5,49 @@
 {% block content %}
 
 <div class="container-fluid page-wrapper bg-leaves mt-3">
-
     <div class="row align-items-center justify-content-center">
-
-        <div class="col-12 col-lg-7 col-xl-6 my-2">
-            <div class="site-form text-start">
-
-                <!-- Showing blogpost with comments, if there are any, and with a form to fill in to
-        leave a comment, if the user is logged in -->
-
-                <h3 class="mb-3 text-center">{{ blogpost.title }}</h3>
-
-
-                <p class="mt-3">{{ blogpost.content }}
-                </p>
-                <hr>
-
-                <h5 class="text-center">Comments:</h5>
-                {% if comments %}
-                {% for comment in comments %}
-                <p class="mt-3">Commented by: {{ comment.author }} </p>
-                <p>{{ comment.content }}</p>
-                <p>Posted on {{ comment.posted_date }}</p>
-                {% endfor %}
-                {% else %} <p class="mt-3 text-center">This blog post has no comments yet.</p>
-                {% endif %}
-                <hr>
-
-                <h5 class="text-center mb-3">Comment on blogpost</h5>
-                {% if user.is_authenticated %}
-                <form method="POST" class="mx-auto text-center mw-100">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-
-                    <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add comment">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <p>* = required field</p>
-                </form>
-                {% else %}
-
-                <!-- Links to login and signup pages, shown if user is not logged in -->
-
-                <p>You have to be signed in to leave a comment. </p>
-                <p> <a href="{% url 'account_login' %} ">Sign in here</a> <br>
-                    <a href="{% url 'account_signup' %} ">Sign up for an account here</a>
-                </p>
-                {% endif %}
-            </div>
-        </div>
-
-
+       <div class="col-12 col-lg-7 col-xl-6 my-2">
+          <div class="site-form text-start">
+             <!-- Showing blogpost with comments, if there are any, and with a form to fill in to
+                leave a comment, if the user is logged in -->
+             <h3 class="mb-3 text-center">{{ blogpost.title }}</h3>
+             <p class="mt-3">{{ blogpost.content }}
+             </p>
+             <hr>
+             <h5 class="text-center">Comments:</h5>
+             {% if comments %}
+             {% for comment in comments %}
+             <p class="mt-3">Commented by: {{ comment.author }} </p>
+             <p>{{ comment.content }}</p>
+             <p>Posted on {{ comment.posted_date }}</p>
+             {% endfor %}
+             {% else %} 
+             <p class="mt-3 text-center">This blog post has no comments yet.</p>
+             {% endif %}
+             <hr>
+             <h5 class="text-center mb-3">Comment on blogpost</h5>
+             {% if user.is_authenticated %}
+             <form method="POST" class="mx-auto text-center mw-100">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <input type="submit" class="rounded-pill mx-2 submit-btn py-1 px-3" value="Add comment">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <p>* = required field</p>
+             </form>
+             {% else %}
+             <!-- Links to login and signup pages, shown if user is not logged in -->
+             <p>You have to be signed in to leave a comment. </p>
+             <p> <a href="{% url 'account_login' %} ">Sign in here</a> <br>
+                <a href="{% url 'account_signup' %} ">Sign up for an account here</a>
+             </p>
+             {% endif %}
+          </div>
+       </div>
     </div>
-    
-<div>
-    <a class="float-start ms-3 my-3" href="{% url 'blog' %}"><span class="icon"><i class="fas fa-arrow-left">
-            </i></span> <strong> Back to blogposts</strong></a>
-</div>
-</div>
+    <div>
+       <a class="float-start ms-3 my-3" href="{% url 'blog' %}"><span class="icon"><i class="fas fa-arrow-left">
+       </i></span> <strong> Back to blogposts</strong></a>
+    </div>
+ </div>
 
 {% endblock %}

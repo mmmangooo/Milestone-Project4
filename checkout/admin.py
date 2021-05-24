@@ -12,11 +12,11 @@ class OrderLineItemAdminInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
-
+# Making fields non-editable
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total',)
-
+# Fields that can be edited
     fields = ('order_number', 'user_profile',
               'full_name', 'email',
               'phone_number', 'country', 'postcode',

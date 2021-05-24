@@ -4,25 +4,21 @@
 {% block content %}
 
 <div class="container-fluid page-wrapper bg-leaves">
-    <h3>Contact us</h3>
-    
-
-    <div class="row justify-content-center">
-<div class="col-12 col-md-8 col-lg-6 col-xl-4">
-<form class="site-form" action="{% url 'contact' %}" method="POST">
-  <p class="mb-3">Do you have questions about your order or feedback on how our site is working? Pop us an email, we'll be glad to hear from you!</p>
-    {% csrf_token %}
-
-      {{contact_form|crispy}}
-
-  
- <p>* = Required field</p>
-    <div class="col-12">
-      <button type="submit" class="btn submit-btn rounded-pill">Send</button>
-    </div>
-  </form>
-</div>
-</div>
+  <h3>Contact us</h3>
+  <div class="row justify-content-center">
+     <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+        <!-- Contact form sending an email to site owner-->
+        <form class="site-form" action="{% url 'contact' %}" method="POST">
+           <p class="mb-3">Do you have questions about your order or feedback on how our site is working? Pop us an email, we'll be glad to hear from you!</p>
+           {% csrf_token %}
+           {{contact_form|crispy}}
+           <p>* = Required field</p>
+           <div class="col-12">
+              <button type="submit" class="btn submit-btn rounded-pill">Send</button>
+           </div>
+        </form>
+     </div>
+  </div>
 </div>
 
 {% endblock %}

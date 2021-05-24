@@ -50,7 +50,7 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Updating the total order sum when a product is
+        Updating the total order sum when a toy is
         added to the order, and calulating delivery cost
         """
         self.order_total = self.lineitems.aggregate(Sum(

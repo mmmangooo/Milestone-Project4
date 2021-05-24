@@ -2,9 +2,9 @@ from .models import BlogPost, BlogComment
 from .forms import BlogpostForm, BlogCommentForm
 from django.db.models import Q
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect,
+                              reverse, get_object_or_404)
 from django.contrib import messages
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
 

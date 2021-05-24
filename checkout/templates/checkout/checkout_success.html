@@ -5,122 +5,94 @@
 {% block content %}
 
 <div class="container-fluid mt-5">
-
     <h3 class="mb-5">Thank you for your order!</h3>
-
     <p>A confirmation email has been sent to {{ order.email }}. See your order information below:</p>
-
     <div class="row">
-        <div class="col-12 col-lg-6 my-5 px-lg-5">
-            <img class="w-50" src="{{ MEDIA_URL }}thanks.png"
-                alt="Drawn image of hands hold together in a gesture of 'thank you'. The hands are light brown and the clothes showing on arms are bright green.">
-        </div>
-        <div class="col-12 col-lg-6 my-5 px-lg-5">
-            <h4 class="mb-5">Order summary:</h4>
-
-            <p>Order number: {{ order.order_number }}</p>
-            <p>Order date: {{ order.date }}</p>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-
-                {% for item in order.lineitems.all %}
+       <div class="col-12 col-lg-6 my-5 px-lg-5">
+          <img class="w-50" src="{{ MEDIA_URL }}thanks.png"
+             alt="Drawn image of hands hold together in a gesture of 'thank you'. The hands are light brown and the clothes showing on arms are bright green.">
+       </div>
+       <div class="col-12 col-lg-6 my-5 px-lg-5">
+          <h4 class="mb-5">Order summary:</h4>
+          <p>Order number: {{ order.order_number }}</p>
+          <p>Order date: {{ order.date }}</p>
+          <table class="table">
+             <thead>
                 <tr>
-                    <td>
-
-                        {% if item.toy.image %} 
-
-                        <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
-                        {% else %} 
-                        <img class="w-50" src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
-                        {% endif %}
-                    </td>
-                    <td>
-                        <p>{{item.toy.name }}</p>
-                    </td>
-                    <td>
-                        <p>á € {{item.toy.price }}</p>
-                    </td>
-                    <td>
-                        <p>{{item.quantity}}</p>
-                    </td>
-
-                    <td>
-                        <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
-                    </td>
+                   <th scope="col"></th>
+                   <th scope="col">Product</th>
+                   <th scope="col">Price</th>
+                   <th scope="col">Quantity</th>
+                   <th scope="col">Total</th>
                 </tr>
-                <tr>
-                    {% endfor %}
-                    <td>Shipping cost</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                    <td>€ {{ order.delivery_cost }}
-                    </td>
-
-
-                </tr>
-                <tr>
-                    <td><strong>Total cost</strong></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><strong> € {{ order.grand_total }} </strong> </td>
-                </tr>
-
-
-            </table>
-
-
-            <h4 class="mt-5 mb-3">Your order will be sent to:</h4>
-
-            <p>{{ order.full_name }}</p>
-            <p>{{ order.street_address1 }}</p>
-            {% if order.street_address2 %}
-            <p>{{ order.street_address2 }}</p>
-            {% endif %}
-            <p>{{ order.postcode }}</p>
-            <p>{{ order.town_or_city}}</p>
-            <p>{{ order.country }}</p>
-            <p>{{ order.phone_number }}</p>
-
-            {% if from_profile %}
+             </thead>
+             {% for item in order.lineitems.all %}
+             <tr>
+                <td>
+                   {% if item.toy.image %} 
+                   <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
+                   {% else %} 
+                   <img class="w-50" src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
+                   {% endif %}
+                </td>
+                <td>
+                   <p>{{item.toy.name }}</p>
+                </td>
+                <td>
+                   <p>á € {{item.toy.price }}</p>
+                </td>
+                <td>
+                   <p>{{item.quantity}}</p>
+                </td>
+                <td>
+                   <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
+                </td>
+             </tr>
+             <tr>
+                {% endfor %}
+                <td>Shipping cost</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>€ {{ order.delivery_cost }}
+                </td>
+             </tr>
+             <tr>
+                <td><strong>Total cost</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong> € {{ order.grand_total }} </strong> </td>
+             </tr>
+          </table>
+          <h4 class="mt-5 mb-3">Your order will be sent to:</h4>
+          <p>{{ order.full_name }}</p>
+          <p>{{ order.street_address1 }}</p>
+          {% if order.street_address2 %}
+          <p>{{ order.street_address2 }}</p>
+          {% endif %}
+          <p>{{ order.postcode }}</p>
+          <p>{{ order.town_or_city}}</p>
+          <p>{{ order.country }}</p>
+          <p>{{ order.phone_number }}</p>
+          {% if from_profile %}
           <a href="{% url 'profile' %}" class="my-5">
-                <span class="icon mr-2">
-                    <i class="fas fa-angle-left"></i>
-                </span>
-                <span><strong>Back to Profile</strong></span>
-            </a>
-            {% else %}
-            <a href="{% url 'toys' %}" class="my-5">
-                <span class="icon mr-2">
-                    <i class="fas fa-angle-left"></i>
-                </span>
-                <span><strong>Back to our toys</strong></span>
-            </a>
-
-            {% endif %}
-
-        </div>
-       
+          <span class="icon mr-2">
+          <i class="fas fa-angle-left"></i>
+          </span>
+          <span><strong>Back to Profile</strong></span>
+          </a>
+          {% else %}
+          <a href="{% url 'toys' %}" class="my-5">
+          <span class="icon mr-2">
+          <i class="fas fa-angle-left"></i>
+          </span>
+          <span><strong>Back to our toys</strong></span>
+          </a>
+          {% endif %}
+       </div>
     </div>
-
-
-
-
-
-
-</div>
+ </div>
 
 
 

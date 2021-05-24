@@ -5,26 +5,16 @@
 {% block content %} 
 
 <div class="container form-container-wrapper bg-leaves">
-
     <h3>Delete Blogpost</h3>
-
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-6 mt-5 text-center">
-       
-            <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST" enctype="multipart/form-data" class="site-form">
-                  {% csrf_token %}
-
+       <div class="col-12 col-lg-6 mt-5 text-center">
+          <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST" enctype="multipart/form-data" class="site-form">
+             {% csrf_token %}
              <legend class="mx-auto mb-5 mt-2 delete-confirm-legend">Are you sure you want to delete blogpost "{{ blogpost.title }}" ?</legend>
-
-                  <a href="{% url 'blog' %" class="mx-3 my-5">Cancel</a> 
-                  <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-5 mx-2" type="submit">Delete blogpost </button>
-                  
-                </form>
-
-        
-        </div>
+             <a href="{% url 'blog' %" class="mx-3 my-5">Cancel</a> 
+             <button class="primaryAction rounded-pill submit-btn px-3 py-1 my-5 mx-2" type="submit">Delete blogpost </button>
+          </form>
+       </div>
     </div>
-
-</div>
-
+ </div>
 {% endblock %}

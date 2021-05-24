@@ -207,7 +207,7 @@ The ideal client for this website is:
 
 ## Database design
 
-![Image of database design schema](/static/readme-assets/readme-images/MS4_database_design.png)
+![Image of database design schema](/static/readme-assets/readme-images/database-design.png)
 
 ## Security
 

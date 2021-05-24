@@ -2,69 +2,54 @@
 {% load static %}
 
 {% block content %}
-
 <div class="container-fluid page-wrapper py-3">
     {% if search_term %} <a class="back-from-search" href="{% url 'blog' %}"><span class="icon"><i
-                class="fas fa-arrow-left"></i></span> Back to all blog posts</a> {% else %} <h3>Blog</h3>{% endif %}
+       class="fas fa-arrow-left"></i></span> Back to all blog posts</a> {% else %} 
+    <h3>Blog</h3>
+    {% endif %}
     <div class="row">
-        <div class="col-12">
-            {% if search_term %} <h4>You searched for '{{ search_term }}'. {{blogposts|length}} blogpost /-s found:</h4>
-            {% endif %}
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-2">
-                <form method="GET" action="{% url 'blog' %}" class="d-flex">
-
-
-                    <input class="form-control nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
-                        placeholder="Search our blog" aria-label="Search">
-                    <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
-                                class="fas fa-search"></i></span></button>
-                </form>
-            </div>
-        </div>
-
+       <div class="col-12">
+          {% if search_term %} 
+          <h4>You searched for '{{ search_term }}'. {{blogposts|length}} blogpost /-s found:</h4>
+          {% endif %}
+       </div>
+       <div class="row justify-content-end">
+          <div class="col-2">
+             <form method="GET" action="{% url 'blog' %}" class="d-flex">
+                <input class="form-control nav-search-input mt-1 d-none d-sm-block" type="text" name="query"
+                   placeholder="Search our blog" aria-label="Search">
+                <button class="btn d-none d-sm-block blog-search" type="submit"> <span class="icon nav-icon"><i
+                   class="fas fa-search"></i></span></button>
+             </form>
+          </div>
+       </div>
     </div>
-
-
     <div class="row align-items-center justify-content-center">
-        <div class="d-none d-xl-block col-xl-2 mt-3">
-            <img src="{{ MEDIA_URL }}bulb.png" class="blog-img"
-                alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
-        </div>
-        <div class="col-12 col-xl-8 my-3 offset-xl-1 mt-3">
-
-            <h4 class=" my-5 text-lg-start">Learn more about why sustainable toys are important and which materials to look for, or
-                avoid
-            </h4>
-            {% for blogpost in blogposts %}
-            <div class="card-blog my-5">
-
-                <h5>{{ blogpost.title }}</h5>
-                <p>{{ blogpost.content }}</p>
-        
-               <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read and
-                        comment blogpost</a>
-
-                {% if request.user.is_superuser %}
-
-                <span class="edit-blogpost-link mt-2 bg-white text-left"><a class="bg-white text-secondary"
-                        href="{% url 'edit_blogpost' blogpost.id %}">Edit</a></span>
-
-                <span class="delete-blogpost-link mt-2 text-right"><a class="bg-white text-secondary"
-                        href="{% url 'confirm_delete_blogpost' blogpost.id %}">Delete</a></span>
-
-
-                {% endif %}
-            </div>
-
-            {% endfor %}
-        </div>
-
+       <div class="d-none d-xl-block col-xl-2 mt-3">
+          <img src="{{ MEDIA_URL }}bulb.png" class="blog-img"
+             alt="Lightbulb with small plants growing inside it. The bulb's base is a reed basket">
+       </div>
+       <div class="col-12 col-xl-8 my-3 offset-xl-1 mt-3">
+          <h4 class=" my-5 text-lg-start">Learn more about why sustainable toys are important and which materials to look for, or
+             avoid
+          </h4>
+          {% for blogpost in blogposts %}
+          <div class="card-blog my-5">
+             <h5>{{ blogpost.title }}</h5>
+             <p>{{ blogpost.content }}</p>
+             <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read and
+             comment blogpost</a>
+             {% if request.user.is_superuser %}
+             <span class="edit-blogpost-link mt-2 bg-white text-left"><a class="bg-white text-secondary"
+                href="{% url 'edit_blogpost' blogpost.id %}">Edit</a></span>
+             <span class="delete-blogpost-link mt-2 text-right"><a class="bg-white text-secondary"
+                href="{% url 'confirm_delete_blogpost' blogpost.id %}">Delete</a></span>
+             {% endif %}
+          </div>
+          {% endfor %}
+       </div>
     </div>
-
-</div>
-
+ </div>
 
 
 {% endblock %}
