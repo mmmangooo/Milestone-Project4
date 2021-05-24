@@ -18,7 +18,8 @@
         <div class="col-12 col-lg-5 justify-content-center pt-3 pt-lg-0 px-lg-5">
             <h4 class="mb-3"><strong>Order history</strong></h4>
 
-          
+            {% if orders %}
+           
             <table class="table table-sm table-borderless site-form">
                 <thead>
                     <tr>
@@ -29,6 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                  
                     {% for order in orders %}
                         <tr>
                             <td>
@@ -52,11 +54,11 @@
                     {% endfor %}
                 </tbody>
             </table>
-        
-<!--
-            <p class="site-form">You don't have any order history yet!</p>
+        {% else %}
+
+            <p class="site-form">You don't have any order history yet.</p>
             <a href="{% url 'toys' %}" class="btn submit-btn rounded-pill">Go shopping!</a>
--->
+{% endif %}
         </div>
     </div>
 </div>

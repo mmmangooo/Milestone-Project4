@@ -20,8 +20,8 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Product</th>
-                        <th scope="col ">Price</th>
-                        <th scope="col ">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
 
                         <th scope="col">Total</th>
                     </tr>
@@ -57,11 +57,15 @@
 
 
                 <tr>
-                    
+                    <td></td>
+                    <td></td>
+                    <td></td>
                    
-                    <td>
+                    <td class="w-25">
+                       
 
-                        <form class="form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                        <form class="form adjust-bag-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                          
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">
@@ -86,11 +90,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <a class="update-link text-info"><small>Update</small></a>
+                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </form>
 
-                        <a class="update-link text-info"><small>Update</small></a>
-                        <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a></td>
-                     
+                    
+                   
+                    </td>
+                    <td></td>
          
        
 
@@ -99,16 +106,23 @@
                     {% endfor %}
                     <td>Shipping cost</td>
                     <td></td>
+                    <td> </td>
+                        <td></td>
+                   
                     {% if order_total < free_delivery_delta %} <td> € {{ delivery}}</td>
                         {% else %}
-                        <td><strong> € {{ delivery}} </strong>  <p><i>Get free delivery by spending </p><p>€ {{ free_delivery_delta}}
+                        <td><strong> € {{ delivery}} </strong>  <p><i>Get free delivery by spending € {{ free_delivery_delta}}
                             more!</i></p></td>
                         {% endif %}
                 </tr>
                 <tr>
                     <td><strong>Total cost</strong></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+
                     <td><strong> € {{ grand_total }} </strong> </td>
+                   
                 </tr>
 
 
@@ -129,6 +143,7 @@
         </div>
 
     </div>
+    </div>
     {% endblock %}
 
     {% block postloadjs %}
@@ -136,7 +151,7 @@
 
     {% include 'toys/includes/quantity_input_script.html' %}
 
-    <script type="text/javascript">
+    <script>
 
         // Code from Boutique Ado walkthrough project: 
         //https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/f5880efee43b3b9ea1276a09ca972f4588001c59/bag/templates/bag/bag.html 
