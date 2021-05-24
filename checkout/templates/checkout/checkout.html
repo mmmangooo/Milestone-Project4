@@ -17,8 +17,8 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Product</th>
-                        <th scope="col ">Price</th>
-                        <th scope="col ">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
 
                         <th scope="col">Total</th>
                     </tr>
@@ -64,6 +64,8 @@
                 </tr>
                 <tr>
                     <td><strong>Total cost</strong></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td><strong> €{{ grand_total }} </strong> </td>
                 </tr>
@@ -129,8 +131,9 @@
 
                     <button type="submit" class="btn submit-btn rounded-pill" id="checkout-button">Pay and complete
                         order
-                        <div class="spinner hidden" id="spinner"></div>
+                        
                     </button>
+                    <div class="spinner hidden" id="spinner"></div>
                     <p><span class="icon ml-2"><i class="fas fa-lock"></i></span> Secure checkout</p>
 
                     <p class="charge-info"><strong><span class="icon"><i class="fas fa-exclamation"> </i></span> Your
@@ -150,11 +153,11 @@
     class="fas fa-arrow-left"></i></span> Back to shopping bag</a></h4>
 
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner d-flex align-items-center justify-content-center m-0 h-100">
+    <p class="text-light logo-font loading-spinner d-flex align-items-center justify-content-center m-0 h-100"> 
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </span>
-    </h1>
+    </p>
 </div>
 
 

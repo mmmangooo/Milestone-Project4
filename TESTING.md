@@ -10,7 +10,7 @@ The site has been manually tested on the functionality of the following:
 
 ## Further Testing
 
-* HTML code has been validated using the [WC3 Markup Validation Tool](https://validator.w3.org/)
+* HTML code has been validated using the [WC3 Markup Validation Tool](https://validator.w3.org/) with no errors found
 
 * CSS code has been validated using the [WC3 CSS Validator Tool Jigsaw](https://jigsaw.w3.org/css-validator/)
 

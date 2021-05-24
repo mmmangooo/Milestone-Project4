@@ -43,8 +43,8 @@
                 <h5>{{ blogpost.title }}</h5>
                 <p>{{ blogpost.content }}</p>
         
-                <button class="submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read and
-                        comment blogpost</a></button>
+               <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read and
+                        comment blogpost</a>
 
                 {% if request.user.is_superuser %}
 

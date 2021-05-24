@@ -97,8 +97,8 @@
                 <h5 class="mb-2">{{ blogpost.title }}</h5>
                 <p class="index-card-text">{{ blogpost.content }}</p>
 <hr>
-                <button class="btn submit-btn rounded-pill"><a href="{% url 'blog_details' blogpost.id %}">Read
-                        blogpost</a></button>
+               <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read
+                        blogpost</a>
             </div>
         </div>
         {% endfor %}
@@ -110,23 +110,23 @@
 <!-- Showing links to all toys page and blogs page on x-small and small screens -->
 
 <div class="d-md-none">
-    <h4><a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a></h4>
+    <a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a>
 
-    <h4><a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
+   <a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
 
-        </a></h4>
+        </a>
 </div>
 
 <!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on medium screens and up
 -->
 <div class="container-fluid index-side-container my-5 d-none d-md-block">
     <a href="{% url 'toys' %}">
-        <h4 class="my-3"></h4>See All Toys
+        <h4 class="my-3">See All Toys</h4>
     </a>
     <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png"
         alt="Drawing of green twig with delicate leaves">
     <a href="{% url 'blog' %}">
-        <h4 class="my-3"></h4>See All Blog Posts
+        <h4 class="my-3">See All Blog Posts</h4>
     </a>
 </div>
 {% endblock %}

@@ -26,8 +26,8 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Product</th>
-                        <th scope="col ">Price</th>
-                        <th scope="col ">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
 
                         <th scope="col">Total</th>
                     </tr>
@@ -39,9 +39,9 @@
 
                         {% if item.toy.image %} 
 
-                        <img src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
+                        <img class="w-50" src="{{ item.toy.image.url }}" alt="{{ item.toy.name }}">
                         {% else %} 
-                        <img src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
+                        <img class="w-50" src="{{ MEDIA_URL }}no-image.png" alt="{{ item.toy.name }}">
                         {% endif %}
                     </td>
                     <td>
@@ -73,14 +73,16 @@
                 <tr>
                     <td><strong>Total cost</strong></td>
                     <td></td>
-                    <td><strong> € {{ grand_total }} </strong> </td>
+                    <td></td>
+                    <td></td>
+                    <td><strong> € {{ order.grand_total }} </strong> </td>
                 </tr>
 
 
             </table>
 
 
-            <h4 class="mt-5">Your order will be sent to:</h4>
+            <h4 class="mt-5 mb-3">Your order will be sent to:</h4>
 
             <p>{{ order.full_name }}</p>
             <p>{{ order.street_address1 }}</p>
@@ -93,14 +95,14 @@
             <p>{{ order.phone_number }}</p>
 
             {% if from_profile %}
-            <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-3">
+          <a href="{% url 'profile' %}" class="my-5">
                 <span class="icon mr-2">
                     <i class="fas fa-angle-left"></i>
                 </span>
                 <span><strong>Back to Profile</strong></span>
             </a>
             {% else %}
-            <a href="{% url 'toys' %}" class="btn btn-black rounded-0 my-3">
+            <a href="{% url 'toys' %}" class="my-5">
                 <span class="icon mr-2">
                     <i class="fas fa-angle-left"></i>
                 </span>

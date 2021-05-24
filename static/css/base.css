@@ -599,7 +599,7 @@ filter: drop-shadow(0.1rem 0.1rem 0.2rem #a19e9e);
 
 @media (min-width: 993px) {
     .page-wrapper {
-        padding: 7rem 0 0;
+        padding: 5rem 0 0;
     }
 
     .toy-details-bgimg {
