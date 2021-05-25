@@ -60,7 +60,7 @@ p {
 /*--------------------------- General styling */
 
 .bg-leaves {
-	background: url('{{ MEDIA_URL }}leaves2.png') repeat fixed;
+	background: url('../assets/images/leaves.png') repeat fixed;
 	max-width: 100%;
 }
 
@@ -214,7 +214,7 @@ hr {
 /*------------------------ Home page */
 
 .index-hero {
-	background: url('{{ MEDIA_URL }}hero-img.jpg') no-repeat right center scroll;
+	background: url('../assets/images/hero-img.jpg') no-repeat right center scroll;
 	background-size: cover;
 	height: 100vh;
 }
