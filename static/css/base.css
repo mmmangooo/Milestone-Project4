@@ -90,7 +90,6 @@ p {
 	padding: .5rem 1rem;
 }
 
-
 .square-card {
 	padding: 2rem 2rem;
 	border: .02rem solid #6D564D;
@@ -192,21 +191,23 @@ hr {
 	margin-left: 1rem;
 }
 
-.header-banner span {
-	color: #fff;
-}
-
 .header-banner {
 	background-color: #CAEF84;
 	margin-top: 3.5rem;
 	max-width: 100%;
+	position: absolute;
+}
+
+.header-banner h2 {
+	color: #6D564D !important;
+	filter: none;
 }
 
 
 /*------------------------ Home page */
 
 .index-hero {
-	background: url('/media/hero-img.jpg') no-repeat right center fixed;
+	background: url('/media/hero-img.jpg') no-repeat right center scroll;
 	background-size: cover;
 	height: 100vh;
 }
@@ -622,6 +623,10 @@ hr {
 }
 
 @media (min-width: 768px) {
+	.index-hero {
+		background: url('/media/hero-img.jpg') no-repeat right center fixed;
+		background-size: cover;
+	}
 	.index-grid-container {
 		width: 75%;
 		float: left;

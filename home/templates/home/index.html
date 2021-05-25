@@ -4,6 +4,12 @@
 
 
 {% block content %}
+
+    <!-- Loading a header banner into template -->  
+    <div class="container-fluid header-banner py-3 fixed-top">
+      <h2 class="text-uppercase text-white">Free shipping on orders over € {{ free_delivery_threshold }}</h2>
+    </div>
+
 <!-- Hero section -->
 
 <div class="index-hero container-fluid" style="background-image: url('{{ MEDIA_URL }}hero-img.jpg');">
@@ -35,7 +41,7 @@
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
              {% endif %}
              <hr>
-             <p>{{ has_campaign.rating }}</p>
+             <p>{{ has_campaign.rating }} / 5</p>
              <p class="text-danger"> Now only € {{ has_campaign.get_price}}! </p>
              <a href="{% url 'toy_details' has_campaign.id %}"
                 class="btn rounded-pill submit-btn text-white my-2">Info</a>
@@ -58,7 +64,7 @@
                 alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
              {% endif %}
              <hr>
-             <p>{{ toy.rating }}</p>
+             <p>{{ toy.rating }} / 5</p>
              <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %}  </p>
              <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white">Info</a>
           </div>
