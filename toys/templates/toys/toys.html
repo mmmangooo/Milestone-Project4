@@ -3,30 +3,31 @@
 
 
 {% block content %}
-<div class="container-fluid mt-5">
+<div class="container-fluid">
   <h3>Our Toys</h3>
-  <div class="container-fluid">
-     <div class="my-5">
-        <!-- Selecting which category of toys to show on page -->
-        <select id="category-selector" class="category-selector">
-        <option value="reset" {% if categories == 'None_None' %} selected {% endif %}>All Categories</option>
-        <option value="Wooden_Toys" {% if categories == 'wooden_toys' %} selected {% endif %}>Wooden Toys</option>
-        <option value="Rubber_Toys" {% if categories == 'rubber_toys' %} selected {% endif %}>Rubber Toys</option>
-        </select>
-        <!-- Selecting how to sort the toys shown on the page -->
-         <select id="sort-selector" class="sort-selector">
-        <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
-        <option value="price_asc" {% if current_sorting == 'price_asc' %} selected {% endif %}>Price (low to high)
-        </option>
-        <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price (high to low)
-        </option>
-        <option value="rating_asc" {% if current_sorting == 'rating_asc' %} selected {% endif %}>Rating (low to high)
-        </option>
-        <option value="rating_desc" {% if current_sorting == 'rating_desc' %} selected {% endif %}>Rating(high to low)
-        </option>
-        </select>
-          
-     </div>
+  <div class="my-5">
+    <!-- Selecting which category of toys to show on page -->
+    <select id="category-selector" class="category-selector">
+    <option value="reset" {% if categories == 'None_None' %} selected {% endif %}>All Categories</option>
+    <option value="Wooden_Toys" {% if categories == 'wooden_toys' %} selected {% endif %}>Wooden Toys</option>
+    <option value="Rubber_Toys" {% if categories == 'rubber_toys' %} selected {% endif %}>Rubber Toys</option>
+    </select>
+    <!-- Selecting how to sort the toys shown on the page -->
+     <select id="sort-selector" class="sort-selector">
+    <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>Sort by...</option>
+    <option value="price_asc" {% if current_sorting == 'price_asc' %} selected {% endif %}>Price (low to high)
+    </option>
+    <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price (high to low)
+    </option>
+    <option value="rating_asc" {% if current_sorting == 'rating_asc' %} selected {% endif %}>Rating (low to high)
+    </option>
+    <option value="rating_desc" {% if current_sorting == 'rating_desc' %} selected {% endif %}>Rating(high to low)
+    </option>
+    </select>
+      
+ </div>
+  <div class="container-fluid toy-container">
+
      <div class="my-2">
      <!-- Link to 'add toy'-form, only shown if the user is logged in with superuser credentials-->
      {% if request.user.is_superuser %}

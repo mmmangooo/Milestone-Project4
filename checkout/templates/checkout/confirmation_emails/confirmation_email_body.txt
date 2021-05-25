@@ -13,7 +13,7 @@ Please check that the contact and shipping details on your order are correct:
 {{ order.town_or_city }}
 {{ order.country }} 
 
-Please note that it is not possible to reply to this email! If you have any question, or if any of the information on your order is not correct, please contact us at ... 
+Please note that it is not possible to reply to this email! If you have any question, or if any of the information on your order is not correct, please contact us using the contact form on our website.
 
 Thank you for ordering from us!
 

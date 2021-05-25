@@ -4,10 +4,11 @@ This site is the Milestone Project 4 for the Software Development Diploma course
 understanding of full stack development with Django framework and building upon all previous learning in the course to put together a fully functional
 website.
 
+
+![Image of the site on different devices](static/readme-assets/readme-images/amiresponsive.png)
+
+
 [A live version of the website can be viewed here](https://greentoys.herokuapp.com/)
-
-(Image of the site on differents viewports)
-
 
 The purpose of this site is to provide means for parents and others to buy eco-friendly toys for their children. The reasoning behind this is that children (at least in societal
 contexts where economical conditions are strong) often have an abundance of toys, and these are more often than not made of different sort of plastics. As the manufacturing of plastics 

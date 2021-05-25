@@ -60,7 +60,7 @@ p {
 /*--------------------------- General styling */
 
 .bg-leaves {
-	background: url('/media/leaves2.png') repeat fixed;
+	background: url('{{ MEDIA_URL }}leaves2.png') repeat fixed;
 	max-width: 100%;
 }
 
@@ -206,13 +206,15 @@ hr {
 .header-banner h2 {
 	color: #6D564D !important;
 	filter: none;
+	margin-bottom: 0;
+	margin-top: .5rem;
 }
 
 
 /*------------------------ Home page */
 
 .index-hero {
-	background: url('/media/hero-img.jpg') no-repeat right center scroll;
+	background: url('{{ MEDIA_URL }}hero-img.jpg') no-repeat right center scroll;
 	background-size: cover;
 	height: 100vh;
 }
@@ -299,6 +301,10 @@ hr {
 .sort-selector {
 	float: right;
 	width: 6.5rem;
+}
+
+.toy-container {
+	margin-top: 5rem;
 }
 
 .toy-card {

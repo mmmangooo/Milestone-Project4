@@ -4,42 +4,137 @@
 
 The site has been manually tested on the functionality of the following:
 
-* Links in navigation bar
+* Navigation links:
 
-* Links in footer
+  - Links in navigation bar
 
-* Links to toy details and blog details from index page
+  - Links in footer
 
-* Links to toy details and blog details from toys and blog pages respectively
+  - Links to toy details and blog details from index page
 
-* Links back to previous pages from details pages, bag page and checkout page
+  - Links to toy details and blog details from toys and blog pages respectively
 
-* Add to bag functionality
+  - Links back to previous pages from details pages, bag page and checkout page
 
-* Adjust quantity in bag functionality
+* Toys pages:
 
-* Remove item from bag functionality
+  - Category and sort selectors on toys page
 
-* Add, edit and delete toy functionality
+  - Add, edit and delete toy functionality working on frontend and in database
 
-* Add, edit and delete blogpost functionality
+  - Search form for toys returning correct result
 
-* Add blog comment functionality
+* Blog pages:
 
-* Profile page showing saved information and previous order
+  - Add, edit and delete blog posts functionality working on frontend and in database
 
-* Edit saved information in profile page 
+  - Add blog comments
 
-* Login and logout of account
+  - Added blog comments showing on blog details page
 
-* Sign up for account
+  - Search form for blogposts returning correct result
 
-* Reset forgotten password
+* Bag and checkout:  
 
-* Checkout purchase with Stripe and webhooks, receiving confirmation email
+  - Add to bag functionality
+
+  - Adjust quantity in bag functionality
+
+  - Remove item from bag functionality
+
+  - Checkout purchase with Stripe and webhooks 
+
+  - Receiving confirmation email
+
+  - Order being created in database
+
+* Personal account:
+
+  - Sign up for account
+
+  - Login and logout of account
+
+  - Reset forgotten password
+
+  - Profile page showing saved information and previous order
+
+  - Edit saved information in profile page 
+
+* Contact form: 
+
+  - Showing signed in users emailaddress prefilled
+
+  - Sending email to default site owner
+
+* Toasts showing success, warning, information and error messages
+
+* All forms validating input
 
 
 ## User stories testing
+
+1. As a site user, I want to be able to immediately get an overview of what products this site offers so that I can decide if it contains what I am looking for
+
+2. As a shopper, I want to be able to view a list of products so that I can select some to purchase
+
+3. As a shopper, I want to be able to view details about a specific product so that I can see a detailed description, larger image, price and rating of the product
+
+4. As a shopper, I want to be able to easily view deals and special offers on products so that I can take advantage of special prizes on products that I am interested in buying
+
+5. As a shopper, I want to be able to Easily see the total of all items in my shopping cart from all parts of the site so that I can avoid spending more money than I was planning to
+
+6. As as a shopper I want to be able to easily see what rating different products have gotten so that i can see what others think of the product that I am interested in
+
+7. As a shopper I want to be able to easily see what products have got the highest ratings so that I can find the most popular products
+
+8. As a site user, I want to be able to find information about eco-friendly toys so that I can learn more about different materials and their impact on environment and why eco-friendly toys are important
+
+9. As a site user I want to be able to comment on blog posts so that I ca ask questions and share my opinions on matters discussed in the blog post
+
+10. As a site user I want to be able to easily register for an account so that I can have a personal account to come back to and view my profile
+
+11. As a site user I want to be able to easily log in or out so that I can access my personal account information
+
+12. As a site user I want to be able to easily recover my password in case I forget it so that I can regain access to my account
+
+13. As a site user I want to be able to recieve a confirmation email after registering an account so that I can know that my account registration was successful
+
+14. As a site user I want to be able to have a personalized user profile so that I can view my order history and see that my orders are confirmed and save my payment information
+
+15. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
+
+16. As a shopper I want to be able to select to show only products with a special prize offer so that I can find only the products with the most favoureable prizes
+
+17. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
+
+18. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
+
+19. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
+
+20. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
+
+21. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
+
+22. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
+
+23. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
+
+24. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
+
+25. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
+
+26. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
+
+27. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
+
+28. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
+
+29. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
+
+30. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
+
+31. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
+
 
 
 ## Further Testing
