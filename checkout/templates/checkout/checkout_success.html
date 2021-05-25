@@ -39,13 +39,13 @@
                    <p>{{item.toy.name }}</p>
                 </td>
                 <td>
-                   <p>á € {{item.toy.price }}</p>
+                   <p>á € {{item.toy.get_price }}</p>
                 </td>
                 <td>
                    <p>{{item.quantity}}</p>
                 </td>
                 <td>
-                   <p> € {{item.toy.price | calc_subtotal:item.quantity }} </p>
+                   <p> € {{item.toy.get_price | calc_subtotal:item.quantity }} </p>
                 </td>
              </tr>
              <tr>

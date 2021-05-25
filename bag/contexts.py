@@ -15,6 +15,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    price = 0
 
     for item_id, item_data in bag.items():
         # Calculate quantity and total price when a toy is added to the bag

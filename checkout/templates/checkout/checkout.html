@@ -47,7 +47,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                {% if order_total < free_delivery_delta %} 
+                {% if order_total < free_delivery_threshold %} 
                 <td> € {{ delivery}}</td>
                 {% else %}
                 <td>
