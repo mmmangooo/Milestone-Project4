@@ -5,105 +5,108 @@
 
 {% block content %}
 
-    <!-- Loading a header banner into template -->  
-    <div class="container-fluid header-banner py-3 fixed-top">
-      <h2 class="text-uppercase text-white">Free shipping on orders over € {{ free_delivery_threshold }}</h2>
-    </div>
+<!-- Loading a header banner into template -->
+<div class="container-fluid header-banner py-3 fixed-top">
+   <h2 class="text-uppercase text-white">Free shipping on orders over € {{ free_delivery_threshold }}</h2>
+</div>
 
 <!-- Hero section -->
 
 <div class="index-hero container-fluid" style="background-image: url('{{ MEDIA_URL }}hero-img.jpg');">
-    <div class="row justify-content-start justify-content-lg-end align-content-center h-100">
-       <div class="col-12 col-lg-6">
-          <h1 class="my-2 ms-2">Green Toys</h1>
-          <h2 class="mt-3 ms-2">GIVE YOUR KID AND EARTH THE BEST</h2>
-          <a class="hero-btn btn rounded-pill mt-5 ms-2" href="{% url 'toys' %}"> SHOP NOW <span class="icon"><i
-             class="fas fa-arrow-right ps-3"></i></span></a>
-       </div>
-    </div>
- </div>
- <!-- Section for showing popular products, products with campaign prices and latest blog posts -->
- <h3 class="index-header mb-3">Check out our campaigns, popular toys and latest blogs!</h3>
- <div class="container-fluid my-5 index-grid-container">
-    <div class="row pb-5 align-items-center">
-       <!-- Showing three toys that have campaign prices -->
-       <div class="col-12 col-lg-2 mt-2">
-          <h4 class="mb-2">Campaign</h4>
-          <p class="text-danger">20% off original price!</p>
-       </div>
-       {% for has_campaign in has_campaigns  %}
-       <div class="col-12 col-sm-6 col-lg-3">
-          <div class="square-card mt-2">
-             <h5 class="mb-2">{{ has_campaign.name }}</h5>
-             {% if has_campaign.image %} <img class="w-75" src="{{ has_campaign.image.url }}" alt="{{ has_campaign.name }}">
-             {% else %}
-             <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
-                alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
-             {% endif %}
-             <hr>
-             <p>{{ has_campaign.rating }} / 5</p>
-             <p class="text-danger"> Now only € {{ has_campaign.get_price}}! </p>
-             <a href="{% url 'toy_details' has_campaign.id %}"
-                class="btn rounded-pill submit-btn text-white my-2">Info</a>
-          </div>
-       </div>
-       {% endfor %}
-    </div>
-    <!-- Showing the three highest rated toys -->
-    <div class="row align-items-center pb-5">
-       <div class="col-12 col-lg-2">
-          <h4 class="mb-2">Popular</h4>
-       </div>
-       {% for toy in toys %}
-       <div class="col-12 col-sm-6 col-lg-3">
-          <div class="square-card mt-2">
-             <h5 class="mb-2">{{ toy.name }}</h5>
-             {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}"  alt="{{ toy.name }}">
-             {% else %}
-             <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
-                alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
-             {% endif %}
-             <hr>
-             <p>{{ toy.rating }} / 5</p>
-             <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign %} Now only € {{toy.get_price }}! {% else %}  € {{toy.get_price }} {% endif %}  </p>
-             <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white">Info</a>
-          </div>
-       </div>
-       {% endfor %}
-    </div>
-    <!-- Showing the three last added blogposts -->
-    <div class="row pb-5 align-items-center">
-       <div class="col-12 col-lg-2">
-          <h4 class="mb-2">Blog</h4>
-       </div>
-       {% for blogpost in blogposts %}
-       <div class="col-12 col-sm-6 col-lg-3">
-          <div class="square-card mt-2">
-             <h5 class="mb-2">{{ blogpost.title }}</h5>
-             <p class="index-card-text">{{ blogpost.content }}</p>
-             <hr>
-             <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read</a>
-          </div>
-       </div>
-       {% endfor %}
-    </div>
- </div>
- <!-- Showing links to all toys page and blogs page on x-small and small screens -->
- <div class="mb-3 d-lg-none">
-    <a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a>
-    <a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
-    </a>
- </div>
- <!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on large screens and up
+   <div class="row justify-content-start justify-content-lg-end align-content-center h-100">
+      <div class="col-12 col-lg-6">
+         <h1 class="my-2 ms-2">Green Toys</h1>
+         <h2 class="mt-3 ms-2">GIVE YOUR KID AND EARTH THE BEST</h2>
+         <a class="hero-btn btn rounded-pill mt-5 ms-2" href="{% url 'toys' %}"> SHOP NOW <span class="icon"><i
+                  class="fas fa-arrow-right ps-3"></i></span></a>
+      </div>
+   </div>
+</div>
+<!-- Section for showing popular products, products with campaign prices and latest blog posts -->
+<h3 class="index-header mb-3">Check out our campaigns, popular toys and latest blogs!</h3>
+<div class="container-fluid my-5 index-grid-container">
+   <div class="row pb-5 align-items-center">
+      <!-- Showing three toys that have campaign prices -->
+      <div class="col-12 col-lg-2 mt-2">
+         <h4 class="mb-2">Campaign</h4>
+         <p class="text-danger">20% off original price!</p>
+      </div>
+      {% for has_campaign in has_campaigns %}
+      <div class="col-12 col-sm-6 col-lg-3">
+         <div class="square-card mt-3">
+            <h5 class="mb-2">{{ has_campaign.name }}</h5>
+            {% if has_campaign.image %} <img class="w-75" src="{{ has_campaign.image.url }}"
+               alt="{{ has_campaign.name }}">
+            {% else %}
+            <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
+               alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+            {% endif %}
+            <hr>
+            <p>{{ has_campaign.rating }} / 5</p>
+            <p class="text-danger"> Now only € {{ has_campaign.get_price}}! </p>
+            <a href="{% url 'toy_details' has_campaign.id %}"
+               class="btn rounded-pill submit-btn text-white my-2">Info</a>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+   <!-- Showing the three highest rated toys -->
+   <div class="row align-items-center pb-5">
+      <div class="col-12 col-lg-2">
+         <h4 class="mb-2">Popular</h4>
+      </div>
+      {% for toy in toys %}
+      <div class="col-12 col-sm-6 col-lg-3">
+         <div class="square-card mt-3">
+            <h5 class="mb-2">{{ toy.name }}</h5>
+            {% if toy.image %} <img class="w-75" src="{{ toy.image.url }}" alt="{{ toy.name }}">
+            {% else %}
+            <img class="w-50" src="{{ MEDIA_URL }}no-image.png"
+               alt="Light-brown image of drawn silhouette of mountain and tree with text 'no image found' below">
+            {% endif %}
+            <hr>
+            <p>{{ toy.rating }} / 5</p>
+            <p class="{% if toy.campaign %} card-text text-danger {% else %} card-text {% endif %}"> {% if toy.campaign%} Now only € {{toy.get_price }}! {% else %} € {{toy.get_price }} {% endif %} </p>
+            <a href="{% url 'toy_details' toy.id%}" class="btn rounded-pill submit-btn text-white">Info</a>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+   <!-- Showing the three last added blogposts -->
+   <div class="row pb-5 align-items-center">
+      <div class="col-12 col-lg-2">
+         <h4 class="mb-2">Blog</h4>
+      </div>
+      {% for blogpost in blogposts %}
+      <div class="col-12 col-sm-6 col-lg-3">
+         <div class="square-card mt-3">
+            <h5 class="mb-2">{{ blogpost.title }}</h5>
+            <div class="index-card-text">
+               <p >{{ blogpost.content }}</p>          
+            </div>
+            <hr>
+            <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read</a>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</div>
+<!-- Showing links to all toys page and blogs page on x-small and small screens -->
+<div class="mb-3 d-lg-none">
+   <a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a>
+   <a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
+   </a>
+</div>
+<!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on large screens and up
     -->
- <div class="container-fluid index-side-container my-5 d-none d-lg-block">
-    <a href="{% url 'toys' %}">
-       <h4 class="my-3">See All Toys</h4>
-    </a>
-    <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png"
-       alt="Drawing of green twig with delicate leaves">
-    <a href="{% url 'blog' %}">
-       <h4 class="my-3">See All Blog Posts</h4>
-    </a>
- </div>
+<div class="container-fluid index-side-container my-5 d-none d-lg-block">
+   <a href="{% url 'toys' %}">
+      <h4 class="my-3">See All Toys</h4>
+   </a>
+   <img class="index-drawing my-5 invisible" src="{{ MEDIA_URL }}twig.png"
+      alt="Drawing of green twig with delicate leaves">
+   <a href="{% url 'blog' %}">
+      <h4 class="my-3">See All Blog Posts</h4>
+   </a>
+</div>
 {% endblock %}

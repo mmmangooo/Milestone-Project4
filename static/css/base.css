@@ -139,6 +139,7 @@ hr {
 .toast {
 	float: right;
 	margin-right: 1rem;
+	display: inline;
 }
 
 .toast p {
@@ -155,6 +156,9 @@ hr {
 
 /*-------------------------Navigation bar and header banner */
 
+.navbar {
+	z-index: 10000;
+}
 
 .nav-link {
 	color: #6D564D !important;
@@ -274,7 +278,6 @@ hr {
 	max-height: 17rem;
 	overflow: hidden;
 }
-
 
 /*-------------------- All toys page */
 

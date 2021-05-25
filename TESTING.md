@@ -4,6 +4,40 @@
 
 The site has been manually tested on the functionality of the following:
 
+* Links in navigation bar
+
+* Links in footer
+
+* Links to toy details and blog details from index page
+
+* Links to toy details and blog details from toys and blog pages respectively
+
+* Links back to previous pages from details pages, bag page and checkout page
+
+* Add to bag functionality
+
+* Adjust quantity in bag functionality
+
+* Remove item from bag functionality
+
+* Add, edit and delete toy functionality
+
+* Add, edit and delete blogpost functionality
+
+* Add blog comment functionality
+
+* Profile page showing saved information and previous order
+
+* Edit saved information in profile page 
+
+* Login and logout of account
+
+* Sign up for account
+
+* Reset forgotten password
+
+* Checkout purchase with Stripe and webhooks, receiving confirmation email
+
 
 ## User stories testing
 
