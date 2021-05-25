@@ -131,15 +131,12 @@ hr {
 /*----------------------------- Toasts */
 
 .message-container {
-	margin: 3.5rem 0 0;
-	display: inline;
-	height: 1rem;
+	position: relative;
 }
 
 .toast {
-	float: right;
-	margin-right: 1rem;
-	display: inline;
+	position: absolute;
+	right: 0;
 }
 
 .toast p {
@@ -157,7 +154,7 @@ hr {
 /*-------------------------Navigation bar and header banner */
 
 .navbar {
-	z-index: 10000;
+	z-index: 1031;
 }
 
 .nav-link {
@@ -201,6 +198,7 @@ hr {
 	margin-top: 3.5rem;
 	max-width: 100%;
 	position: absolute;
+	z-index: -10;
 }
 
 .header-banner h2 {

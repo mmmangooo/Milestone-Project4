@@ -81,7 +81,7 @@ The site has been manually tested on the functionality of the following:
 
 4. As a shopper, I want to be able to easily view deals and special offers on products so that I can take advantage of special prizes on products that I am interested in buying
 
-5. As a shopper, I want to be able to Easily see the total of all items in my shopping cart from all parts of the site so that I can avoid spending more money than I was planning to
+5. As a shopper, I want to be able to easily see the total of all items in my shopping cart from all parts of the site so that I can avoid spending more money than I was planning to
 
 6. As as a shopper I want to be able to easily see what rating different products have gotten so that i can see what others think of the product that I am interested in
 
