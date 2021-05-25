@@ -37,8 +37,8 @@ h2 {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 1.4rem;
     font-weight: bold;
-    -webkit-filter: drop-shadow(0.1rem 0.1rem 0.3rem #476919);
-	filter: drop-shadow(0.1rem 0.1rem 0.3rem #476919);
+    -webkit-filter: drop-shadow(0.1rem 0.1rem 0.2rem #264101);
+	filter: drop-shadow(0.1rem 0.1rem 0.2rem #264101);
 }
 
 h3,
@@ -198,7 +198,6 @@ hr {
 	margin-top: 3.5rem;
 	max-width: 100%;
 	position: absolute;
-	z-index: -10;
 }
 
 .header-banner h2 {
@@ -623,7 +622,7 @@ hr {
 
 @media (min-width: 768px) {
 	.index-hero {
-		background: url('/media/hero-img.jpg') no-repeat right center fixed;
+		background: url('../assets/images/hero-img.jpg') no-repeat right center fixed;
 		background-size: cover;
 	}
 	.index-card-text {

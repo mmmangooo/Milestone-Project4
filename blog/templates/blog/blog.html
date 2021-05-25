@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="container-fluid page-wrapper py-3">
+   <!-- Div showing if the user has searched for a blogpost, containing info about the search result and link back to all blog posts-->
     {% if search_term %} <a class="back-from-search" href="{% url 'blog' %}"><span class="icon"><i
        class="fas fa-arrow-left"></i></span> Back to all blog posts</a> {% else %} 
     <h3>Blog</h3>
@@ -15,6 +16,7 @@
        </div>
        <div class="row">
           <div class="col-4">
+         <!-- Search form for searching for blog posts -->
              <form method="GET" action="{% url 'blog' %}" class="d-flex ms-3 mt-3">
                 <input class="form-control nav-search-input mt-1" type="text" name="query"
                    placeholder="Search our blog" aria-label="Search">
@@ -24,6 +26,7 @@
           </div>
        </div>
     </div>
+    <!-- Decorative image showing on xl screens and up -->
     <div class="row align-items-center justify-content-center">
        <div class="d-none d-xl-block col-xl-2 mt-3">
           <img src="{{ MEDIA_URL }}bulb.png" class="blog-img"
@@ -33,6 +36,7 @@
           <h4 class=" my-3">Learn more about why sustainable toys are important and which materials to look for, or
              avoid
           </h4>
+          <!-- Displaying blog posts -->
           {% for blogpost in blogposts %}
           <div class="card-blog my-5 bg-white">
              <h5>{{ blogpost.title }}</h5>
@@ -41,6 +45,7 @@
              comment</a>
              {% if request.user.is_superuser %}
              <div class="my-3">
+            <!-- Functionality of editing and deleting blog posts, only showing if the user is logged in with superuser credentials -->
              <span class="edit-blogpost-link bg-white text-left"><a class="bg-white text-secondary"
                 href="{% url 'edit_blogpost' blogpost.id %}">Edit</a></span>
              <span class="delete-blogpost-link text-right"><a class="bg-white text-secondary"

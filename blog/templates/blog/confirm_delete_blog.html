@@ -8,6 +8,7 @@
     <h3>Delete Blogpost</h3>
     <div class="row justify-content-center">
        <div class="col-12 col-lg-6 mt-5 text-center">
+          <!-- Form for confirming that the superuser is certain they want to delete the chosen blogpost -->
           <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST" enctype="multipart/form-data" class="site-form">
              {% csrf_token %}
              <legend class="mx-auto mb-5 mt-2 delete-confirm-legend">Are you sure you want to delete blogpost "{{ blogpost.title }}" ?</legend>

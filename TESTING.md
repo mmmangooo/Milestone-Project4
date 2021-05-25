@@ -103,37 +103,35 @@ The site has been manually tested on the functionality of the following:
 
 15. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
 
-16. As a shopper I want to be able to select to show only products with a special prize offer so that I can find only the products with the most favoureable prizes
+16. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
 
-17. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
+17. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
 
-18. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
+18. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
 
-19. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
+19. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
 
-20. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
+20. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
 
-21. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
+21. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
 
-22. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
+22. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
 
-23. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
+23. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
 
-24. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
+24. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
 
-25. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
+25. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
 
-26. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
+26. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
 
-27. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
+27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
 
-28. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
+28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
 
-29. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
+29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
 
-30. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
-
-31. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
+30. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
 
 
 
