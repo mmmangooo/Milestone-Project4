@@ -372,7 +372,7 @@ hr {
 }
 
 .adjust-bag-form {
-	width: 80%;
+	width: 7.5rem;
 }
 
 .update-link {
@@ -634,6 +634,9 @@ hr {
 	}
 	.square-card {
 		height: 29rem;
+	}
+	.adjust-bag-form {
+		width: 80%;
 	}
 }
 

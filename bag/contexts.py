@@ -20,7 +20,8 @@ def bag_contents(request):
         # Calculate quantity and total price when a toy is added to the bag
         if isinstance(item_data, int):
             toy = get_object_or_404(Toy, pk=item_id)
-            total += item_data * toy.price
+            price = toy.get_price()
+            total += item_data * price
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,

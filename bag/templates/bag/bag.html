@@ -37,22 +37,22 @@
                    <p>{{item.toy.name }}</p>
                 </td>
                 <td>
-                   <p>á € {{item.toy.price }}</p>
+                   <p>á € {{item.toy.get_price }}</p>
                 </td>
                 <td>
                    <p>{{item.quantity}}</p>
                 </td>
                 <td>
-                   <p> € {{ item.toy.price | calc_subtotal:item.quantity }} </p>
+                   <p> € {{ item.toy.get_price | calc_subtotal:item.quantity }} </p>
                 </td>
              </tr>
              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="w-25">
+               <td></td>
+            
+               
+                <td colspan="3">
                    <!-- Allowing the user to change the quantity of a toy in their shopping bag -->
-                   <form class="form adjust-bag-form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                   <form class="form adjust-bag-form update-form mx-auto" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                       {% csrf_token %}
                       <div class="form-group">
                          <div class="input-group">
@@ -80,8 +80,8 @@
                    </form>
                    <a class="update-link text-info"><small>Update</small></a>
                    <!-- Allowing the user to delete a toy from their shopping bag -->
-                   <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                </td>
+                   <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a></td>
+                   <td></td>
                 <td></td>
              </tr>
              <tr>
@@ -143,7 +143,7 @@
     var csrfToken = "{{ csrf_token }}";
     var itemId = $(this).attr('id').split('remove_')[1];
     var url = `/bag/remove/${itemId}/`;
-    var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+    var data = {'csrfmiddlewaretoken': csrfToken};
     
     $.post(url, data)
      .done(function() {
