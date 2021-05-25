@@ -28,7 +28,7 @@
     <div class="row pb-5 align-items-center">
        <!-- Showing three toys that have campaign prices -->
        <div class="col-12 col-lg-2 mt-2">
-          <h4>Campaign</h4>
+          <h4 class="mb-2">Campaign</h4>
           <p class="text-danger">20% off original price!</p>
        </div>
        {% for has_campaign in has_campaigns  %}
@@ -52,7 +52,7 @@
     <!-- Showing the three highest rated toys -->
     <div class="row align-items-center pb-5">
        <div class="col-12 col-lg-2">
-          <h4>Popular</h4>
+          <h4 class="mb-2">Popular</h4>
        </div>
        {% for toy in toys %}
        <div class="col-12 col-sm-6 col-lg-3">
@@ -74,7 +74,7 @@
     <!-- Showing the three last added blogposts -->
     <div class="row pb-5 align-items-center">
        <div class="col-12 col-lg-2">
-          <h4>Blog</h4>
+          <h4 class="mb-2">Blog</h4>
        </div>
        {% for blogpost in blogposts %}
        <div class="col-12 col-sm-6 col-lg-3">
@@ -82,22 +82,21 @@
              <h5 class="mb-2">{{ blogpost.title }}</h5>
              <p class="index-card-text">{{ blogpost.content }}</p>
              <hr>
-             <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read
-             blogpost</a>
+             <a class="submit-btn rounded-pill" href="{% url 'blog_details' blogpost.id %}">Read</a>
           </div>
        </div>
        {% endfor %}
     </div>
  </div>
  <!-- Showing links to all toys page and blogs page on x-small and small screens -->
- <div class="d-md-none">
+ <div class="mb-3 d-lg-none">
     <a class="index-link-toys" href="{% url 'toys' %}">See All Toys</a>
     <a class="index-link-blog" href="{% url 'blog' %}">See All Blog Posts
     </a>
  </div>
- <!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on medium screens and up
+ <!-- Container with decorative image, and links to all toys and all blogposts pages, beside the sections's content on large screens and up
     -->
- <div class="container-fluid index-side-container my-5 d-none d-md-block">
+ <div class="container-fluid index-side-container my-5 d-none d-lg-block">
     <a href="{% url 'toys' %}">
        <h4 class="my-3">See All Toys</h4>
     </a>
