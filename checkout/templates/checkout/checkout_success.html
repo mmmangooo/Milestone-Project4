@@ -12,6 +12,7 @@
           <img class="w-50" src="{{ MEDIA_URL }}thanks.png"
              alt="Drawn image of hands hold together in a gesture of 'thank you'. The hands are light brown and the clothes showing on arms are bright green.">
        </div>
+       <!-- Order summary shown -->
        <div class="col-12 col-lg-6 my-5 px-lg-5">
           <h4 class="mb-5">Order summary:</h4>
           <p>Order number: {{ order.order_number }}</p>
@@ -65,6 +66,7 @@
                 <td><strong> € {{ order.grand_total }} </strong> </td>
              </tr>
           </table>
+          <!-- Delivery information shown -->
           <h4 class="mt-5 mb-3">Your order will be sent to:</h4>
           <p>{{ order.full_name }}</p>
           <p>{{ order.street_address1 }}</p>
@@ -80,9 +82,11 @@
           <span class="icon mr-2">
           <i class="fas fa-angle-left"></i>
           </span>
+          <!-- Link back to profile if the user is logged in -->
           <span><strong>Back to Profile</strong></span>
           </a>
           {% else %}
+          <!-- Link to toys page if the user is not logged in -->
           <a href="{% url 'toys' %}" class="my-5">
           <span class="icon mr-2">
           <i class="fas fa-angle-left"></i>

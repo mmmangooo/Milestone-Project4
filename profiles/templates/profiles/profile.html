@@ -8,6 +8,7 @@
     <div class="row mt-5 justify-content-center">
        <div class="col-12 col-lg-5 justify-content-center px-lg-5">
           <h4> <strong>Personal info</strong></h4>
+          <!-- Form showing the user's saved personal info and allowing the user to update it-->
           <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="site-form ">
              {% csrf_token %} 
              {{ form | crispy }}
@@ -16,6 +17,7 @@
        </div>
        <div class="col-12 col-lg-5 justify-content-center pt-3 pt-lg-0 px-lg-5">
           <h4 class="mb-3"><strong>Order history</strong></h4>
+          <!-- Showing the user's order history, if they have any-->
           {% if orders %}
           <table class="table table-sm table-borderless site-form">
              <thead>

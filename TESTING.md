@@ -77,189 +77,189 @@ The site has been manually tested on the functionality of the following:
    
    - The landing page shows a full-height image of a child playing with a wooden toy and a big header saying "Green Toys" and a call to action button saying  "Shop now", which together clearly tells the user what the site offers
 
-   ![Screenshot of landing page](static/assets/readme-assets/user-stories-testing/landing.png)
+   ![Screenshot of landing page](static/readme-assets/readme-images/user-stories-testing/landing.png)
 
 2. As a shopper, I want to be able to view a list of products so that I can select some to purchase
 
    - The toys page by default shows all toys sold on the site
 
-   ![Screenshot of toys page](static/assets/readme-assets/user-stories-testing/all-toys.png)
+   ![Screenshot of toys page](static/readme-assets/readme-images/user-stories-testing/all-toys.png)
 
 3. As a shopper, I want to be able to view details about a specific product so that I can see a detailed description, larger image, price and rating of the product
 
    - By clicking the link on a toy card on the toys page, the user gets to the toy details page where they can see detailed description, larger image, price and rating
 
-   ![Screenshot of toy details page](static/assets/readme-assets/user-stories-testing/toy_details.png)
+   ![Screenshot of toy details page](static/readme-assets/readme-images/user-stories-testing/toy-details.png)
 
 4. As a shopper, I want to be able to easily view deals and special offers on products so that I can take advantage of special prizes on products that I am interested in buying
 
    - The landing page shows the three latest toys with campaign prices
 
-   ![Screenshot of campaign section on landing page](static/assets/readme-assets/user-stories-testing/campaign.png)
+   ![Screenshot of campaign section on landing page](static/readme-assets/readme-images/user-stories-testing/campaign.png)
 
 5. As a shopper, I want to be able to easily see the total of all items in my shopping cart from all parts of the site so that I can avoid spending more money than I was planning to
 
    - A summary of the total sum of items in user's bag and delivery cost is shown beside the bag icon in the navbar, present on all pages on the site
 
-    ![Screenshot of bag total](static/assets/readme-assets/user-stories-testing/bag-total.png)
+    ![Screenshot of bag total](static/readme-assets/readme-images/user-stories-testing/bag-total.png)
 
 6. As as a shopper I want to be able to easily see what rating different products have gotten so that i can see what others think of the product that I am interested in
 
    - Rating of each toy is shown on toy card on toys page and on toy details page
 
-   ![Screenshot of rating](static/assets/readme-assets/user-stories-testing/rating.png)
+   ![Screenshot of rating](static/readme-assets/readme-images/user-stories-testing/rating.png)
 
 7. As a shopper I want to be able to easily see what products have got the highest ratings so that I can find the most popular products
 
    - The landing page shows the three most popular products on the site
 
-   ![Screenshot of popular products section on landing page](static/assets/readme-assets/user-stories-testing/popular.png) 
+   ![Screenshot of popular products section on landing page](static/readme-assets/readme-images/user-stories-testing/popular.png) 
 
 8. As a site user, I want to be able to find information about eco-friendly toys so that I can learn more about different materials and their impact on environment and why eco-friendly toys are important
 
    - The site has a blog page where the user can find blogposts about eco-friendly toys and different materials
 
-    ![Screenshot of blog page](static/assets/readme-assets/user-stories-testing/blog.png) 
+    ![Screenshot of blog page](static/readme-assets/readme-images/user-stories-testing/blog.png) 
 
 9. As a site user I want to be able to comment on blog posts so that I ca ask questions and share my opinions on matters discussed in the blog post
 
    - When clicking a blogpost, the user gets to a blog details page where they can leave comments on the blogpost, if logged in
 
-   ![Screenshot of blog details page with comment form ](static/assets/readme-assets/user-stories-testing/blog_comment.png) 
+   ![Screenshot of blog details page with comment form ](static/readme-assets/readme-images/user-stories-testing/blogcomment.png) 
 
 10. As a site user I want to be able to easily register for an account so that I can have a personal account to come back to and view my profile
 
    - A link to signup form is available from the navbar, where the user easily can sign up for an account
 
-  ![Screenshot of sign up form](static/assets/readme-assets/user-stories-testing/signup.png) 
+  ![Screenshot of sign up form](static/readme-assets/readme-images/user-stories-testing/signup.png) 
 
 11. As a site user I want to be able to easily log in or out so that I can access my personal account information
 
    - A link to login and logout respectively is available in the navbar so that the user easily can login or out
 
-   ![Screenshot of login](static/assets/readme-assets/user-stories-testing/nav-login.png) 
+   ![Screenshot of login](static/readme-assets/readme-images/user-stories-testing/nav-login.png) 
 
-   ![Screenshot of logout](static/assets/readme-assets/user-stories-testing/nav-logout.png) 
+   ![Screenshot of logout](static/readme-assets/readme-images/user-stories-testing/nav-logout.png) 
 
 12. As a site user I want to be able to easily recover my password in case I forget it so that I can regain access to my account
 
   - From the login page, the user can click a link for resetting a forgotten password
 
-   ![Screenshot of password reset](static/assets/readme-assets/user-stories-testing/password-reset.png) 
+   ![Screenshot of password reset](static/readme-assets/readme-images/user-stories-testing/password-reset.png) 
 
 13. As a site user I want to be able to recieve a confirmation email after registering an account so that I can know that my account registration was successful
 
   - The user receives a confirmation email after signing up for an account
 
-    ![Screenshot of email verification](static/assets/readme-assets/user-stories-testing/verify-email.png) 
+    ![Screenshot of email verification](static/readme-assets/readme-images/user-stories-testing/verify-email.png) 
 
 14. As a site user I want to be able to have a personalized user profile so that I can view my order history and see that my orders are confirmed and save my payment information
 
   - From the navigation bar, the user can access the "My Profile" page, which contains personal info that can be updated and order history
 
-  ![Screenshot of profile page](static/assets/readme-assets/user-stories-testing/profile.png)
+  ![Screenshot of profile page](static/readme-assets/readme-images/user-stories-testing/profile.png)
 
 15. As a shopper I want to be able to select which category of products to show so that I can easily find a product within the category that I am interested in
 
   - The toys page contains a selector dropdown where the user can choose a category of which to show toys
 
-  ![Screenshot of categories select dropdown](static/assets/readme-assets/user-stories-testing/categories-select.png)
+  ![Screenshot of categories select dropdown](static/readme-assets/readme-images/user-stories-testing/categories-select.png)
 
 16. As a shopper I want to be able to sort each chosen category of product by different parameters so that I can easily find the products with the best rating or lowest price in that category
 
   - The toys page contains a selector dropdown where the user can choose by which parameter to sort the toys shown
 
-  ![Screenshot of sort select dropdown](static/assets/readme-assets/user-stories-testing/sort-select.png)
+  ![Screenshot of sort select dropdown](static/readme-assets/readme-images/user-stories-testing/sort-select.png)
 
-  ![Screenshot of categories and sort select dropdown](static/assets/readme-assets/user-stories-testing/category_sort.png)
+  ![Screenshot of categories and sort select dropdown](static/readme-assets/readme-images/user-stories-testing/category_sort.png)
 
 17. As a shopper I want to be able to search for a product by name or description so that I can easily find a specific product that I am looking to buy
 
   - A search input field is available in the navigation bar, where the user can search for toys on the site
 
-  ![Screenshot of search toys input](static/assets/readme-assets/user-stories-testing/search-toys.png)
+  ![Screenshot of search toys input](static/readme-assets/readme-images/user-stories-testing/search-toys.png)
 
 18. As a shopper I want to be able to easily see what I have searched for and the number of results so that I can identify miss-spellings in my search string and quickly overview the search result
 
    - The search toys results are shown on the toys page with a header telling the user what they have searched for and how many results where found
 
-  ![Screenshot of search toys results](static/assets/readme-assets/user-stories-testing/search-result.png)
+  ![Screenshot of search toys results](static/readme-assets/readme-images/user-stories-testing/search-result.png)
 
 19. As a shopper I want to be able to easily select a quantity of the product when adding it to my shopping bag, so that I an ensure I don't accidently select the wrong quantity
 
    - The toy details page have a quantity select input just above the add to bag button, to ensure that the add to bag functionality is clear to the user
   
-  ![Screenshot of select quantity of toys input](static/assets/readme-assets/user-stories-testing/select-qty.png)
+  ![Screenshot of select quantity of toys input](static/readme-assets/readme-images/user-stories-testing/select-qty.png)
 
 20. As a shopper I want to be able to easily view all items in my shopping bag so that I can identify the total cost and overview the items to be ordered
 
   - The shopping bage page clearly shows a summary of the order items, quantity and shipping cost
 
-  ![Screenshot of shopping bag page](static/assets/readme-assets/user-stories-testing/shoppingbag.png)
+  ![Screenshot of shopping bag page](static/readme-assets/readme-images/user-stories-testing/shoppingbag.png)
 
 21. As a shopper I want to be able to change the quantity of a product in my shopping bag so that I can correct any mistakes in quantity of products before I order
 
   - The shopping bag page has a quantity select inoput available for each item in the shopping bag, where the user can change quantity or delete a toy in the bag
 
-  ![Screenshot of shopping bag quantity input](static/assets/readme-assets/user-stories-testing/bag-qty-select.png)
+  ![Screenshot of shopping bag quantity input](static/readme-assets/readme-images/user-stories-testing/bag-qty-select.png)
 
 22. As a shopper I want to be able to easily enter my payment information so that I can checkout quickly and easily
 
   - The checkput page contains a user friendly payment form 
 
-  ![Screenshot of payment info form](static/assets/readme-assets/user-stories-testing/payment-info.png)
+  ![Screenshot of payment info form](static/readme-assets/readme-images/user-stories-testing/payment-info.png)
 
 23. As a shopper I want to know that my personal and payment information is secure so that I can feel confident when providing the information needed to make a purchase
 
   - The payment form on checkout page contains info about secure payment
 
-  ![Screenshot of payment form secure checkout info](static/assets/readme-assets/user-stories-testing/secure-checkout.png)
+  ![Screenshot of payment form secure checkout info](static/readme-assets/readme-images/user-stories-testing/secure-checkout.png)
 
 24. As a shopper I want to be able to view an order confirmation after checkout so that I can see that I haven't made any mistakes in my order
 
   - After checkout, the user is sent to a checkput success page which shows order info
 
-  ![Screenshot of checkout success page](static/assets/readme-assets/user-stories-testing/order-confirmation.png) 
+  ![Screenshot of checkout success page](static/readme-assets/readme-images/user-stories-testing/order-confirmation.png) 
 
 25. As a shopper I want to be able to recieve a confirmation email after ordering so that I can keep the information about what I have ordered and when for future needs
 
   - A confirmation email is sent to the user after ordering
 
-  ![Screenshot of checkout success page showing email confirmation sent](static/assets/readme-assets/user-stories-testing/order-confirmation-email.png) 
+  ![Screenshot of checkout success page showing email confirmation sent](static/readme-assets/readme-images/user-stories-testing/order-confirmation-email.png) 
 
 26. As a registered user I want to be able to have my address and billing information prefilled on the checkout page so that I can checkout quicker
 
   - The payment info form has the user's saved information prefilled
 
-  ![Screenshot of prefilled info in payment info form](static/assets/readme-assets/user-stories-testing/prefilled-info.png) 
+  ![Screenshot of prefilled info in payment info form](static/readme-assets/readme-images/user-stories-testing/prefilled-info.png) 
 
 27. As a store owner I want to be able to add a product to the site so that I can add new items to be sold in my store
 
   - The site owner, logged in with superuser credentials, can access a form for adding toys via the navigation bar
 
-  ![Screenshot of add toy form](static/assets/readme-assets/user-stories-testing/add-toy.png) 
+  ![Screenshot of add toy form](static/readme-assets/readme-images/user-stories-testing/add-toy.png) 
 
 28. As a store owner I want to be able to edit/update a product so that I can make changes to the products' images or descriptions when needed
 
   - The site owner, logged in with superuser credentials can access an edit toy form via a link on toy card on toys page 
 
-  ![Screenshot of edit toy form](static/assets/readme-assets/user-stories-testing/edit-toy.png) 
+  ![Screenshot of edit toy form](static/readme-assets/readme-images/user-stories-testing/edit-toy.png) 
 
 29. As a store owner I want to be able to delete a product so that I can remove items that I am no longer selling
 
   - The site owner, logged in with superuser credentials can access delete toy functionality via a link on toy card on toys page 
 
-  ![Screenshot of delete toy functionality](static/assets/readme-assets/user-stories-testing/delete-toy.png) 
+  ![Screenshot of delete toy functionality](static/readme-assets/readme-images/user-stories-testing/delete-toy.png) 
 
 30. As a store owner I want to be able to add, update and delete blog posts so that I can write and maintain a blog about products-related topics
 
   - The site owner, logged in with superuser credentials, can access a form for adding blogposts via the navigation bar, edit blogpost form and delete blogpost functionality via links on blog post card on blog page
 
-  ![Screenshot of add blogpost form](static/assets/readme-assets/user-stories-testing/add-blogpost.png) 
+  ![Screenshot of add blogpost form](static/readme-assets/readme-images/user-stories-testing/add-blogpost.png) 
 
-  ![Screenshot of edit blogpost form](static/assets/readme-assets/user-stories-testing/edit-blogpost.png) 
+  ![Screenshot of edit blogpost form](static/readme-assets/readme-images/user-stories-testing/edit-blogpost.png) 
 
-  ![Screenshot of delete blogpost functionality](static/assets/readme-assets/user-stories-testing/delete-blogpost.png) 
+  ![Screenshot of delete blogpost functionality](static/readme-assets/readme-images/user-stories-testing/delete-blog.png) 
 
 
 
@@ -314,3 +314,4 @@ LINE 1: ...ER COLUMN "campaign" TYPE boolean USING "campaign"::boolean,... "
 * On the 'Toys' page there is a dropdown where the user can choose a category of toys to be shown on the page (Wooden toys or Rubber toys). The dropdown works as far as that  when the user clicks 'Wooden Toys', only wooden toys are shown on the page, and same goes for rubber toys. However, when the user clicks the default value 'All categories' after having chosen either wooden or rubber toys, the page does not go back to showing toys in all categories on the page but remans showing only the latest chosen category. The desired functionality would be to reset the page to showing toys in all categories when 'All Categories' is chosen. Due to lack of time however, I chose not to put additional time into solving this at this point in favor of being able to submit the project on time. This issue therefor remains to be solved. 
 
 
+* Just before submission of this project, during testing, I realized that the styling via bootstrap and custom css does not take effect on the two allauth templates for setting a new password after clicking "forgot password" and getting an email for reset and the template for confirming. I have compared these templates with other allauth templates, where the styling does take effect, but I did not find any difference in template extension or static loading between the templates. Beacuse of lack of time I have not solved this issue, so the styling remains as the allauth default in these templates for now. 

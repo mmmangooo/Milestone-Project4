@@ -8,6 +8,7 @@
     <h3 class="my-3 my-lg-5">Checkout</h3>
     <div class="row justify-content-center">
        <div class="col-12 col-lg-6 my-5">
+          <!-- Order summary shown -->
           <h4 class="mb-5">Order summary:</h4>
           <table class="table">
              <thead>
@@ -47,11 +48,13 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <!-- Show delivery cost if the order total is under free delivery threshold-->
                 {% if order_total < free_delivery_threshold %} 
                 <td> € {{ delivery}}</td>
                 {% else %}
                 <td>
                    € {{ delivery}} 
+                   <!-- Inform the user of how much more the user needs to shop for to get free delivery-->
                    <p class="mt-3">Get free delivery by spending € {{ free_delivery_delta }}
                       more!
                    </p>
@@ -63,6 +66,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <!-- Total order cost including delivery cost-->
                 <td><strong> €{{ grand_total }} </strong> </td>
              </tr>
           </table>
@@ -71,6 +75,7 @@
        </div>
        <div class="col-12 col-lg-6 my-5 px-lg-5">
           <h4 class="mb-5">Fill out your info here to complete the order:</h4>
+          <!-- Form for the user to fill in their payment and shipping info -->
           <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="site-form">
              {% csrf_token %}
              <fieldset>
@@ -85,6 +90,7 @@
                 {{ order_form.county | as_crispy_field }}
              </fieldset>
              <div class="form-check">
+                <!-- Allow the user to save the filled in info to their user profile, if they are logged in-->
                 {% if user.is_authenticated %}
                 <label for="save-user-info" class="form-check-label">Save this info to my user profile</label>
                 <input type="checkbox" class="form-check-input ml-3 mt-2" id="save-user-info" name="save-info"
@@ -93,6 +99,7 @@
                 <label for="save-user-info" class="form-check-label">
                    <p>To save info to user profile:</p>
                 </label>
+                <!-- Links to sign up and login if the user wants to login to save their info -->
                 <p><a href="{% url 'account_signup' %}">Sign up here</a></p>    
                 <p><a href="{% url 'account_login' %}">Login here</a></p>
                 {% endif %}
@@ -118,6 +125,7 @@
        </div>
     </div>
  </div>
+ <!-- Link back to shopping bag -->
  <h4 class="mt-5"><a class="mx3" href="{% url 'view_bag'  %}"><span class="icon"><i
     class="fas fa-arrow-left"></i></span> Back to shopping bag</a></h4>
  <div id="loading-overlay">

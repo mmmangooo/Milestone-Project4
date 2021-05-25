@@ -132,6 +132,7 @@ hr {
 
 .message-container {
 	position: relative;
+	z-index: 1040;
 }
 
 .toast {
