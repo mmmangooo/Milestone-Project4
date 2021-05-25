@@ -18,6 +18,6 @@
 {{ widget.input_text }}
 {% endif %} 
 <span>
-Upload Image <input class="btn mw-100" type="{{widget.type}}" id="new-image" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
+Upload Image <input class="btn mw-100" type="{{widget.type}}" id="new-image" aria-label="Image file input" name ="{{ widget.name }}" {% include 'django/forms/widgets/attrs.html' %}>
 </span>
 <p id="filename"></p>

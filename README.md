@@ -218,7 +218,7 @@ An env.py file is used for storing details about database and Stripe connections
 
 * Imagery:
   The hero image - a closeup of a child's hand playing with a wooden toy, is chosen to create associations to robust and environmentally friendly toys that catches a child's interest (by showing a child engaged in play with this type of toy). The brown colors in the image also aid in creating associations with nature and naturalness that goes well with the site's 
-  purpose. The drawn image of a green leaf appering on different pages on the site is chosen to represent an association to nature and environmental friendliness. The drawn images of toys and animals are chosen to create a feeling of playfulness and associate with kids and playing.
+  purpose. The drawn image of a green leaf appering on different pages on the site is chosen to represent an association to nature and environmental friendliness. The drawn images of toys and animals are chosen to create a feeling of playfulness and associate with kids and playing. The background pattern with light green leaves apperaring on some pages is chosen for the same purpose as the drawn image of leaf.
 
 * Typography:
   The main header on the hero section on landing page, p elements and all headers on the site except for the subheader on the hero section has the font Quicksand. This font is chosen for its
